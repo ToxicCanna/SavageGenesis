@@ -17,9 +17,7 @@ public class BattleSystem : MonoBehaviour
     [SerializeField] BattleDialogBox dialogBox;
 
     //Serialize the player unit
-    [SerializeField]
-    [CustomLabel("Player")]
-    Enemy player;
+    [SerializeField] Enemy player;
 
 
     public event Action<bool> OnBattleOver;
