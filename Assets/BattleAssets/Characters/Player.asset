@@ -1,0 +1,63 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 077eb09a12770504cad8d16a9f9c749a, type: 3}
+  m_Name: Player
+  m_EditorClassIdentifier: 
+  enemyName: Player
+  description: 
+  playerSprite: {fileID: 21300000, guid: 74e950d5627c3d44599a4f3364d73f9b, type: 2}
+  enemySprite: {fileID: 21300000, guid: 74e950d5627c3d44599a4f3364d73f9b, type: 2}
+  type1: 1
+  type2: 0
+  maxHp: 150
+  attack: 20
+  defense: 25
+  focus: 20
+  resist: 25
+  dexterity: 25
+  expYield: 500
+  growthRate: 1
+  learnableSkills:
+  - skillBase: {fileID: 11400000, guid: 5ca8f5daf48998745949fefcfd22a2d4, type: 2}
+    level: 1
+  - skillBase: {fileID: 11400000, guid: 475bbf5c393d66e4ca219234e82b2e90, type: 2}
+    level: 1
+  - skillBase: {fileID: 11400000, guid: 10cc6e3ef9950e04baa34631a55ca411, type: 2}
+    level: 5
+  - skillBase: {fileID: 11400000, guid: 1ec6ad38290471b438284882e36d9f36, type: 2}
+    level: 5
+  - skillBase: {fileID: 11400000, guid: f4d0e0f5d56e25241bfb8a99aad1b836, type: 2}
+    level: 5
+  - skillBase: {fileID: 11400000, guid: db7dbcf9b847acd4aa77e22663c8cfdb, type: 2}
+    level: 5
+  - skillBase: {fileID: 11400000, guid: 9ffd48c937e562544868e96486cdaf67, type: 2}
+    level: 5
+  - skillBase: {fileID: 11400000, guid: 090d8b61c2e8fc449b944b2a9bed25c8, type: 2}
+    level: 5
+  - skillBase: {fileID: 11400000, guid: c5d9edbd10c06594baa2c7cfaf2cb6e6, type: 2}
+    level: 5
+  - skillBase: {fileID: 11400000, guid: 5882abf6781058743a31b3b4b3a1354e, type: 2}
+    level: 10
+  - skillBase: {fileID: 11400000, guid: 4b5ef9b325937cd44a25a3075ce54be6, type: 2}
+    level: 10
+  - skillBase: {fileID: 11400000, guid: 3bae76742fea32648a4ef936f68ce133, type: 2}
+    level: 10
+  - skillBase: {fileID: 11400000, guid: c32083b3f1188b9479fc94298f0c4bb2, type: 2}
+    level: 20
+  - skillBase: {fileID: 11400000, guid: 9bd40827eae9620489c8ebe915b9af20, type: 2}
+    level: 20
+  - skillBase: {fileID: 11400000, guid: 7403d19702c60644e959f67576e8bb73, type: 2}
+    level: 20
+  - skillBase: {fileID: 11400000, guid: 390452fb7b8995a44a9c205f9e8096e0, type: 2}
+    level: 35
+  - skillBase: {fileID: 11400000, guid: d43505caad8d2654ea6c312638117576, type: 2}
+    level: 50

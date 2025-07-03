@@ -1,0 +1,37 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 077eb09a12770504cad8d16a9f9c749a, type: 3}
+  m_Name: Human
+  m_EditorClassIdentifier: 
+  enemyName: Human
+  description: Regular Joe
+  playerSprite: {fileID: 21300000, guid: 0ba79c14b144f0d4a8dda8c4331d3995, type: 2}
+  enemySprite: {fileID: 21300000, guid: 0ba79c14b144f0d4a8dda8c4331d3995, type: 2}
+  type1: 1
+  type2: 0
+  maxHp: 100
+  attack: 20
+  defense: 20
+  focus: 20
+  resist: 20
+  dexterity: 20
+  expYield: 100
+  growthRate: 1
+  learnableSkills:
+  - skillBase: {fileID: 11400000, guid: 5ca8f5daf48998745949fefcfd22a2d4, type: 2}
+    level: 1
+  - skillBase: {fileID: 11400000, guid: 475bbf5c393d66e4ca219234e82b2e90, type: 2}
+    level: 1
+  - skillBase: {fileID: 11400000, guid: 5882abf6781058743a31b3b4b3a1354e, type: 2}
+    level: 5
+  - skillBase: {fileID: 11400000, guid: 10cc6e3ef9950e04baa34631a55ca411, type: 2}
+    level: 5
