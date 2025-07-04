@@ -54,11 +54,33 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7499021030629214179, guid: e35aaec4840426547affeb380e4d742c, type: 3}
       propertyPath: m_Name
-      value: Player(Robin) Variant
+      value: Player_RobinVariant
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 7976473296633152528, guid: e35aaec4840426547affeb380e4d742c, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 7499021030629214179, guid: e35aaec4840426547affeb380e4d742c, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: -7833500384592297083}
   m_SourcePrefab: {fileID: 100100000, guid: e35aaec4840426547affeb380e4d742c, type: 3}
+--- !u!1 &866667415551328894 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7499021030629214179, guid: e35aaec4840426547affeb380e4d742c, type: 3}
+  m_PrefabInstance: {fileID: 7212192136962327965}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &-7833500384592297083
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 866667415551328894}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8bda75753d75b5c4d93883fef5d8b113, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  diggingArea: {fileID: 0}
+  currentDiggingTool: 0
