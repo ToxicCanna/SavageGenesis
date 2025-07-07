@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class BaseItem : MonoBehaviour, IShopping
+public abstract class BaseItem : MonoBehaviour, IShopping
 {
     //Put your correct stat object here, do not get messed up like a healing item with fossil stat
     [SerializeField] protected BaseItemStat statObject;
