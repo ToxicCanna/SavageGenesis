@@ -4,12 +4,11 @@ public enum DiggingToolType
     Pickaxe
 }
 
-public enum Rarity
+public enum RarityLevel
 {
     Common,
     Uncommon,
     Rare,
     Epic,
     Legendary
-    //Note: will be added to loot table
 }

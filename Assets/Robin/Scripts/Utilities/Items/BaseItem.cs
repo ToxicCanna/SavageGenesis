@@ -1,9 +1,9 @@
 using UnityEngine;
 
-public abstract class BaseItem : MonoBehaviour, IShopping
+public abstract class BaseItem : MonoBehaviour, IShop
 {
     //Put your correct stat object here, do not get messed up like a healing item with fossil stat
-    [SerializeField] protected BaseItemStat statObject;
+    public BaseItemStat statObject;
 
     public void OnBuying()
     {

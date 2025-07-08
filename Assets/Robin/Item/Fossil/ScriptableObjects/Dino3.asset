@@ -13,5 +13,6 @@ MonoBehaviour:
   m_Name: Dino3
   m_EditorClassIdentifier: 
   itemName: TestAerial
-  price: 50
+  price: 150
+  rarity: 2
   fossilType: 2

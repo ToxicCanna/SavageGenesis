@@ -4,24 +4,27 @@ using UnityEngine;
 public class Digging : MonoBehaviour
 {
     [SerializeField] private DiggingToolType currentDiggingTool;
-    private IDigging _iDigging;
+    private IDiggingArea iDiggingArea;
 
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.J))
         {
-            if (_iDigging != null)
-                _iDigging.OnDigging(currentDiggingTool);
+            if (iDiggingArea != null)
+            {
+                iDiggingArea.OnDigging(currentDiggingTool);
+                iDiggingArea.FinishDigging();
+            } 
         }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        _iDigging = collision.GetComponent<IDigging>();
+        iDiggingArea = collision.GetComponent<IDiggingArea>();
     }
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        _iDigging = null;
+        iDiggingArea = null;
     }
 }

@@ -4,5 +4,4 @@ using UnityEngine;
 public class FossilStat : BaseItemStat
 {
     public DinosaurType fossilType;
-    public Rarity rarity;
 }

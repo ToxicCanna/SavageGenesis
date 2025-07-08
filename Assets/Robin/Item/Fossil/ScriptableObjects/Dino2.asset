@@ -13,5 +13,6 @@ MonoBehaviour:
   m_Name: Dino2
   m_EditorClassIdentifier: 
   itemName: TestCarnivore
-  price: 50
+  price: 100
+  rarity: 1
   fossilType: 0
