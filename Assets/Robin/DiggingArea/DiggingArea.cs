@@ -1,7 +1,8 @@
 using System.Collections.Generic;
+using DG.Tweening.Core.Easing;
 using UnityEngine;
 
-public class DiggingArea : MonoBehaviour
+public class DiggingArea : MonoBehaviour, IDigging
 {
     [SerializeField] private Fossil[] fossilList;
 
