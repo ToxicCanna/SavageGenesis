@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class Fossil : BaseItem
+public class Fossil : BaseItem<FossilStat>
 {
     public void GetFossil()
     {

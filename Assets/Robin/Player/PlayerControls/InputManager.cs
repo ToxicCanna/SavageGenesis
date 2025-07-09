@@ -1,25 +1,14 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class InputManager : MonoBehaviour
+public class InputManager : Singleton<InputManager>
 {
     public SavageGenesis_PlayerInput playerInputs;
 
-    private static InputManager _instance;
-
     #region Instance Setup
-    public static InputManager Instance { get { return _instance; } }
-
-    private void Awake()
+    protected override void Awake()
     {
-        if (_instance != null && _instance != this)
-        {
-            Destroy(gameObject);
-        }
-        else
-        {
-            _instance = this;
-        }
+        base.Awake();
         playerInputs = new SavageGenesis_PlayerInput();
     }
 

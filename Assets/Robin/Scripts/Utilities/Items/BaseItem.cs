@@ -1,9 +1,8 @@
 using UnityEngine;
 
-public abstract class BaseItem : MonoBehaviour, IShop
+public abstract class BaseItem<TBaseItemStat> : MonoBehaviour, IShop where TBaseItemStat : BaseItemStat
 {
-    //Put your correct stat object here, do not get messed up like a healing item with fossil stat
-    public BaseItemStat statObject;
+    public TBaseItemStat statObject;
 
     public void OnBuying()
     {
