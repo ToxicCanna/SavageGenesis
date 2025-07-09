@@ -20,7 +20,7 @@ public class FossilLand : MonoBehaviour, IDiggingArea
 
         if (fossilGet != null)
         {
-            Debug.Log($"Hey, I found a {fossilGet}!");
+            fossilGet.GetFossil();
         }
         else
             Debug.Log("Nothing there...");
