@@ -1,14 +1,14 @@
 using UnityEngine;
 
 //For now just testing how digging function work
-public class Digging : MonoBehaviour
+public class PlayerDigging : BasePlayerController
 {
     [SerializeField] private DiggingToolType currentDiggingTool;
     private IDiggingArea iDiggingArea;
 
-    private void Update()
+    public override void Update()
     {
-        if (Input.GetKeyDown(KeyCode.J))
+        if (inputManager.GetInteraction())
         {
             if (iDiggingArea != null)
             {

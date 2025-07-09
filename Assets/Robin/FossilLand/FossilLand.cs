@@ -4,9 +4,10 @@ using UnityEngine;
 public class FossilLand : MonoBehaviour, IDiggingArea
 {
     [SerializeField] private Fossil[] lootTable;
+    [SerializeField] private float chanceForNothing = 75f;  //chance to fail on getting a loot
 
     private List<Fossil> possibleLootList = new List<Fossil>();   //Keep track of fossils that can be possibly dug out
-    private float diggingChance;
+    private float lootChance;   //chance to get a specific loot
 
     public void OnDigging(DiggingToolType tool)
     {
@@ -36,18 +37,19 @@ public class FossilLand : MonoBehaviour, IDiggingArea
 
     private void HandleDigging()
     {
-        diggingChance = Random.Range(0, GetMaxChance());
-
-        foreach (Fossil fossil in lootTable)
+        if (chanceForNothing < Random.Range(0, 100f))
         {
-            if (diggingChance < RarityValue.GetRarityValue(fossil.statObject.rarity))
-                possibleLootList.Add(fossil);
-        }
+            lootChance = Random.Range(0, GetMaxChanceForFossils());
 
-        possibleLootList.Add(null);
+            foreach (Fossil fossil in lootTable)
+            {
+                if (lootChance < RarityValue.GetRarityValue(fossil.statObject.rarity))
+                    possibleLootList.Add(fossil);
+            }
+        }
     }
 
-    private float GetMaxChance()
+    private float GetMaxChanceForFossils()
     {
         var currentMaxChance = 0f;
         
