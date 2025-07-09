@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class Singleton<T> : MonoBehaviour where T : MonoBehaviour
+public abstract class Singleton<T> : MonoBehaviour where T : MonoBehaviour
 {
     private static T _instance;
 
@@ -10,12 +10,12 @@ public class Singleton<T> : MonoBehaviour where T : MonoBehaviour
         {
             if (_instance == null)
             {
-                _instance = FindFirstObjectByType<T>();
+                _instance = FindFirstObjectByType<T>(); //Find first object in the scene that has the specific script type
 
-                if (_instance == null)
+                if (_instance == null)  //if cannot find it
                 {
-                    GameObject singletonObject = new GameObject(typeof(T).Name);
-                    _instance = singletonObject.AddComponent<T>();
+                    GameObject singletonObject = new GameObject(typeof(T).Name);    //create a new game object
+                    _instance = singletonObject.AddComponent<T>();  //add the specific script component to this new game object
                 }
             }
             return _instance;
