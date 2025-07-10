@@ -1,13 +1,21 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class FossilLand : MonoBehaviour, IDiggingArea
 {
-    [SerializeField] private Fossil[] lootTable;
-    [SerializeField] private float chanceForNothing = 75f;  //chance to fail on getting a loot
+    [SerializeField] private FossilLoot[] lootTable;
+    //[SerializeField] private float chanceForNothing = 75f;  //chance to fail on getting a loot
+    [SerializeField] private int minFossils = 1;
+    [SerializeField] private int maxFossils = 5;
 
     private List<Fossil> possibleLootList = new List<Fossil>();   //Keep track of fossils that can be possibly dug out
-    private float lootChance;   //chance to get a specific loot
+    private float _lootChance;   //chance to get a specific loot
+
+    private void Start()
+    {
+        RandomSpawnFossilFromList();
+    }
 
     public void OnDigging(DiggingToolType tool)
     {
@@ -16,33 +24,53 @@ public class FossilLand : MonoBehaviour, IDiggingArea
 
     public void FinishDigging()
     {
-        var fossilGet = GetDigOutFossil();
+        /*var fossilGet = GetDigOutFossil();
 
         if (fossilGet != null)
         {
             fossilGet.GetFossil();
         }
         else
-            Debug.Log("Nothing there...");
-
-        possibleLootList.Clear();
+            Debug.Log("Nothing there...");*/
     }
 
     private Fossil GetDigOutFossil()
     {
         if (possibleLootList.Count > 0)
-            return possibleLootList[Random.Range(0, possibleLootList.Count)];
+            return possibleLootList[UnityEngine.Random.Range(0, possibleLootList.Count)];
         else return null;
     }
 
-    private void GetFossilSpawnList()
+    private void RandomSpawnFossilFromList()
     {
-        lootChance = Random.Range(0, GetMaxChanceForFossils());
+        SetFossilList();
 
-        foreach (Fossil fossil in lootTable)
+        //Spawn fossils for initialization
+        for (int i = 0; i < UnityEngine.Random.Range(minFossils, maxFossils); i++)
         {
-            if (lootChance < RarityValue.GetRarityValue(fossil.statObject.rarity))
-                possibleLootList.Add(fossil);
+            var spawnedFossil = GetDigOutFossil();
+            if (spawnedFossil != null)
+            {
+                Debug.Log($"Spawn {spawnedFossil}");    //spawn logic will be applied there
+                possibleLootList.Remove(spawnedFossil);
+            }
+            else break;
+        }
+        possibleLootList.Clear();
+    }
+
+    private void SetFossilList()
+    {
+        _lootChance = UnityEngine.Random.Range(0, GetMaxChanceForFossils());
+
+        foreach (FossilLoot fossilLoot in lootTable)
+        {
+            if (_lootChance < RarityValue.GetRarityValue(fossilLoot.fossil.statObject.rarity))
+            {
+                for (int i = 0; i < fossilLoot.maxFossilNumber; i++)
+                    possibleLootList.Add(fossilLoot.fossil);
+            }
+                
         }
     }
 
@@ -50,10 +78,10 @@ public class FossilLand : MonoBehaviour, IDiggingArea
     {
         var currentMaxChance = 0f;
         
-        foreach (Fossil fossil in lootTable)
+        foreach (FossilLoot fossilLoot in lootTable)
         {
-            if (currentMaxChance < RarityValue.GetRarityValue(fossil.statObject.rarity))
-                currentMaxChance = RarityValue.GetRarityValue(fossil.statObject.rarity);
+            if (currentMaxChance < RarityValue.GetRarityValue(fossilLoot.fossil.statObject.rarity))
+                currentMaxChance = RarityValue.GetRarityValue(fossilLoot.fossil.statObject.rarity);
         }
 
         return currentMaxChance;
