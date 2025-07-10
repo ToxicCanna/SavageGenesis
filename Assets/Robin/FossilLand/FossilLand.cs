@@ -11,7 +11,7 @@ public class FossilLand : MonoBehaviour, IDiggingArea
 
     public void OnDigging(DiggingToolType tool)
     {
-        HandleDigging();
+        
     }
 
     public void FinishDigging()
@@ -35,17 +35,14 @@ public class FossilLand : MonoBehaviour, IDiggingArea
         else return null;
     }
 
-    private void HandleDigging()
+    private void GetFossilSpawnList()
     {
-        if (chanceForNothing < Random.Range(0, 100f))
-        {
-            lootChance = Random.Range(0, GetMaxChanceForFossils());
+        lootChance = Random.Range(0, GetMaxChanceForFossils());
 
-            foreach (Fossil fossil in lootTable)
-            {
-                if (lootChance < RarityValue.GetRarityValue(fossil.statObject.rarity))
-                    possibleLootList.Add(fossil);
-            }
+        foreach (Fossil fossil in lootTable)
+        {
+            if (lootChance < RarityValue.GetRarityValue(fossil.statObject.rarity))
+                possibleLootList.Add(fossil);
         }
     }
 
