@@ -1,4 +1,4 @@
-using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -15,19 +15,19 @@ public class FossilLand : MonoBehaviour, IDiggingArea
 
     private void Start()
     {
-        RandomSpawnFossilFromList();
+        InvokeRepeating("RandomSpawnFossilFromList", 0, 0.1f);
     }
 
     private void RandomSpawnFossilFromList()
     {
-        for (int i = 0; i < UnityEngine.Random.Range(minFossils, maxFossils + 1); i++)
+        for (int i = 0; i < Random.Range(minFossils, maxFossils + 1); i++)
         {
             SetPossibleFossilList();
 
             if (_possibleLootList.Count > 0)
             {
                 //Spawn fossils for initialization
-                var spawnObject = _possibleLootList[UnityEngine.Random.Range(0, _possibleLootList.Count)];
+                var spawnObject = _possibleLootList[Random.Range(0, _possibleLootList.Count)];
                 if (spawnObject != null) 
                 {
                     Debug.Log($"{spawnObject} is spawned!");
@@ -37,6 +37,38 @@ public class FossilLand : MonoBehaviour, IDiggingArea
             _possibleLootList.Clear();
         }
     }
+
+    #region Setup Possible Loot List
+    private void SetPossibleFossilList()
+    {
+        foreach (var loot in lootTable)
+        {
+            if (loot.fossil.statObject.rarity == GetSpawnableRarityLevel())
+            {
+                for (int i = 0; i < loot.maxFossilNumber; i++)
+                    _possibleLootList.Add(loot.fossil);
+            }
+        }
+    }
+
+    private RarityLevel GetSpawnableRarityLevel()
+    {
+        _lootChance = Random.Range(0, RarityValue.rarityValues.Sum());
+
+        float cumulative = 0f;
+
+        for (int i = 0; i < RarityValue.rarityValues.Length; i++)
+        {
+            cumulative += RarityValue.rarityValues[i];
+            if (_lootChance < cumulative)
+            {
+                return RarityValue.GetRarityLevelFromValue(i);
+            }
+        }
+
+        return 0;
+    }
+    #endregion
 
     #region Digging
     public void OnDigging(DiggingToolType tool)
@@ -62,37 +94,5 @@ public class FossilLand : MonoBehaviour, IDiggingArea
             return _possibleLootList[UnityEngine.Random.Range(0, _possibleLootList.Count)];
         else return null;
     }*/
-    #endregion
-
-    #region Setup Possible Loot List
-    private void SetPossibleFossilList()
-    {
-        foreach (var loot in lootTable)
-        {
-            if (loot.fossil.statObject.rarity == GetRarityLevelRandomly())
-            {
-                for (int i = 0; i < loot.maxFossilNumber; i++)
-                    _possibleLootList.Add(loot.fossil);
-            } 
-        }
-    }
-
-    private RarityLevel GetRarityLevelRandomly()
-    {
-        _lootChance = UnityEngine.Random.Range(0, RarityValue.rarityValues.Sum());
-
-        float cumulative = 0f;
-
-        for (int i = 0; i < RarityValue.rarityValues.Length; i++)
-        {
-            cumulative += RarityValue.rarityValues[i];
-            if (_lootChance < cumulative)
-            {
-                return RarityValue.GetRarityLevelFromValue(i);
-            }
-        }
-
-        return 0;
-    }
     #endregion
 }
