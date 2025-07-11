@@ -20,18 +20,22 @@ public class FossilLand : MonoBehaviour, IDiggingArea
 
     private void RandomSpawnFossilFromList()
     {
-        SetPossibleFossilList();
-
-        if (_possibleLootList.Count > 0 && _possibleLootList[0] != null)
+        for (int i = 0; i < UnityEngine.Random.Range(minFossils, maxFossils + 1); i++)
         {
-            //Spawn fossils for initialization
-            for (int i = 0; i < UnityEngine.Random.Range(minFossils, maxFossils + 1); i++)
+            SetPossibleFossilList();
+
+            if (_possibleLootList.Count > 0)
             {
+                //Spawn fossils for initialization
                 var spawnObject = _possibleLootList[UnityEngine.Random.Range(0, _possibleLootList.Count)];
-                Debug.Log($"{spawnObject} is spawned!");
+                if (spawnObject != null) 
+                {
+                    Debug.Log($"{spawnObject} is spawned!");
+                }
             }
+
+            _possibleLootList.Clear();
         }
-        _possibleLootList.Clear();
     }
 
     #region Digging
@@ -65,17 +69,17 @@ public class FossilLand : MonoBehaviour, IDiggingArea
     {
         foreach (var loot in lootTable)
         {
-            for(int i = 0; i < loot.maxFossilNumber; i++)
+            if (loot.fossil.statObject.rarity == GetRarityLevelRandomly())
             {
-                if (loot.fossil.statObject.rarity == GetRarityLevelRandomly())
+                for (int i = 0; i < loot.maxFossilNumber; i++)
                     _possibleLootList.Add(loot.fossil);
-            }
+            } 
         }
     }
 
     private RarityLevel GetRarityLevelRandomly()
     {
-        _lootChance = UnityEngine.Random.Range(0, 100);
+        _lootChance = UnityEngine.Random.Range(0, RarityValue.rarityValues.Sum());
 
         float cumulative = 0f;
 
@@ -84,9 +88,8 @@ public class FossilLand : MonoBehaviour, IDiggingArea
             cumulative += RarityValue.rarityValues[i];
             if (_lootChance < cumulative)
             {
-                return (RarityLevel)i;
+                return RarityValue.GetRarityLevelFromValue(i);
             }
-
         }
 
         return 0;

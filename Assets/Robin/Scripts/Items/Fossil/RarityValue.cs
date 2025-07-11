@@ -2,7 +2,7 @@ public class RarityValue
 {
     public static float[] rarityValues = { 50f, 30f, 15f, 4f, 1f};
 
-    public RarityLevel GetRarityLevelFromValue(int index)
+    public static RarityLevel GetRarityLevelFromValue(int index)
     {
         switch (index)
         {
