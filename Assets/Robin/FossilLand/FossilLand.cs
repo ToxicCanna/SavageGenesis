@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class FossilLand : MonoBehaviour, IDiggingArea
@@ -9,7 +10,7 @@ public class FossilLand : MonoBehaviour, IDiggingArea
     [SerializeField] private int minFossils = 1;
     [SerializeField] private int maxFossils = 5;
 
-    private List<Fossil> possibleLootList = new List<Fossil>();   //Keep track of fossils that can be possibly dug out
+    private List<Fossil> _possibleLootList = new List<Fossil>();   //Keep track of fossils that can be possibly dug out
     private float _lootChance;   //chance to get a specific loot
 
     private void Start()
@@ -17,6 +18,23 @@ public class FossilLand : MonoBehaviour, IDiggingArea
         RandomSpawnFossilFromList();
     }
 
+    private void RandomSpawnFossilFromList()
+    {
+        SetPossibleFossilList();
+
+        if (_possibleLootList.Count > 0 && _possibleLootList[0] != null)
+        {
+            //Spawn fossils for initialization
+            for (int i = 0; i < UnityEngine.Random.Range(minFossils, maxFossils + 1); i++)
+            {
+                var spawnObject = _possibleLootList[UnityEngine.Random.Range(0, _possibleLootList.Count)];
+                Debug.Log($"{spawnObject} is spawned!");
+            }
+        }
+        _possibleLootList.Clear();
+    }
+
+    #region Digging
     public void OnDigging(DiggingToolType tool)
     {
         
@@ -34,56 +52,44 @@ public class FossilLand : MonoBehaviour, IDiggingArea
             Debug.Log("Nothing there...");*/
     }
 
-    private Fossil GetDigOutFossil()
+    /*private Fossil GetDigOutFossil()
     {
-        if (possibleLootList.Count > 0)
-            return possibleLootList[UnityEngine.Random.Range(0, possibleLootList.Count)];
+        if (_possibleLootList.Count > 0)
+            return _possibleLootList[UnityEngine.Random.Range(0, _possibleLootList.Count)];
         else return null;
-    }
+    }*/
+    #endregion
 
-    private void RandomSpawnFossilFromList()
+    #region Setup Possible Loot List
+    private void SetPossibleFossilList()
     {
-        SetFossilList();
-
-        //Spawn fossils for initialization
-        for (int i = 0; i < UnityEngine.Random.Range(minFossils, maxFossils); i++)
+        foreach (var loot in lootTable)
         {
-            var spawnedFossil = GetDigOutFossil();
-            if (spawnedFossil != null)
+            for(int i = 0; i < loot.maxFossilNumber; i++)
             {
-                Debug.Log($"Spawn {spawnedFossil}");    //spawn logic will be applied there
-                possibleLootList.Remove(spawnedFossil);
+                if (loot.fossil.statObject.rarity == GetRarityLevelRandomly())
+                    _possibleLootList.Add(loot.fossil);
             }
-            else break;
         }
-        possibleLootList.Clear();
     }
 
-    private void SetFossilList()
+    private RarityLevel GetRarityLevelRandomly()
     {
-        _lootChance = UnityEngine.Random.Range(0, GetMaxChanceForFossils());
+        _lootChance = UnityEngine.Random.Range(0, 100);
 
-        foreach (FossilLoot fossilLoot in lootTable)
+        float cumulative = 0f;
+
+        for (int i = 0; i < RarityValue.rarityValues.Length; i++)
         {
-            if (_lootChance < RarityValue.GetRarityValue(fossilLoot.fossil.statObject.rarity))
+            cumulative += RarityValue.rarityValues[i];
+            if (_lootChance < cumulative)
             {
-                for (int i = 0; i < fossilLoot.maxFossilNumber; i++)
-                    possibleLootList.Add(fossilLoot.fossil);
+                return (RarityLevel)i;
             }
-                
-        }
-    }
 
-    private float GetMaxChanceForFossils()
-    {
-        var currentMaxChance = 0f;
-        
-        foreach (FossilLoot fossilLoot in lootTable)
-        {
-            if (currentMaxChance < RarityValue.GetRarityValue(fossilLoot.fossil.statObject.rarity))
-                currentMaxChance = RarityValue.GetRarityValue(fossilLoot.fossil.statObject.rarity);
         }
 
-        return currentMaxChance;
+        return 0;
     }
+    #endregion
 }
