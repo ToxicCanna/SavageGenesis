@@ -2,37 +2,29 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
-public class FossilLand : MonoBehaviour, IDiggingArea
+[RequireComponent(typeof(FossilSpawner))]
+public class MiningArea : MonoBehaviour, IDiggingArea
 {
     [SerializeField] private FossilLoot[] lootTable;
-    //[SerializeField] private float chanceForNothing = 75f;  //chance to fail on getting a loot
-    [SerializeField] private int minFossils = 1;
     [SerializeField] private int maxFossils = 5;
 
+    private FossilSpawner _fossilSpawner;
     private List<Fossil> _possibleLootList = new List<Fossil>();   //Keep track of fossils that can be possibly dug out
     private float _lootChance;   //chance to get a specific loot
 
     private void Start()
     {
-        InvokeRepeating("RandomSpawnFossilFromList", 0, 0.1f);
+        Initialization();
     }
 
-    private void RandomSpawnFossilFromList()
+    private void Initialization()
     {
-        for (int i = 0; i < Random.Range(minFossils, maxFossils + 1); i++)
+        _fossilSpawner = GetComponent<FossilSpawner>();
+
+        for (int i = 0; i < maxFossils; i++)
         {
             SetPossibleFossilList();
-
-            if (_possibleLootList.Count > 0)
-            {
-                //Spawn fossils for initialization
-                var spawnObject = _possibleLootList[Random.Range(0, _possibleLootList.Count)];
-                if (spawnObject != null) 
-                {
-                    Debug.Log($"{spawnObject} is spawned!");
-                }
-            }
-
+            _fossilSpawner.SpawnFossilFromList(_possibleLootList);
             _possibleLootList.Clear();
         }
     }
@@ -77,14 +69,7 @@ public class FossilLand : MonoBehaviour, IDiggingArea
 
     public void FinishDigging()
     {
-        /*var fossilGet = GetDigOutFossil();
-
-        if (fossilGet != null)
-        {
-            fossilGet.GetFossil();
-        }
-        else
-            Debug.Log("Nothing there...");*/
+        
     }
 
     /*private Fossil GetDigOutFossil()

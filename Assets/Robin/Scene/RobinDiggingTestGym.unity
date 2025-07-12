@@ -197,7 +197,7 @@ Transform:
   m_GameObject: {fileID: 662163605}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.27827662, y: -0.15338121, z: -10}
+  m_LocalPosition: {x: 0, y: 0, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children:
@@ -379,7 +379,7 @@ Transform:
   m_GameObject: {fileID: 1989817602}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.27827662, y: -0.15338121, z: -10}
+  m_LocalPosition: {x: 0, y: 0, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -431,9 +431,17 @@ PrefabInstance:
       propertyPath: m_Name
       value: TestDiggingArea
       objectReference: {fileID: 0}
+    - target: {fileID: 1571422637026795781, guid: 3f9edd1994c84904391545e016a177ea, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2963477672948463881, guid: 3f9edd1994c84904391545e016a177ea, type: 3}
+      propertyPath: maxFossils
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 2963477672948463881, guid: 3f9edd1994c84904391545e016a177ea, type: 3}
       propertyPath: minFossils
-      value: 3
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 2963477672948463881, guid: 3f9edd1994c84904391545e016a177ea, type: 3}
       propertyPath: lootTable.Array.size
@@ -478,6 +486,14 @@ PrefabInstance:
     - target: {fileID: 2963477672948463881, guid: 3f9edd1994c84904391545e016a177ea, type: 3}
       propertyPath: lootTable.Array.data[4].maxFossilNumber
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6278684292468919896, guid: 3f9edd1994c84904391545e016a177ea, type: 3}
+      propertyPath: spawnAttempts
+      value: 9999
+      objectReference: {fileID: 0}
+    - target: {fileID: 6476076162258174850, guid: 3f9edd1994c84904391545e016a177ea, type: 3}
+      propertyPath: m_SortingOrder
+      value: -1
       objectReference: {fileID: 0}
     - target: {fileID: 7679128399237082975, guid: 3f9edd1994c84904391545e016a177ea, type: 3}
       propertyPath: lootTable.Array.size
@@ -572,8 +588,20 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8760842261651433835, guid: 3f9edd1994c84904391545e016a177ea, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8760842261651433835, guid: 3f9edd1994c84904391545e016a177ea, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8760842261651433835, guid: 3f9edd1994c84904391545e016a177ea, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8760842261651433835, guid: 3f9edd1994c84904391545e016a177ea, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8760842261651433835, guid: 3f9edd1994c84904391545e016a177ea, type: 3}
       propertyPath: m_LocalPosition.y
