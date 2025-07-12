@@ -304,8 +304,8 @@ MonoBehaviour:
     m_TextWithWhitespace: "Inspector\u200B"
   m_Pos:
     serializedVersion: 2
-    x: 1102.4
-    y: 79.200005
+    x: 1103.4
+    y: 24
     width: 432.59998
     height: 690.8
   m_SerializedDataModeController:
@@ -354,7 +354,7 @@ MonoBehaviour:
   m_Pos:
     serializedVersion: 2
     x: 0
-    y: 79.200005
+    y: 24
     width: 263
     height: 474
   m_SerializedDataModeController:
@@ -419,8 +419,8 @@ MonoBehaviour:
     m_TextWithWhitespace: "Scene\u200B"
   m_Pos:
     serializedVersion: 2
-    x: 264
-    y: 79.200005
+    x: 265
+    y: 24
     width: 836.4
     height: 474
   m_SerializedDataModeController:
@@ -1223,7 +1223,7 @@ MonoBehaviour:
   m_Pos:
     serializedVersion: 2
     x: 0
-    y: 579.2
+    y: 524
     width: 1101.4
     height: 190.79999
   m_SerializedDataModeController:
@@ -1267,21 +1267,21 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 319}
     m_SelectedIDs: a8980000
     m_LastClickedID: 39080
-    m_ExpandedIDs: 000000005c9600005e96000060960000629600006496000066960000689600006a9600006c96000000ca9a3bffffff7f
+    m_ExpandedIDs: 000000005c9600005e96000060960000629600006496000066960000689600006a9600006c960000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
-      m_Name: Scene
-      m_OriginalName: Scene
+      m_Name: 
+      m_OriginalName: 
       m_EditFieldRect:
         serializedVersion: 2
         x: 0
         y: 0
         width: 0
         height: 0
-      m_UserData: 39078
+      m_UserData: 0
       m_IsWaitingForDelay: 0
       m_IsRenaming: 0
-      m_OriginalEventType: 0
+      m_OriginalEventType: 11
       m_IsRenamingFilename: 1
       m_TrimLeadingAndTrailingWhitespace: 0
       m_ClientGUIView: {fileID: 10}
@@ -1587,7 +1587,7 @@ MonoBehaviour:
       height: 864
     m_MinimalGUI: 1
   m_defaultScale: 0.29930556
-  m_LastWindowPixelSize: {x: 1045.5, y: 349.5}
+  m_LastWindowPixelSize: {x: 836.4, y: 279.6}
   m_ClearInEditMode: 1
   m_NoCameraWarning: 1
   m_LowResolutionForAspectRatios: 01000000000000000000
