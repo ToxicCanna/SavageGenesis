@@ -1,5 +1,7 @@
+using UnityEngine;
+
 interface IDiggingArea
 {
-    void OnDigging(DiggingToolType tool);
+    void OnDigging(Vector2 diggingPos, DiggingToolType tool);
     void FinishDigging();
 }

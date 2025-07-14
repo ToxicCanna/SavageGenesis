@@ -119,6 +119,51 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &63513090
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 63513091}
+  - component: {fileID: 63513093}
+  m_Layer: 0
+  m_Name: DiggingInput
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &63513091
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 63513090}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &63513093
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 63513090}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8bda75753d75b5c4d93883fef5d8b113, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentDiggingTool: 0
 --- !u!1 &662163605
 GameObject:
   m_ObjectHideFlags: 0
@@ -427,12 +472,68 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1378224963392820388, guid: 3f9edd1994c84904391545e016a177ea, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1378224963392820388, guid: 3f9edd1994c84904391545e016a177ea, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1571422637026795781, guid: 3f9edd1994c84904391545e016a177ea, type: 3}
       propertyPath: m_Name
       value: TestDiggingArea
       objectReference: {fileID: 0}
     - target: {fileID: 1571422637026795781, guid: 3f9edd1994c84904391545e016a177ea, type: 3}
       propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2324548041987568218, guid: 3f9edd1994c84904391545e016a177ea, type: 3}
+      propertyPath: lootTable.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2324548041987568218, guid: 3f9edd1994c84904391545e016a177ea, type: 3}
+      propertyPath: lootTable.Array.data[0].fossil
+      value: 
+      objectReference: {fileID: 8804438050711525788, guid: ae561142c0bf59f4196b2b1a655d785c, type: 3}
+    - target: {fileID: 2324548041987568218, guid: 3f9edd1994c84904391545e016a177ea, type: 3}
+      propertyPath: lootTable.Array.data[1].fossil
+      value: 
+      objectReference: {fileID: 8804438050711525788, guid: 9f524e37c1da514479ce6eaad647fe3e, type: 3}
+    - target: {fileID: 2324548041987568218, guid: 3f9edd1994c84904391545e016a177ea, type: 3}
+      propertyPath: lootTable.Array.data[2].fossil
+      value: 
+      objectReference: {fileID: 8804438050711525788, guid: ed49d69729531fd459d2e42859a3f51b, type: 3}
+    - target: {fileID: 2324548041987568218, guid: 3f9edd1994c84904391545e016a177ea, type: 3}
+      propertyPath: lootTable.Array.data[3].fossil
+      value: 
+      objectReference: {fileID: 8804438050711525788, guid: c6fcd017aac38464cbda5c7fa2b28f6e, type: 3}
+    - target: {fileID: 2324548041987568218, guid: 3f9edd1994c84904391545e016a177ea, type: 3}
+      propertyPath: lootTable.Array.data[4].fossil
+      value: 
+      objectReference: {fileID: 8804438050711525788, guid: 79e5a6fdc4e89fe459025f750ef67e72, type: 3}
+    - target: {fileID: 2324548041987568218, guid: 3f9edd1994c84904391545e016a177ea, type: 3}
+      propertyPath: lootTable.Array.data[0].maxFossilNumber
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2324548041987568218, guid: 3f9edd1994c84904391545e016a177ea, type: 3}
+      propertyPath: lootTable.Array.data[1].maxFossilNumber
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2324548041987568218, guid: 3f9edd1994c84904391545e016a177ea, type: 3}
+      propertyPath: lootTable.Array.data[2].maxFossilNumber
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2324548041987568218, guid: 3f9edd1994c84904391545e016a177ea, type: 3}
+      propertyPath: lootTable.Array.data[3].maxFossilNumber
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2324548041987568218, guid: 3f9edd1994c84904391545e016a177ea, type: 3}
+      propertyPath: lootTable.Array.data[4].maxFossilNumber
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2419882975651054889, guid: 3f9edd1994c84904391545e016a177ea, type: 3}
+      propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2963477672948463881, guid: 3f9edd1994c84904391545e016a177ea, type: 3}
@@ -494,6 +595,18 @@ PrefabInstance:
     - target: {fileID: 6476076162258174850, guid: 3f9edd1994c84904391545e016a177ea, type: 3}
       propertyPath: m_SortingOrder
       value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6582780308497063673, guid: 3f9edd1994c84904391545e016a177ea, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6614807505127191185, guid: 3f9edd1994c84904391545e016a177ea, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7405782331052387099, guid: 3f9edd1994c84904391545e016a177ea, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7679128399237082975, guid: 3f9edd1994c84904391545e016a177ea, type: 3}
       propertyPath: lootTable.Array.size
@@ -587,6 +700,50 @@ PrefabInstance:
       propertyPath: lootTable.Array.data[5].maxFossilNumber
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8208876020659209936, guid: 3f9edd1994c84904391545e016a177ea, type: 3}
+      propertyPath: lootTable.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8208876020659209936, guid: 3f9edd1994c84904391545e016a177ea, type: 3}
+      propertyPath: lootTable.Array.data[0].fossil
+      value: 
+      objectReference: {fileID: 8804438050711525788, guid: ae561142c0bf59f4196b2b1a655d785c, type: 3}
+    - target: {fileID: 8208876020659209936, guid: 3f9edd1994c84904391545e016a177ea, type: 3}
+      propertyPath: lootTable.Array.data[1].fossil
+      value: 
+      objectReference: {fileID: 8804438050711525788, guid: 9f524e37c1da514479ce6eaad647fe3e, type: 3}
+    - target: {fileID: 8208876020659209936, guid: 3f9edd1994c84904391545e016a177ea, type: 3}
+      propertyPath: lootTable.Array.data[2].fossil
+      value: 
+      objectReference: {fileID: 8804438050711525788, guid: ed49d69729531fd459d2e42859a3f51b, type: 3}
+    - target: {fileID: 8208876020659209936, guid: 3f9edd1994c84904391545e016a177ea, type: 3}
+      propertyPath: lootTable.Array.data[3].fossil
+      value: 
+      objectReference: {fileID: 8804438050711525788, guid: c6fcd017aac38464cbda5c7fa2b28f6e, type: 3}
+    - target: {fileID: 8208876020659209936, guid: 3f9edd1994c84904391545e016a177ea, type: 3}
+      propertyPath: lootTable.Array.data[4].fossil
+      value: 
+      objectReference: {fileID: 8804438050711525788, guid: 79e5a6fdc4e89fe459025f750ef67e72, type: 3}
+    - target: {fileID: 8208876020659209936, guid: 3f9edd1994c84904391545e016a177ea, type: 3}
+      propertyPath: lootTable.Array.data[0].maxFossilNumber
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8208876020659209936, guid: 3f9edd1994c84904391545e016a177ea, type: 3}
+      propertyPath: lootTable.Array.data[1].maxFossilNumber
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8208876020659209936, guid: 3f9edd1994c84904391545e016a177ea, type: 3}
+      propertyPath: lootTable.Array.data[2].maxFossilNumber
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8208876020659209936, guid: 3f9edd1994c84904391545e016a177ea, type: 3}
+      propertyPath: lootTable.Array.data[3].maxFossilNumber
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8208876020659209936, guid: 3f9edd1994c84904391545e016a177ea, type: 3}
+      propertyPath: lootTable.Array.data[4].maxFossilNumber
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8760842261651433835, guid: 3f9edd1994c84904391545e016a177ea, type: 3}
       propertyPath: m_LocalScale.x
       value: 1.5
@@ -639,6 +796,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8777501265815403291, guid: 3f9edd1994c84904391545e016a177ea, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -651,3 +812,4 @@ SceneRoots:
   - {fileID: 1989817605}
   - {fileID: 662163608}
   - {fileID: 4033322912588094467}
+  - {fileID: 63513091}

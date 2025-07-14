@@ -7,21 +7,12 @@
             "actions": [
                 {
                     "name": "Movement",
-                    "type": "Value",
+                    "type": "PassThrough",
                     "id": "01a68787-5dc6-4cec-8918-f633b6b4d310",
                     "expectedControlType": "Vector2",
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": true
-                },
-                {
-                    "name": "Interaction",
-                    "type": "Button",
-                    "id": "a58984c5-72f5-439f-9c5f-efb5fae4bea1",
-                    "expectedControlType": "",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -156,39 +147,6 @@
                     "action": "Movement",
                     "isComposite": false,
                     "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "7f2944dc-7f0b-407a-9b3b-b8e75e2ba72b",
-                    "path": "<Keyboard>/j",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Interaction",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "80328389-9115-464c-82d6-f8380b03c126",
-                    "path": "<Gamepad>/rightTrigger",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Interaction",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "4a2ca0fa-cdc7-45b7-bd1e-fa8adf9a1397",
-                    "path": "<Joystick>/trigger",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Interaction",
-                    "isComposite": false,
-                    "isPartOfComposite": false
                 }
             ]
         },
@@ -209,7 +167,7 @@
                     "name": "Submit",
                     "type": "Button",
                     "id": "08c768de-9fb3-4097-9319-363e163b99b7",
-                    "expectedControlType": "Button",
+                    "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
@@ -218,7 +176,7 @@
                     "name": "Cancel",
                     "type": "Button",
                     "id": "f836a9a4-0698-4870-ba55-4a95b312900b",
-                    "expectedControlType": "Button",
+                    "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false

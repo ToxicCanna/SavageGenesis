@@ -1,5 +1,4 @@
 using UnityEngine;
-using UnityEngine.InputSystem;
 
 public class InputManager : Singleton<InputManager>
 {
@@ -29,9 +28,9 @@ public class InputManager : Singleton<InputManager>
         return playerInputs.Player.Movement.ReadValue<Vector2>();
     }
 
-    public bool GetInteraction()
+    public bool GetInteractInput()
     {
-        return playerInputs.Player.Interaction.triggered;
+        return playerInputs.UI.Click.triggered;
     }
     #endregion
 

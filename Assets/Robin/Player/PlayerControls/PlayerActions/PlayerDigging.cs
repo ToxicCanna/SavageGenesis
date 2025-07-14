@@ -1,30 +1,33 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 //For now just testing how digging function work
 public class PlayerDigging : BasePlayerController
 {
     [SerializeField] private DiggingToolType currentDiggingTool;
     private IDiggingArea iDiggingArea;
+    private Camera _camera;
 
-    public override void Update()
+    private void Awake()
     {
-        if (inputManager.GetInteraction())
-        {
-            if (iDiggingArea != null)
-            {
-                iDiggingArea.OnDigging(currentDiggingTool);
-                iDiggingArea.FinishDigging();
-            } 
-        }
+        _camera = Camera.main;
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    protected override void Update() 
     {
-        iDiggingArea = collision.GetComponent<IDiggingArea>();
+        if (inputManager.GetInteractInput())
+            Dig();
     }
 
-    private void OnTriggerExit2D(Collider2D collision)
+    public void Dig()
     {
-        iDiggingArea = null;
+        var hit = Physics2D.GetRayIntersection(_camera.ScreenPointToRay(Mouse.current.position.ReadValue()));
+        if (!hit.collider) return;
+
+        Debug.Log(hit.collider.gameObject.name);
+
+        iDiggingArea = hit.collider.gameObject.GetComponentInChildren<IDiggingArea>();
+        iDiggingArea?.OnDigging(hit.point, currentDiggingTool);
+        iDiggingArea?.FinishDigging();
     }
 }

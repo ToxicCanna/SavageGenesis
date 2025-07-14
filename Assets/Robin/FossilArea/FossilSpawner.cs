@@ -29,13 +29,11 @@ public class FossilSpawner : MonoBehaviour
                     if (FindCollisions(spawnPos, spawnObject).Length <= 0)
                     {
                         spawnObject = Instantiate(spawnList[Random.Range(0, spawnList.Count)], spawnPos, Quaternion.identity);
-                        Debug.Log($"{spawnObject} is spawned!");
                         return;
                     }
                 }
             }
         }
-        Debug.Log("Failed while attempt to spawn a fossil!");
     }
 
     private Vector2 GetRandomSpawnPosition()

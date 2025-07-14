@@ -1,6 +1,9 @@
+using UnityEngine;
+
 [System.Serializable]
 public class FossilLoot
 {
     public Fossil fossil;
-    public int maxFossilNumber = 1;
+    [Min(1)]
+    public int maxFossilNumber;
 }
