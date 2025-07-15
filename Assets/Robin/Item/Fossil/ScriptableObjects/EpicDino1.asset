@@ -15,4 +15,4 @@ MonoBehaviour:
   itemName: EpicDino
   price: 200
   rarity: 3
-  fossilType: 1
+  fossilType: 2

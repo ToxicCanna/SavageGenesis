@@ -15,4 +15,4 @@ MonoBehaviour:
   itemName: TestAerial
   price: 150
   rarity: 2
-  fossilType: 2
+  fossilType: 3

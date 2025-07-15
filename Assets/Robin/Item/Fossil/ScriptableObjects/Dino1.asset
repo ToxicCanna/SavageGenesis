@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: TestHerbivore
   price: 50
-  fossilType: 1
   rarity: 0
+  fossilType: 2
