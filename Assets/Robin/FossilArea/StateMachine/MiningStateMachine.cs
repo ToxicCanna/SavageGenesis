@@ -1,8 +1,11 @@
 using System;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class MiningStateMachine : BaseStateMachine
 {
+    public Image loadingImage;
+    
     #region Mining States
     //Keep Track of all mining states
     private InitializeState _initialState;
@@ -13,9 +16,11 @@ public class MiningStateMachine : BaseStateMachine
     public DiggingState DiggingState => _diggingState;
     #endregion
 
+    #region NonSerialized Input
     [NonSerialized] public FossilLayer fossilLayer;
     [NonSerialized] public DiggingLayer diggingLayer;
     [NonSerialized] public PlayerDigging playerDigging;
+    #endregion
 
     private void Awake()
     {

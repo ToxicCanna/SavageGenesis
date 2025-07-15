@@ -13,6 +13,7 @@ public class DiggingState : BaseState
     {
         Debug.Log("Start Digging");
         _miningStateMachine.EnableLayer(true, _miningStateMachine.diggingLayer);
+        _miningStateMachine.loadingImage.gameObject.SetActive(false);
     }
 
     public override void UpdateState()
