@@ -1,5 +1,7 @@
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using System;
 using UnityEngine;
 
 [RequireComponent(typeof(FossilSpawner))]
@@ -12,18 +14,29 @@ public class FossilLayer : BaseMiningLayer
     private FossilSpawner _fossilSpawner;
     private List<Fossil> _possibleLootList = new List<Fossil>();   //Keep track of fossils that can be possibly dug out
     private float _lootChance;   //chance to get a specific loot
+
+    [NonSerialized] public bool isInitializationComplete = false;
     #endregion
 
     private void Start()    //Initialization
     {
         _fossilSpawner = GetComponent<FossilSpawner>();
+        StartCoroutine(InitializeLayer());
+    }
 
+    private IEnumerator InitializeLayer()
+    {
         for (int i = 0; i < maxFossils; i++)
         {
             SetPossibleFossilList();
-            _fossilSpawner.SpawnFossilFromList(_possibleLootList);
+
+            yield return StartCoroutine(_fossilSpawner.SpawnFossilFromList(_possibleLootList));
+
             _possibleLootList.Clear();
         }
+
+        isInitializationComplete = true;
+        yield break;
     }
 
     #region Setup Possible Loot List
@@ -41,7 +54,7 @@ public class FossilLayer : BaseMiningLayer
 
     private RarityLevel GetSpawnableRarityLevel()
     {
-        _lootChance = Random.Range(0, RarityValue.rarityValues.Sum());
+        _lootChance = UnityEngine.Random.Range(0, RarityValue.rarityValues.Sum());
 
         float cumulative = 0f;
 

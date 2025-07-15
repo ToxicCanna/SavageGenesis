@@ -13,7 +13,8 @@ public class MiningStateMachine : BaseStateMachine
     public DiggingState DiggingState => _diggingState;
     #endregion
 
-    [NonSerialized] public BaseMiningLayer[] miningLayers = new BaseMiningLayer[2];
+    [NonSerialized] public FossilLayer fossilLayer;
+    [NonSerialized] public DiggingLayer diggingLayer;
     [NonSerialized] public PlayerDigging playerDigging;
 
     private void Awake()
@@ -23,8 +24,8 @@ public class MiningStateMachine : BaseStateMachine
         _diggingState = new DiggingState(this);
 
         //Initialize layers and player digging function
-        miningLayers[0] = GetComponentInChildren<DiggingLayer>(true);
-        miningLayers[1] = GetComponentInChildren<FossilLayer>(true);
+        fossilLayer = GetComponentInChildren<FossilLayer>(true);
+        diggingLayer = GetComponentInChildren<DiggingLayer>(true);
         playerDigging = GetComponentInChildren<PlayerDigging>(true);
     }
 

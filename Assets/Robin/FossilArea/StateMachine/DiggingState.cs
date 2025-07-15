@@ -12,9 +12,7 @@ public class DiggingState : BaseState
     public override void EnterState()
     {
         Debug.Log("Start Digging");
-        
-        _miningStateMachine.EnableLayer(true, _miningStateMachine.miningLayers[0]);
-        _miningStateMachine.EnableLayer(true, _miningStateMachine.miningLayers[1]);
+        _miningStateMachine.EnableLayer(true, _miningStateMachine.diggingLayer);
     }
 
     public override void UpdateState()

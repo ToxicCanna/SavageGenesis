@@ -543,6 +543,14 @@ PrefabInstance:
       propertyPath: lootTable.Array.data[4].maxFossilNumber
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3088069041842991650, guid: 3f9edd1994c84904391545e016a177ea, type: 3}
+      propertyPath: spawnAttempts
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 3088069041842991650, guid: 3f9edd1994c84904391545e016a177ea, type: 3}
+      propertyPath: spawnBoundsOffset
+      value: 0.1
+      objectReference: {fileID: 0}
     - target: {fileID: 6278684292468919896, guid: 3f9edd1994c84904391545e016a177ea, type: 3}
       propertyPath: spawnAttempts
       value: 9999
@@ -662,6 +670,10 @@ PrefabInstance:
     - target: {fileID: 7679128399237082975, guid: 3f9edd1994c84904391545e016a177ea, type: 3}
       propertyPath: lootTable.Array.data[5].maxFossilNumber
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8208876020659209936, guid: 3f9edd1994c84904391545e016a177ea, type: 3}
+      propertyPath: maxFossils
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 8208876020659209936, guid: 3f9edd1994c84904391545e016a177ea, type: 3}
       propertyPath: lootTable.Array.size
