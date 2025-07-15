@@ -3,7 +3,7 @@ using System.Linq;
 using UnityEngine;
 
 [RequireComponent(typeof(FossilSpawner))]
-public class FossilLayer : MonoBehaviour
+public class FossilLayer : BaseMiningLayer
 {
     #region Input Variables
     [SerializeField] private FossilLoot[] lootTable;

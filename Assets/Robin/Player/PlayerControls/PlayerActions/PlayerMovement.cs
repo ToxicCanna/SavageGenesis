@@ -15,7 +15,7 @@ public class PlayerMovement : BasePlayerController
         rb = GetComponent<Rigidbody2D>();
     }
 
-    protected override void Update()
+    private void Update()
     {
         movement = inputManager.GetPlayerMovement();
     }
