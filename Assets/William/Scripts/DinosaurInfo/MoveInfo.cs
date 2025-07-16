@@ -26,4 +26,6 @@ public class MoveInfo : ScriptableObject
 
     public bool moveCanBeCountered;
     public bool moveIsCounter;
+
+    public bool regenUser;
 }
