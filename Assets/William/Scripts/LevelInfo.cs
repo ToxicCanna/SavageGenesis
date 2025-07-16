@@ -1,0 +1,106 @@
+using UnityEngine;
+using UnityEngine.UI;
+
+public class LevelInfo : MonoBehaviour
+{
+    [SerializeField] private GameObject backgroundImage;
+    [SerializeField] private GameObject playerSprite;
+    [SerializeField] private GameObject enemySprite;
+    [SerializeField] private GameObject dialogText;
+
+    [SerializeField] private GameObject skillOne;
+    [SerializeField] private GameObject skillTwo;
+    [SerializeField] private GameObject skillThree;
+    [SerializeField] private GameObject skillFour;
+    [SerializeField] private GameObject skillFive;
+
+    [SerializeField] private GameObject moveTypeText;
+    [SerializeField] private GameObject movePowerText;
+
+    [SerializeField] private GameObject playerNameText;
+    [SerializeField] private GameObject playerLevelText;
+    [SerializeField] private GameObject playerHealthBar;
+    [SerializeField] private GameObject playerHealthText;
+
+    [SerializeField] private GameObject playerStatusBarBackground;
+    [SerializeField] private GameObject playerStatusText;
+
+    [SerializeField] private GameObject enemyNameText;
+    [SerializeField] private GameObject enemyLevelText;
+    [SerializeField] private GameObject enemyHealthBar;
+    [SerializeField] private GameObject enemyHealthText;
+
+    [SerializeField] private GameObject enemyStatusBarBackground;
+    [SerializeField] private GameObject enemyStatusText;
+
+    public GameObject GetBacigroundImage()
+    { return backgroundImage; }
+
+    public GameObject GetPlayerSprite()
+    { return playerSprite; }
+
+    public GameObject GetEnemySprite()
+    { return enemySprite; }
+
+    public GameObject GetDialogText()
+    { return dialogText; }
+
+    public GameObject GetSkillOne()
+    { return skillOne; }
+
+    public GameObject GetSkillTwo()
+    { return skillTwo; }
+
+    public GameObject GetSkillThree()
+    { return skillThree; }
+
+    public GameObject GetSkillFour()
+    { return skillFour; }
+
+    public GameObject GetSkillFive()
+    { return skillFive; }
+
+    public GameObject GetMoveTypeText()
+    { return moveTypeText; }
+
+    public GameObject GetMovePowerText()
+    { return movePowerText; }
+
+    public GameObject GetPlayerNameText()
+    { return playerNameText; }
+
+    public GameObject GetPlayerLevelText()
+    { return playerLevelText; }
+
+    public GameObject GetPlayerHealthBar()
+    { return playerHealthBar; }
+
+    public GameObject GetPlayerHealthText()
+    { return playerHealthText; }
+
+    public GameObject GetPlayerStatusBarBackground()
+    { return playerStatusBarBackground; }
+
+    public GameObject GetPlayerStatusText()
+    { return playerStatusText; }
+
+    public GameObject GetEnemyNameText()
+    { return enemyNameText; }
+
+    public GameObject GetEnemyLevelText()
+    { return enemyLevelText; }
+
+    public GameObject GetEnemyHealthBar()
+    { return enemyHealthBar; }
+
+    public GameObject GetEnemyHealthText()
+    { return enemyHealthText; }
+
+    public GameObject GetEnemyStatusBarBackground()
+    { return enemyStatusBarBackground; }
+
+    public GameObject GetEnemyStatusText()
+    { return enemyStatusText; }
+
+
+}
