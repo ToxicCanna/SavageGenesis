@@ -18,9 +18,11 @@ public class FossilLayer : BaseMiningLayer
     [NonSerialized] public bool isInitializationComplete = false;
     #endregion
 
-    private void Start()    //Initialization
+    protected override void Start()    //Initialization
     {
+        base.Start();       
         _fossilSpawner = GetComponent<FossilSpawner>();
+
         StartCoroutine(InitializeLayer());
     }
 
@@ -46,7 +48,7 @@ public class FossilLayer : BaseMiningLayer
         {
             if (loot.fossil.statObject.rarity == GetSpawnableRarityLevel())
             {
-                for (int i = 0; i < loot.maxFossilNumber; i++)
+                for (int i = 0; i < loot.lootNumber; i++)
                     _possibleLootList.Add(loot.fossil);
             }
         }

@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 8804438050711525788}
   - component: {fileID: 3302032758463661131}
   - component: {fileID: 5787268099514890518}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: HerbivoreDino
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -29,7 +29,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
+  m_LocalScale: {x: 2, y: 2, z: 2}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 3140087795045974447}
@@ -48,7 +48,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   statObject: {fileID: 11400000, guid: eda0c7f33fee8624e957326ddaa6e4ce, type: 2}
-  isColliding: 0
 --- !u!61 &3302032758463661131
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -83,7 +82,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0.5, y: -0.5}
+  m_Offset: {x: 0.5, y: 0.5}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -132,7 +131,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3140087795045974447}
   - component: {fileID: 3360236830367719901}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: SpriteMesh
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -148,7 +147,7 @@ Transform:
   m_GameObject: {fileID: 7171920113462719748}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.5, y: -0.5, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

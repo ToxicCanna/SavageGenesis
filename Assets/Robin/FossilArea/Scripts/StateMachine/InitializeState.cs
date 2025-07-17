@@ -14,6 +14,8 @@ public class InitializeState : BaseState
         Debug.Log("Initializing");
         _miningStateMachine.EnableLayer(false, _miningStateMachine.diggingLayer);
         _miningStateMachine.loadingImage.gameObject.SetActive(true);
+        _miningStateMachine.gameplayUIPanel.gameObject.SetActive(false);
+        _miningStateMachine.diggingIcon.SetActive(false);
     }
 
     public override void UpdateState()
