@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -18,7 +19,9 @@ public class FinishDiggingState : BaseState
         {
             Debug.Log($"You get {fossil}!");
         }
-        SceneManager.LoadScene(0);
+
+        _miningStateMachine.StartCoroutine(BackToOverworldScene(0));
+
     }
 
     public override void UpdateState()
@@ -29,5 +32,11 @@ public class FinishDiggingState : BaseState
     public override void ExitState()
     {
 
+    }
+
+    IEnumerator BackToOverworldScene(int sceneIndex)
+    {
+        yield return new WaitForSeconds(_miningStateMachine.waitInSecAfterFinishDigging);
+        SceneManager.LoadScene(sceneIndex);
     }
 }

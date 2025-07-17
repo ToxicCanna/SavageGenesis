@@ -7,7 +7,8 @@ public class FossilSpawner : MonoBehaviour
 {
     [SerializeField] private int spawnAttempts = 10;
     [SerializeField] private float spawnBoundsOffset = 0.2f;
-    [SerializeField] private MiningStateMachine miningStateMachine;
+
+    private MiningStateMachine miningStateMachine;
 
     private FossilLayer fossilLayer;
     private Renderer _renderer;
@@ -18,6 +19,7 @@ public class FossilSpawner : MonoBehaviour
         _renderer = GetComponent<TilemapRenderer>();
         fossilLayer = GetComponent<FossilLayer>();
         spawnerBound = _renderer.bounds;
+        miningStateMachine = fossilLayer.miningStateMachine;
     }
 
     public IEnumerator SpawnFossilFromList(List<Fossil> spawnList)
