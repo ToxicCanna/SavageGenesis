@@ -6,6 +6,11 @@ public class LevelInfo : MonoBehaviour
     [SerializeField] private GameObject backgroundImage;
     [SerializeField] private GameObject playerSprite;
     [SerializeField] private GameObject enemySprite;
+    [SerializeField] private GameObject actionSelector;
+    [SerializeField] private GameObject actionSelectorCursor;
+    [SerializeField] private GameObject skillSelector;
+    [SerializeField] private GameObject skillSelectorCursor;
+
     [SerializeField] private GameObject dialogText;
 
     [SerializeField] private GameObject skillOne;
@@ -41,6 +46,18 @@ public class LevelInfo : MonoBehaviour
 
     public GameObject GetEnemySprite()
     { return enemySprite; }
+
+    public GameObject GetActionSelector()
+    { return actionSelector; }
+
+    public GameObject GetActionSelectorCursor()
+    { return actionSelectorCursor; }
+
+    public GameObject GetSkillSelector()
+    { return skillSelector; }
+
+    public GameObject GetSkillSelectorCursor()
+    { return skillSelectorCursor; }
 
     public GameObject GetDialogText()
     { return dialogText; }
