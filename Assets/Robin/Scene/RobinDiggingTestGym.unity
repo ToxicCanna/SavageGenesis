@@ -317,7 +317,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 86424384}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1245013369}
+        m_TargetAssemblyTypeName: PlayerDigging, Assembly-CSharp
+        m_MethodName: SwitchToPickaxe
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &86424384
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -634,6 +646,17 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &868953712 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1443622836600736448, guid: 3f9edd1994c84904391545e016a177ea, type: 3}
+  m_PrefabInstance: {fileID: 4033322912588094467}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d8b0873191ae55c47b8bf6c028292e15, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &913937296
 GameObject:
   m_ObjectHideFlags: 0
@@ -846,6 +869,17 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1002225509}
   m_CullTransparentMesh: 1
+--- !u!114 &1245013369 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 9070628411154835364, guid: 3f9edd1994c84904391545e016a177ea, type: 3}
+  m_PrefabInstance: {fileID: 4033322912588094467}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8bda75753d75b5c4d93883fef5d8b113, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1352221840
 GameObject:
   m_ObjectHideFlags: 0
@@ -1284,7 +1318,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1695453719}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1245013369}
+        m_TargetAssemblyTypeName: PlayerDigging, Assembly-CSharp
+        m_MethodName: SwitchToBrush
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1695453719
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1525,6 +1571,14 @@ PrefabInstance:
       propertyPath: uiManager
       value: 
       objectReference: {fileID: 121379239}
+    - target: {fileID: 253903352149713209, guid: 3f9edd1994c84904391545e016a177ea, type: 3}
+      propertyPath: diggingDelay
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 253903352149713209, guid: 3f9edd1994c84904391545e016a177ea, type: 3}
+      propertyPath: miningStateMachine
+      value: 
+      objectReference: {fileID: 868953712}
     - target: {fileID: 767613313341624229, guid: 3f9edd1994c84904391545e016a177ea, type: 3}
       propertyPath: m_Size.x
       value: 15
@@ -4334,6 +4388,10 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1443622836600736448, guid: 3f9edd1994c84904391545e016a177ea, type: 3}
+      propertyPath: uiManager
+      value: 
+      objectReference: {fileID: 121379239}
+    - target: {fileID: 1443622836600736448, guid: 3f9edd1994c84904391545e016a177ea, type: 3}
       propertyPath: loadingImage
       value: 
       objectReference: {fileID: 1002225511}
@@ -6809,6 +6867,10 @@ PrefabInstance:
       propertyPath: maxFossils
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 8208876020659209936, guid: 3f9edd1994c84904391545e016a177ea, type: 3}
+      propertyPath: miningStateMachine
+      value: 
+      objectReference: {fileID: 868953712}
     - target: {fileID: 8208876020659209936, guid: 3f9edd1994c84904391545e016a177ea, type: 3}
       propertyPath: lootTable.Array.size
       value: 5
