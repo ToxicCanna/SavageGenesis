@@ -3171,6 +3171,10 @@ PrefabInstance:
       propertyPath: grid
       value: 
       objectReference: {fileID: 5704360578979989490}
+    - target: {fileID: 9005678822146976036, guid: 0440c2b603d902140879104cbc28315c, type: 3}
+      propertyPath: diggingLayer
+      value: 
+      objectReference: {fileID: 253903352149713209}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

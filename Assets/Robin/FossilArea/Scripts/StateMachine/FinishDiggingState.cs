@@ -11,6 +11,8 @@ public class FinishDiggingState : BaseState
 
     public override void EnterState()
     {
+        _miningStateMachine.diggingIcon.SetActive(false);
+
         foreach (var fossil in _miningStateMachine.fossilDigOutList)
             Debug.Log($"You get {fossil}!");
     }

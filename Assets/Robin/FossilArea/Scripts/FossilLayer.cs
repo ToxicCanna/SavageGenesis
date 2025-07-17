@@ -48,7 +48,7 @@ public class FossilLayer : BaseMiningLayer
         {
             if (loot.fossil.statObject.rarity == GetSpawnableRarityLevel())
             {
-                for (int i = 0; i < loot.maxFossilNumber; i++)
+                for (int i = 0; i < loot.lootNumber; i++)
                     _possibleLootList.Add(loot.fossil);
             }
         }

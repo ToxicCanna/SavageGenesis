@@ -612,6 +612,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 253903352149713209, guid: 3f9edd1994c84904391545e016a177ea, type: 3}
+      propertyPath: stability
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 1378224963392820388, guid: 3f9edd1994c84904391545e016a177ea, type: 3}
       propertyPath: m_Layer
       value: 0
@@ -893,16 +897,36 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 8804438050711525788, guid: 79e5a6fdc4e89fe459025f750ef67e72, type: 3}
     - target: {fileID: 8208876020659209936, guid: 3f9edd1994c84904391545e016a177ea, type: 3}
+      propertyPath: lootTable.Array.data[0].lootNumber
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8208876020659209936, guid: 3f9edd1994c84904391545e016a177ea, type: 3}
+      propertyPath: lootTable.Array.data[1].lootNumber
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8208876020659209936, guid: 3f9edd1994c84904391545e016a177ea, type: 3}
+      propertyPath: lootTable.Array.data[2].lootNumber
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8208876020659209936, guid: 3f9edd1994c84904391545e016a177ea, type: 3}
+      propertyPath: lootTable.Array.data[3].lootNumber
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8208876020659209936, guid: 3f9edd1994c84904391545e016a177ea, type: 3}
+      propertyPath: lootTable.Array.data[4].lootNumber
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8208876020659209936, guid: 3f9edd1994c84904391545e016a177ea, type: 3}
       propertyPath: lootTable.Array.data[0].maxFossilNumber
-      value: 3
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8208876020659209936, guid: 3f9edd1994c84904391545e016a177ea, type: 3}
       propertyPath: lootTable.Array.data[1].maxFossilNumber
-      value: 3
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8208876020659209936, guid: 3f9edd1994c84904391545e016a177ea, type: 3}
       propertyPath: lootTable.Array.data[2].maxFossilNumber
-      value: 3
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8208876020659209936, guid: 3f9edd1994c84904391545e016a177ea, type: 3}
       propertyPath: lootTable.Array.data[3].maxFossilNumber
