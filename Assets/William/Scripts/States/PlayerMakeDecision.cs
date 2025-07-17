@@ -12,7 +12,8 @@ public class PlayerMakeDecision : BaseState
 
     public override void EnterState()
     {
-
+        _stateMachine.levelInfo.GetActionSelector().SetActive(true);
+        _stateMachine.levelInfo.GetActionSelectorCursor().SetActive(true);
     }
 
     public override void ExitState()

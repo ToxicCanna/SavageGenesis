@@ -25,7 +25,7 @@ MonoBehaviour:
   moveCleansesOpponentBuffs: 0
   critRate: 0
   critDamageMultiplyer: 0
-  multiHit: 0
+  multiHit: 1
   moveCanBeCountered: 0
   moveIsCounter: 0
   regenUser: 0
