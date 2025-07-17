@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class MiningStateMachine : BaseStateMachine
 {
     public Image loadingImage;
+    public Image gameplayUIPanel;
     public GameObject diggingIcon;
     
     #region Mining States

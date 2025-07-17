@@ -14,6 +14,7 @@ public class DiggingState : BaseState
         Debug.Log($"Start Digging, diggingArea Stability: {_miningStateMachine.diggingLayer.stability}");
         _miningStateMachine.EnableLayer(true, _miningStateMachine.diggingLayer);
         _miningStateMachine.loadingImage.gameObject.SetActive(false);
+        _miningStateMachine.gameplayUIPanel.gameObject.SetActive(true);
         _miningStateMachine.diggingIcon.SetActive(true);
     }
 

@@ -1807,6 +1807,10 @@ PrefabInstance:
       propertyPath: loadingImage
       value: 
       objectReference: {fileID: 1002225511}
+    - target: {fileID: 1443622836600736448, guid: 3f9edd1994c84904391545e016a177ea, type: 3}
+      propertyPath: gameplayUIPanel
+      value: 
+      objectReference: {fileID: 121379240}
     - target: {fileID: 1571422637026795781, guid: 3f9edd1994c84904391545e016a177ea, type: 3}
       propertyPath: m_Name
       value: TestDiggingArea
