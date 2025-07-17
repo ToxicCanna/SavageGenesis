@@ -1795,6 +1795,10 @@ PrefabInstance:
       propertyPath: stability
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 253903352149713209, guid: 3f9edd1994c84904391545e016a177ea, type: 3}
+      propertyPath: uiManager
+      value: 
+      objectReference: {fileID: 121379239}
     - target: {fileID: 1378224963392820388, guid: 3f9edd1994c84904391545e016a177ea, type: 3}
       propertyPath: m_Layer
       value: 0
