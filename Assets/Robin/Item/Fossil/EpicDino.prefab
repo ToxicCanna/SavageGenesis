@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 8804438050711525788}
   - component: {fileID: 8847419193257485573}
   - component: {fileID: 6576272680942189723}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: EpicDino
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -29,7 +29,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.3, y: 0.3, z: 0.3}
+  m_LocalScale: {x: 3, y: 3, z: 3}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 3140087795045974447}
@@ -48,7 +48,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   statObject: {fileID: 11400000, guid: 52aa65cfbc2ebec4297264a7f49edb4e, type: 2}
-  isColliding: 0
 --- !u!61 &8847419193257485573
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -132,7 +131,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3140087795045974447}
   - component: {fileID: 3360236830367719901}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: SpriteMesh
   m_TagString: Untagged
   m_Icon: {fileID: 0}

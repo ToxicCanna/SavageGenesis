@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 8804438050711525788}
   - component: {fileID: 7374466523369793793}
   - component: {fileID: 3714052653984435174}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: AerialDino
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -29,7 +29,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 3140087795045974447}
@@ -48,7 +48,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   statObject: {fileID: 11400000, guid: 594c93c1bd4adcb4786c1e9bd3aeb7d2, type: 2}
-  isColliding: 0
 --- !u!61 &7374466523369793793
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -132,7 +131,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3140087795045974447}
   - component: {fileID: 3360236830367719901}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: SpriteMesh
   m_TagString: Untagged
   m_Icon: {fileID: 0}

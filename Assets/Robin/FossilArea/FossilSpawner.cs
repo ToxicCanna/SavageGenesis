@@ -1,19 +1,21 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Tilemaps;
 
 public class FossilSpawner : MonoBehaviour
 {
     [SerializeField] private int spawnAttempts = 10;
-    [SerializeField] private string fossilMeshName = "SpriteMesh";
     [SerializeField] private float spawnBoundsOffset = 0.2f;
 
+    private FossilLayer fossilLayer;
     private Renderer _renderer;
     private Bounds spawnerBound;
 
     private void Awake()
     {
-        _renderer = GetComponent<SpriteRenderer>();
+        _renderer = GetComponent<TilemapRenderer>();
+        fossilLayer = GetComponent<FossilLayer>();
         spawnerBound = _renderer.bounds;
     }
 
@@ -29,7 +31,7 @@ public class FossilSpawner : MonoBehaviour
 
                 if (fossilGet != null)
                 {
-                    var spawnedFossil = Instantiate(spawnList[Random.Range(0, spawnList.Count)], spawnPos, Quaternion.identity);
+                    var spawnedFossil = Instantiate(spawnList[Random.Range(0, spawnList.Count)], fossilLayer.grid.LocalToCell(spawnPos), Quaternion.identity);
 
                     yield return spawnedFossil.WaitForCollisions();
 
