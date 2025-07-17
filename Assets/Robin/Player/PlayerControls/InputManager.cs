@@ -32,6 +32,11 @@ public class InputManager : Singleton<InputManager>
     {
         return playerInputs.UI.Click.triggered;
     }
+
+    public Vector2 GetInteractPosition()
+    {
+        return playerInputs.UI.Point.ReadValue<Vector2>();
+    }
     #endregion
 
 }

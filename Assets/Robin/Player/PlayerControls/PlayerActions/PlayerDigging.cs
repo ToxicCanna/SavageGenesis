@@ -1,5 +1,4 @@
 using UnityEngine;
-using UnityEngine.InputSystem;
 
 //For now just testing how digging function work
 public class PlayerDigging : BasePlayerController
@@ -16,7 +15,7 @@ public class PlayerDigging : BasePlayerController
     {
         if (inputManager.GetInteractInput())
         {
-            var hit = Physics2D.GetRayIntersection(_camera.ScreenPointToRay(Mouse.current.position.ReadValue()));
+            var hit = Physics2D.GetRayIntersection(_camera.ScreenPointToRay(inputManager.GetInteractPosition()));
             if (!hit.collider) return;
 
             Debug.Log(hit.collider.gameObject.name);

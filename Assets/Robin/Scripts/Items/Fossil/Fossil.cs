@@ -5,10 +5,12 @@ using UnityEngine;
 public class Fossil : BaseItem<FossilStat>
 {
     [NonSerialized] public bool isColliding = false;
-    
-    public void GetFossil()
+    private SpriteRenderer spriteMesh;
+
+    private void Awake()
     {
-        Debug.Log($"Hey, I got {statObject.itemName}!");
+        spriteMesh = GetComponentInChildren<SpriteRenderer>();
+        spriteMesh.transform.localPosition = GetComponent<BoxCollider2D>().offset;
     }
 
     private void OnTriggerEnter2D()

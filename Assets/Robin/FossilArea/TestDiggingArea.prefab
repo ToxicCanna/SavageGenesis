@@ -108,7 +108,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentDiggingTool: 0
-  diggingIcon: {fileID: 7531661509746152255}
 --- !u!1 &6446358541950356559
 GameObject:
   m_ObjectHideFlags: 0
@@ -3127,7 +3126,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2931760563822295421, guid: 0440c2b603d902140879104cbc28315c, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 5
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 2931760563822295421, guid: 0440c2b603d902140879104cbc28315c, type: 3}
       propertyPath: m_LocalPosition.z
@@ -3165,6 +3164,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: DiggingRange
       objectReference: {fileID: 0}
+    - target: {fileID: 9005678822146976036, guid: 0440c2b603d902140879104cbc28315c, type: 3}
+      propertyPath: grid
+      value: 
+      objectReference: {fileID: 5704360578979989490}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
