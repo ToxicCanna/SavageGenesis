@@ -20,7 +20,8 @@ public class DiggingLayer : BaseMiningLayer, IDiggingArea
                     stability -= 1f;
                     break;
             }
-            
+
+            Debug.Log($"Current stability: {stability}");
         }
         else
             Debug.Log("Tilemap is not found!");

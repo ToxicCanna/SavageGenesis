@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 3
   tags:
   - BossBattle
+  - DiggingLayer
   layers:
   - Default
   - TransparentFX

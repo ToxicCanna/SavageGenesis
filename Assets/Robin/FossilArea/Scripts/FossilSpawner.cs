@@ -7,6 +7,7 @@ public class FossilSpawner : MonoBehaviour
 {
     [SerializeField] private int spawnAttempts = 10;
     [SerializeField] private float spawnBoundsOffset = 0.2f;
+    [SerializeField] private MiningStateMachine miningStateMachine;
 
     private FossilLayer fossilLayer;
     private Renderer _renderer;
@@ -32,6 +33,7 @@ public class FossilSpawner : MonoBehaviour
                 if (fossilGet != null)
                 {
                     var spawnedFossil = Instantiate(spawnList[Random.Range(0, spawnList.Count)], fossilLayer.grid.LocalToCell(spawnPos), Quaternion.identity);
+                    miningStateMachine.fossilSpawnedList.Add(spawnedFossil);
 
                     yield return spawnedFossil.WaitForCollisions();
 
@@ -40,6 +42,7 @@ public class FossilSpawner : MonoBehaviour
                     else
                     {
                         //Debug.Log($"{spawnedFossil.gameObject.GetInstanceID()} is hitting something, deleting");
+                        miningStateMachine.fossilSpawnedList.Remove(spawnedFossil);
                         Destroy(spawnedFossil.gameObject);
                     }
                 }
