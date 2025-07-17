@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class FinishDiggingState : BaseState
 {
@@ -14,7 +15,10 @@ public class FinishDiggingState : BaseState
         _miningStateMachine.diggingIcon.SetActive(false);
 
         foreach (var fossil in _miningStateMachine.fossilDigOutList)
+        {
             Debug.Log($"You get {fossil}!");
+        }
+        SceneManager.LoadScene(0);
     }
 
     public override void UpdateState()
