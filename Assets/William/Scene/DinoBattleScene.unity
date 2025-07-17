@@ -217,6 +217,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: EnemyNameText
       objectReference: {fileID: 0}
+    - target: {fileID: 3841813684498957552, guid: e0c96866573e33a4296d78019c584249, type: 3}
+      propertyPath: 'm_ActiveFontFeatures.Array.data[0]'
+      value: 1801810542
+      objectReference: {fileID: 0}
     - target: {fileID: 4125397073489189285, guid: e0c96866573e33a4296d78019c584249, type: 3}
       propertyPath: m_IsActive
       value: 1
@@ -2160,15 +2164,15 @@ RectTransform:
   m_GameObject: {fileID: 1674477681}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 5, y: 5, z: 5}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 491971916}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -312, y: -74}
-  m_SizeDelta: {x: 400, y: 400}
+  m_AnchoredPosition: {x: -387, y: -8}
+  m_SizeDelta: {x: 115, y: 46}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1674477683
 MonoBehaviour:
@@ -2190,7 +2194,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -1013740497, guid: 7ff7ca6b12a7a0d4d9d2f3b9e31e1b07, type: 3}
+  m_Sprite: {fileID: 6575581121138938176, guid: 527560a2c98fa4644af9a5e20ab7d65a, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -2317,15 +2321,15 @@ RectTransform:
   m_GameObject: {fileID: 1768809988}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: -1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: -5, y: 5, z: 5}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 491971916}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 231, y: -5}
-  m_SizeDelta: {x: 400, y: 400}
+  m_AnchoredPosition: {x: 469, y: 41}
+  m_SizeDelta: {x: 127, y: 64}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1768809990
 MonoBehaviour:
@@ -2347,7 +2351,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 0ba79c14b144f0d4a8dda8c4331d3995, type: 2}
+  m_Sprite: {fileID: 3477136886898556629, guid: 449a797ded7510940a8cca0a373a65a2, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
