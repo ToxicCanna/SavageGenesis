@@ -4,7 +4,7 @@ using UnityEngine.Tilemaps;
 public class UpdateDiggingIcon : MonoBehaviour
 {
     [SerializeField] private Grid grid;
-    [SerializeField] private DiggingLayer diggingLayer;
+    [SerializeField] private MiningStateMachine miningStateMachine;
 
     private InputManager inputManager;
     private Vector2 mousePosition;
@@ -14,11 +14,17 @@ public class UpdateDiggingIcon : MonoBehaviour
     private void Start()
     {
         inputManager = InputManager.Instance;
-        tilemap = diggingLayer.GetComponent<Tilemap>();
+        tilemap = miningStateMachine.diggingLayer.GetComponent<Tilemap>();
         bounds = tilemap.cellBounds;
     }
 
     private void Update()
+    {
+        UpdateIcon();
+        UpdateObjectPosition();
+    }
+
+    private void UpdateObjectPosition()
     {
         mousePosition = Camera.main.ScreenToWorldPoint(inputManager.GetInteractPosition());
         Vector2 newPosition = new Vector2
@@ -28,6 +34,22 @@ public class UpdateDiggingIcon : MonoBehaviour
         );
 
         transform.position = grid.LocalToCell(newPosition);
+    }
+
+    private void UpdateIcon()
+    {
+        foreach(var child in GetChildrenObjects.GetAllChildren(gameObject))
+            child.SetActive(false);
+
+        switch (miningStateMachine.playerDigging.currentDiggingTool)
+        {
+            case 0: //Brush
+                transform.Find("BrushRange")?.gameObject.SetActive(true);
+                break;
+            case (DiggingToolType)1: //Pickaxe
+                transform.Find("PickaxeRange")?.gameObject.SetActive(true);
+                break;
+        }
     }
 
     private Vector3 GetTilemapMinPos()

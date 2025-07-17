@@ -3,7 +3,7 @@ using UnityEngine;
 //For now just testing how digging function work
 public class PlayerDigging : BasePlayerController
 {
-    [SerializeField] private DiggingToolType currentDiggingTool;
+    public DiggingToolType currentDiggingTool;
     private IDiggingArea iDiggingArea;
     private Camera _camera;
 
@@ -24,4 +24,16 @@ public class PlayerDigging : BasePlayerController
             iDiggingArea?.OnDigging(hit.point, currentDiggingTool);
         }  
     }
+
+    #region Switch Tool
+    public void SwitchToBrush()
+    {
+        currentDiggingTool = DiggingToolType.Brush;
+    }
+
+    public void SwitchToPickaxe()
+    {
+        currentDiggingTool = DiggingToolType.Pickaxe;
+    }
+    #endregion
 }
