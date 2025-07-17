@@ -2,35 +2,60 @@ using UnityEngine;
 
 public class DiggingLayer : BaseMiningLayer, IDiggingArea
 {
-    public float stability = 50f;
+    [Min(0.1f)]
+    public float durability = 50f;
 
-    public void OnDigging(Vector2 diggingPos, DiggingToolType tool)
+    public void OnDigging(CircleCollider2D collision, DiggingToolType tool)
     {
-        if (tilemap != null)
+        if (tilemap == null || collision == null)
         {
-            tilemap.SetTile(grid.LocalToCell(diggingPos), null);
-            switch (tool)
-            {
-                case 0:
-                    stability -= DiggingToolStrength.diggingStrength[0];
-                    break;
-                case (DiggingToolType)1:
-                    stability -= DiggingToolStrength.diggingStrength[1];
-                    break;
-                default:
-                    stability -= 1f;
-                    break;
-            }
+            Debug.Log($"{tilemap.name}, {collision.gameObject.name}. One of these inputs is not assigned!");
+            return;
+        }
 
-            Debug.Log($"Current stability: {stability}");
+        Vector2 center = collision.bounds.center;
+        float radius = collision.radius * collision.transform.lossyScale.x;
+        BoundsInt bounds = tilemap.cellBounds;
 
-            if (miningStateMachine.uiManager != null)
+        for (int x = bounds.xMin; x < bounds.xMax; x++)
+        {
+            for (int y = bounds.yMin; y < bounds.yMax; y++)
             {
-                miningStateMachine.uiManager.SetDurability(stability);
-                //Debug.Log($"[Digging] Stability now {stability}");
+                Vector3Int tilePosition = new Vector3Int(x, y, 0);
+                Vector3 worldPosition = tilemap.CellToWorld(tilePosition) + tilemap.cellSize / 2;
+
+                // Check if the tile is within the circle
+                if (Vector2.Distance(center, worldPosition) <= radius)
+                {
+                    tilemap.SetTile(tilePosition, null);
+                }
             }
         }
-        else
-            Debug.Log("Tilemap is not found!");
+
+        UpdateDurability(tool);
+    }
+
+    private void UpdateDurability(DiggingToolType tool)
+    {
+        switch (tool)
+        {
+            case 0:
+                durability -= DiggingToolStrength.diggingStrength[0];
+                break;
+            case (DiggingToolType)1:
+                durability -= DiggingToolStrength.diggingStrength[1];
+                break;
+            default:
+                durability -= 1f;
+                break;
+        }
+
+        Debug.Log($"Current stability: {durability}");
+
+        if (miningStateMachine.uiManager != null)
+        {
+            miningStateMachine.uiManager.SetDurability(durability);
+            //Debug.Log($"[Digging] Stability now {stability}");
+        }
     }
 }

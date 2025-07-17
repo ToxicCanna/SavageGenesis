@@ -11,18 +11,22 @@ public class PlayerDigging : BasePlayerController
     {
         _camera = Camera.main;
     }
-    public void Dig()
+    public void Dig(CircleCollider2D collision)
     {
+        if (InteractHitCollider() == null) return;
+
         if (inputManager.GetInteractInput())
         {
-            var hit = Physics2D.GetRayIntersection(_camera.ScreenPointToRay(inputManager.GetInteractPosition()));
-            if (!hit.collider) return;
-
-            Debug.Log(hit.collider.gameObject.name);
-
-            iDiggingArea = hit.collider.gameObject.GetComponentInChildren<IDiggingArea>();
-            iDiggingArea?.OnDigging(hit.point, currentDiggingTool);
+            //Debug.Log(hit.collider.gameObject.name);
+            iDiggingArea = InteractHitCollider().gameObject.GetComponentInChildren<IDiggingArea>();
+            iDiggingArea?.OnDigging(collision, currentDiggingTool);
         }  
+    }
+
+    private Collider2D InteractHitCollider()
+    {
+        var hit = Physics2D.GetRayIntersection(_camera.ScreenPointToRay(inputManager.GetInteractPosition()));
+        return hit.collider;
     }
 
     #region Switch Tool
