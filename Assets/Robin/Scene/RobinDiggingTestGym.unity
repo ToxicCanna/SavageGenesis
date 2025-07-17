@@ -1572,6 +1572,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 121379239}
     - target: {fileID: 253903352149713209, guid: 3f9edd1994c84904391545e016a177ea, type: 3}
+      propertyPath: diggingDelay
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 253903352149713209, guid: 3f9edd1994c84904391545e016a177ea, type: 3}
       propertyPath: miningStateMachine
       value: 
       objectReference: {fileID: 825206012}

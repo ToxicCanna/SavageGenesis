@@ -1,9 +1,12 @@
+using System.Collections;
 using UnityEngine;
 
 public class DiggingLayer : BaseMiningLayer, IDiggingArea
 {
     [Min(0.1f)]
     public float durability = 50f;
+
+    [SerializeField] private float diggingDelay = 0.5f;
 
     public void OnDigging(CircleCollider2D collision, DiggingToolType tool)
     {
@@ -13,9 +16,19 @@ public class DiggingLayer : BaseMiningLayer, IDiggingArea
             return;
         }
 
+        StartCoroutine(HandleDigging(collision, tool));
+    }
+
+    private IEnumerator HandleDigging(CircleCollider2D collision, DiggingToolType tool)
+    {
         Vector2 center = collision.bounds.center;
         float radius = collision.radius * collision.transform.lossyScale.x;
         BoundsInt bounds = tilemap.cellBounds;
+        
+        Debug.Log("Digging");
+        miningStateMachine.diggingIcon.SetActive(false);
+
+        yield return new WaitForSeconds(diggingDelay);
 
         for (int x = bounds.xMin; x < bounds.xMax; x++)
         {
@@ -33,6 +46,7 @@ public class DiggingLayer : BaseMiningLayer, IDiggingArea
         }
 
         UpdateDurability(tool);
+        miningStateMachine.diggingIcon.SetActive(true);
     }
 
     private void UpdateDurability(DiggingToolType tool)
