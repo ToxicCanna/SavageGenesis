@@ -19,6 +19,11 @@ public class DiggingState : BaseState
     public override void UpdateState()
     {
         _miningStateMachine.playerDigging.Dig();
+
+        if (_miningStateMachine.diggingLayer.stability <= 0)
+        {
+
+        }
     }
 
     public override void ExitState() 
