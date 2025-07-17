@@ -12,7 +12,7 @@ public class GameplayUIManager : MonoBehaviour
 
     [Header("Durability Bar")]
     [SerializeField] private Image durabilityFill;
-    [SerializeField] private float maxDurability = 100f;
+    [SerializeField] private float maxDurability = 10f;
     private float currentDurability;
 
     [Header("Tool Buttons")]
@@ -61,6 +61,7 @@ public class GameplayUIManager : MonoBehaviour
     public void SetDurability(float newDurability)
     {
         currentDurability = Mathf.Clamp(newDurability, 0f, maxDurability);
+        //Debug.Log($"[UI] SetDurability called with {newDurability} (clamped to {currentDurability} / Max = {maxDurability}");
         UpdateDurabilityBar();
     }
 
@@ -68,6 +69,7 @@ public class GameplayUIManager : MonoBehaviour
     {
         maxDurability = Mathf.Max(1f, newMax);
         currentDurability = maxDurability;
+        //Debug.Log($"[UI] Max durability set to {maxDurability}");
         UpdateDurabilityBar();
     }
 

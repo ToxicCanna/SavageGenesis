@@ -4,6 +4,7 @@ public class GameplayUITestInput : MonoBehaviour
 {
     [SerializeField] private GameplayUIManager uiManager;
 
+    // NOTICE: This is just a quick debug script I threw together to ensure these systems actually worked. This is not intended to be used in the final game, and if ever used, always attach to an empty game object that is deleted afterwards.
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.J))

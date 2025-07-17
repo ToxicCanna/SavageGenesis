@@ -2,7 +2,8 @@ using UnityEngine;
 
 public class DiggingLayer : BaseMiningLayer, IDiggingArea
 {
-    public float stability = 10f;    
+    public float stability = 10f;
+    [SerializeField] private GameplayUIManager uiManager;
     public void OnDigging(Vector2 diggingPos, DiggingToolType tool)
     {
         if (tilemap != null)
@@ -22,6 +23,12 @@ public class DiggingLayer : BaseMiningLayer, IDiggingArea
             }
 
             Debug.Log($"Current stability: {stability}");
+
+            if (uiManager != null)
+            {
+                uiManager.SetDurability(stability);
+                //Debug.Log($"[Digging] Stability now {stability}");
+            }
         }
         else
             Debug.Log("Tilemap is not found!");
