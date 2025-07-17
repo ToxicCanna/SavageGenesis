@@ -47,6 +47,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   loadingImage: {fileID: 0}
+  diggingIcon: {fileID: 140667609253549494}
 --- !u!1 &3041204583552051736
 GameObject:
   m_ObjectHideFlags: 0
@@ -1912,6 +1913,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spawnAttempts: 10
   spawnBoundsOffset: 0.2
+  miningStateMachine: {fileID: 1443622836600736448}
 --- !u!1 &7405782331052387099
 GameObject:
   m_ObjectHideFlags: 0
@@ -3112,6 +3114,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   grid: {fileID: 5704360578979989490}
+  stability: 10
 --- !u!1001 &4623616329571019330
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3173,6 +3176,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0440c2b603d902140879104cbc28315c, type: 3}
+--- !u!1 &140667609253549494 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4745002885714067444, guid: 0440c2b603d902140879104cbc28315c, type: 3}
+  m_PrefabInstance: {fileID: 4623616329571019330}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &7531661509746152255 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2931760563822295421, guid: 0440c2b603d902140879104cbc28315c, type: 3}

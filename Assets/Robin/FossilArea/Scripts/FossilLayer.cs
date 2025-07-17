@@ -18,9 +18,11 @@ public class FossilLayer : BaseMiningLayer
     [NonSerialized] public bool isInitializationComplete = false;
     #endregion
 
-    private void Start()    //Initialization
+    protected override void Start()    //Initialization
     {
+        base.Start();       
         _fossilSpawner = GetComponent<FossilSpawner>();
+
         StartCoroutine(InitializeLayer());
     }
 

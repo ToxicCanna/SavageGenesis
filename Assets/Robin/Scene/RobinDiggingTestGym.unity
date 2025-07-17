@@ -768,6 +768,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 7405782331052387099, guid: 3f9edd1994c84904391545e016a177ea, type: 3}
+      propertyPath: m_TagString
+      value: DiggingLayer
+      objectReference: {fileID: 0}
     - target: {fileID: 7679128399237082975, guid: 3f9edd1994c84904391545e016a177ea, type: 3}
       propertyPath: lootTable.Array.size
       value: 2
