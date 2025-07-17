@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class DiggingLayer : BaseMiningLayer, IDiggingArea
 {
-    public float stability = 10f;
+    public float stability = 50f;
     [SerializeField] private GameplayUIManager uiManager;
     public void OnDigging(Vector2 diggingPos, DiggingToolType tool)
     {

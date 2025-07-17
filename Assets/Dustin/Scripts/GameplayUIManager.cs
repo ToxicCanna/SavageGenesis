@@ -12,7 +12,7 @@ public class GameplayUIManager : MonoBehaviour
 
     [Header("Durability Bar")]
     [SerializeField] private Image durabilityFill;
-    [SerializeField] private float maxDurability = 10f;
+    [SerializeField] private float maxDurability = 50f;
     private float currentDurability;
 
     [Header("Tool Buttons")]

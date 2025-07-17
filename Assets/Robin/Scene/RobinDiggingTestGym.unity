@@ -484,7 +484,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   boneCounterVauleText: {fileID: 913937297}
   durabilityFill: {fileID: 1941953405}
-  maxDurability: 10
+  maxDurability: 50
   pickaxeButton: {fileID: 86424383}
   brushButton: {fileID: 1695453718}
   onPickaxeSelected:
@@ -1519,7 +1519,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 253903352149713209, guid: 3f9edd1994c84904391545e016a177ea, type: 3}
       propertyPath: stability
-      value: 10
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 253903352149713209, guid: 3f9edd1994c84904391545e016a177ea, type: 3}
       propertyPath: uiManager
@@ -6677,6 +6677,10 @@ PrefabInstance:
       propertyPath: spawnBoundsOffset
       value: 0.1
       objectReference: {fileID: 0}
+    - target: {fileID: 5462613097470571143, guid: 3f9edd1994c84904391545e016a177ea, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6278684292468919896, guid: 3f9edd1994c84904391545e016a177ea, type: 3}
       propertyPath: spawnAttempts
       value: 9999
@@ -6923,6 +6927,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8777501265815403291, guid: 3f9edd1994c84904391545e016a177ea, type: 3}
       propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9070628411154835364, guid: 3f9edd1994c84904391545e016a177ea, type: 3}
+      propertyPath: currentDiggingTool
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
