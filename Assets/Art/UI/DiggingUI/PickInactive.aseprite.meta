@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 77a45f531862cd24f81a3012c85cb153
+guid: de7852f32c8712b4cb078b298a860c1b
 ScriptedImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -123,7 +123,7 @@ ScriptedImporter:
     tessellationDetail: 0
     uvTransform: {x: 0, y: 0}
   animatedSpriteImportData:
-  - name: PickButtonIA
+  - name: PickActive
     originalName: 
     pivot: {x: 0.5, y: 0}
     alignment: 9
@@ -135,7 +135,7 @@ ScriptedImporter:
       y: 4
       width: 108
       height: 44
-    spriteID: c58e2a0e50fb24f46a9a9f10407169cf
+    spriteID: 71184248ba785714db6738c55d379fd2
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -148,17 +148,17 @@ ScriptedImporter:
   asepriteLayers:
   - layerIndex: 0
     uuid:
-      value0: 2722414003
+      value0: 667588061
       value1: 0
       value2: 0
       value3: 0
     guid: 0
-    name: PickButtonIA
+    name: PickActive
     layerFlags: 0
     layerType: 0
     blendMode: 0
     cells:
-    - name: PickButtonIA
+    - name: PickInactive
       frameIndex: 0
       additiveSortOrder: 0
       cellRect:
@@ -166,7 +166,7 @@ ScriptedImporter:
         y: 0
         width: 108
         height: 44
-      spriteId: c58e2a0e50fb24f46a9a9f10407169cf
+      spriteId: 71184248ba785714db6738c55d379fd2
     linkedCells: []
     parentIndex: -1
   platformSettings:

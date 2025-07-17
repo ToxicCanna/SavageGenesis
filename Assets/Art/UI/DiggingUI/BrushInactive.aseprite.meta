@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 7366934cbe7005749950a85a250a4150
+guid: 3e7ee7be3c3c6f94d883be0065c0f32a
 ScriptedImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -123,7 +123,7 @@ ScriptedImporter:
     tessellationDetail: 0
     uvTransform: {x: 0, y: 0}
   animatedSpriteImportData:
-  - name: BrushButtonIA
+  - name: BrushActive
     originalName: 
     pivot: {x: 0.5, y: 0}
     alignment: 9
@@ -135,7 +135,7 @@ ScriptedImporter:
       y: 4
       width: 108
       height: 44
-    spriteID: 068dabc39d914054db27e4d561a1e9bc
+    spriteID: 95b9d2849fbb6d94f9e3b6a194fff89f
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -148,17 +148,17 @@ ScriptedImporter:
   asepriteLayers:
   - layerIndex: 0
     uuid:
-      value0: 4241039448
+      value0: 2064890392
       value1: 0
       value2: 0
       value3: 0
     guid: 0
-    name: BrushButtonIA
+    name: BrushActive
     layerFlags: 0
     layerType: 0
     blendMode: 0
     cells:
-    - name: BrushButtonIA
+    - name: BrushInactive
       frameIndex: 0
       additiveSortOrder: 0
       cellRect:
@@ -166,7 +166,7 @@ ScriptedImporter:
         y: 0
         width: 108
         height: 44
-      spriteId: 068dabc39d914054db27e4d561a1e9bc
+      spriteId: 95b9d2849fbb6d94f9e3b6a194fff89f
     linkedCells: []
     parentIndex: -1
   platformSettings:
