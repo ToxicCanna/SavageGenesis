@@ -46,3 +46,19 @@ public enum SkillSlot
     Four,
     Five
 };
+
+public enum DinosaurSlot
+{ 
+    One,
+    Two,
+    Three, 
+    Four
+};
+
+public enum GameMode
+{ 
+    OneVOne,
+    OneVTwo,
+    TwoVOne,
+    TwoVTwo
+};

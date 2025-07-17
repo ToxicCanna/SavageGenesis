@@ -9,6 +9,8 @@ public class ActionSelection : MonoBehaviour
 
     private ActionType cursorHover;
 
+    private bool isApplicationQuitting = false;
+
     void OnEnable()
     { 
         transform.localPosition = cursorLocationPresetOne;
@@ -18,7 +20,14 @@ public class ActionSelection : MonoBehaviour
 
     void OnDisable()
     {
-       PlayerController.Instance.ActionSelectionRemoveListener();
+        if (isApplicationQuitting) return;
+        
+        PlayerController.Instance.ActionSelectionRemoveListener();
+    }
+
+    void OnApplicationQuit()
+    {
+        isApplicationQuitting = true;
     }
 
     public void PlayerPressedUp()

@@ -19,6 +19,19 @@ public class PlayerController : Code.Scripts.Managers.Singleton<PlayerController
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        if (confirmPressed == null)
+            confirmPressed = new UnityEvent();
+        if (cancelPressed == null)
+            cancelPressed = new UnityEvent();
+        if (upPressed == null)
+            upPressed = new UnityEvent();
+        if (downPressed == null)
+            downPressed = new UnityEvent();
+        if (leftPressed == null)
+            leftPressed = new UnityEvent();
+        if (rightPressed == null)
+            rightPressed = new UnityEvent();
+
         confirmPressed.AddListener(combatSM.PlayerPressedConfirm);
     }
 
@@ -31,9 +44,13 @@ public class PlayerController : Code.Scripts.Managers.Singleton<PlayerController
 
     public void ActionSelectionRemoveListener()
     {
-        upPressed.RemoveListener(actionSelection.PlayerPressedUp);
-        downPressed.RemoveListener(actionSelection.PlayerPressedDown);
-        confirmPressed.RemoveListener(actionSelection.PlayerPressedConfirm);
+        if(upPressed != null)
+            upPressed.RemoveListener(actionSelection.PlayerPressedUp);
+        if (downPressed != null)
+            downPressed.RemoveListener(actionSelection.PlayerPressedDown);
+        if (confirmPressed != null)
+            confirmPressed.RemoveListener(actionSelection.PlayerPressedConfirm);
+
     }
 
     public void SkillSelectionAddListener()
@@ -48,12 +65,18 @@ public class PlayerController : Code.Scripts.Managers.Singleton<PlayerController
 
     public void SkillSelectionRemoveListener() 
     {
-        upPressed.RemoveListener(skillSelection.PlayerPressedUp);
-        downPressed.RemoveListener(skillSelection.PlayerPressedDown);
-        leftPressed.RemoveListener(skillSelection.PlayerPressedLeft);
-        rightPressed.RemoveListener(skillSelection.PlayerPressedRight);
-        confirmPressed.RemoveListener(skillSelection.PlayerPressedConfirm);
-        cancelPressed.RemoveListener(skillSelection.PlayerPressedCancel);
+        if (upPressed != null)
+            upPressed.RemoveListener(skillSelection.PlayerPressedUp);
+        if (downPressed != null)
+            downPressed.RemoveListener(skillSelection.PlayerPressedDown);
+        if (leftPressed != null)
+            leftPressed.RemoveListener(skillSelection.PlayerPressedLeft);
+        if (rightPressed != null)
+            rightPressed.RemoveListener(skillSelection.PlayerPressedRight);
+        if (confirmPressed != null)
+            confirmPressed.RemoveListener(skillSelection.PlayerPressedConfirm);
+        if (cancelPressed != null)
+            cancelPressed.RemoveListener(skillSelection.PlayerPressedCancel);
     }
 
     // Update is called once per frame

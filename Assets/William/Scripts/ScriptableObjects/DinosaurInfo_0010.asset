@@ -12,19 +12,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f98a35a327854143a6375c115949b06, type: 3}
   m_Name: DinosaurInfo_0010
   m_EditorClassIdentifier: 
-  dexNumber: 0
-  dinosaurName: 
-  dinosaurTypeOne: 0
+  dexNumber: 201
+  dinosaurName: Tempasaurous
+  dinosaurTypeOne: 1
   dinosaurTypeTwo: 0
-  baseExp: 0
+  baseExp: 20
   expNeededRate: 0.4
-  baseStrength: 0
+  baseStrength: 85
   strengthGrowthRate: 0.4
-  baseDefense: 0
+  baseDefense: 85
   defenseGrowthRate: 0.4
-  baseAgility: 0
+  baseAgility: 50
   agilityGrowthRate: 0.4
-  baseMaxHP: 0
+  baseMaxHP: 50
   maxHpGrowthRate: 0.4
-  dinosaurCombatSprite: {fileID: 0}
-  dinosaurInventorySprite: {fileID: 0}
+  dinosaurCombatSprite: {fileID: -562560603093384636, guid: 406cce851ef87174eaa46674818b7714, type: 3}
+  dinosaurInventorySprite: {fileID: -8491446884446631509, guid: b716cbb3073f2e74e8f28cd7b7b08f0c, type: 3}
