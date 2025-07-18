@@ -278,9 +278,9 @@ public partial class @SavageGenesis_PlayerInput: IInputActionCollection2, IDispo
                 },
                 {
                     ""name"": ""Click"",
-                    ""type"": ""PassThrough"",
+                    ""type"": ""Button"",
                     ""id"": ""6c54fc11-4f65-476d-b93f-b007c3df877d"",
-                    ""expectedControlType"": ""Button"",
+                    ""expectedControlType"": """",
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true

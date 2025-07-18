@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 8760842261651433835}
   - component: {fileID: 1443622836600736448}
   m_Layer: 0
-  m_Name: TestDiggingArea
+  m_Name: DiggingArea
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -47,7 +47,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   loadingImage: {fileID: 0}
+  uiManager: {fileID: 0}
   diggingIcon: {fileID: 140667609253549494}
+  waitInSecAfterFinishDigging: 3
 --- !u!1 &3041204583552051736
 GameObject:
   m_ObjectHideFlags: 0
@@ -1897,6 +1899,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   grid: {fileID: 5704360578979989490}
+  miningStateMachine: {fileID: 0}
   lootTable: []
   maxFossils: 5
 --- !u!114 &3088069041842991650
@@ -1913,7 +1916,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spawnAttempts: 10
   spawnBoundsOffset: 0.2
-  miningStateMachine: {fileID: 1443622836600736448}
 --- !u!1 &7405782331052387099
 GameObject:
   m_ObjectHideFlags: 0
@@ -3114,6 +3116,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   grid: {fileID: 5704360578979989490}
+  miningStateMachine: {fileID: 0}
   stability: 10
 --- !u!1001 &4623616329571019330
 PrefabInstance:
@@ -3123,6 +3126,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 8760842261651433835}
     m_Modifications:
+    - target: {fileID: 108985677417235380, guid: 0440c2b603d902140879104cbc28315c, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2931760563822295421, guid: 0440c2b603d902140879104cbc28315c, type: 3}
       propertyPath: m_LocalPosition.x
       value: -5
@@ -3175,6 +3182,10 @@ PrefabInstance:
       propertyPath: diggingLayer
       value: 
       objectReference: {fileID: 253903352149713209}
+    - target: {fileID: 9005678822146976036, guid: 0440c2b603d902140879104cbc28315c, type: 3}
+      propertyPath: miningStateMachine
+      value: 
+      objectReference: {fileID: 1443622836600736448}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

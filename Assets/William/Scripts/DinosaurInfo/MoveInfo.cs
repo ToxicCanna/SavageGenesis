@@ -3,6 +3,7 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "MoveInfo", menuName = "Scriptable Objects/MoveInfo")]
 public class MoveInfo : ScriptableObject
 {
+    public string moveName;
     public DinosaurType moveType;
 
     public int moveStrength;
@@ -13,7 +14,9 @@ public class MoveInfo : ScriptableObject
     public StatusType statusType;
     public float statusChance;
 
-    public string buffsAndDebuff;
+    public int strengthBuffDebuff;
+    public int defenseBuffDebuff;
+    public int agilityBuffDebuff;
 
     public bool moveCleansesUserStatus;
     public bool moveCleansesUserBuffs;
@@ -28,4 +31,7 @@ public class MoveInfo : ScriptableObject
     public bool moveIsCounter;
 
     public bool regenUser;
+
+    public bool canHitBothEnemy;
+    public bool canHitEveryone;
 }

@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9ed16c14bdacaed47b5add9b9e083d2e, type: 3}
   m_Name: MoveInfo_0010
   m_EditorClassIdentifier: 
+  moveName: Bite_tempPlaceholder
   moveType: 0
   moveStrength: 70
   moveCooldown: 5
@@ -19,13 +20,17 @@ MonoBehaviour:
   moveSpeed: 0
   statusType: 0
   statusChance: 0
-  buffsAndDebuff: 000
+  strengthBuffDebuff: 0
+  defenseBuffDebuff: 0
+  agilityBuffDebuff: 0
   moveCleansesUserStatus: 0
   moveCleansesUserBuffs: 0
   moveCleansesOpponentBuffs: 0
   critRate: 0
   critDamageMultiplyer: 0
-  multiHit: 0
-  moveCanBeCountered: 0
+  multiHit: 1
+  moveCanBeCountered: 1
   moveIsCounter: 0
   regenUser: 0
+  canHitBothEnemy: 0
+  canHitEveryone: 0

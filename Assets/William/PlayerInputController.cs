@@ -4,9 +4,10 @@ using UnityEngine;
 
 public class PlayerInputController : MonoBehaviour
 {
+    PlayerInput playerI;
     void OnEnable()
     {
-        PlayerInput playerI = new PlayerInput();
+        playerI = new PlayerInput();
         if (playerI != null)
         {
             //add in attack here once I am ready.
@@ -18,5 +19,13 @@ public class PlayerInputController : MonoBehaviour
             playerI.Combat.Cancel.performed += (val) => PlayerController.Instance.OnCancel();
         }
         playerI.Enable();
+    }
+
+    private void OnDisable()
+    {
+        if (playerI != null)
+        {
+            playerI.Disable();
+        }
     }
 }

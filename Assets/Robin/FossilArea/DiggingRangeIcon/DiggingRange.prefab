@@ -9,13 +9,15 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 330723779288680335}
-  m_Layer: 0
+  - component: {fileID: 7112209819520946427}
+  - component: {fileID: 191088182821027909}
+  m_Layer: 2
   m_Name: BrushRange
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &330723779288680335
 Transform:
   m_ObjectHideFlags: 0
@@ -32,6 +34,69 @@ Transform:
   - {fileID: 7217665121894013078}
   m_Father: {fileID: 2931760563822295421}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!58 &7112209819520946427
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 108985677417235380}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0.5, y: 0.5}
+  m_Radius: 0.5
+--- !u!50 &191088182821027909
+Rigidbody2D:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 108985677417235380}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDamping: 0
+  m_AngularDamping: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 4
 --- !u!1 &857226705107392709
 GameObject:
   m_ObjectHideFlags: 0
@@ -41,8 +106,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8269963851856663765}
-  m_Layer: 0
-  m_Name: PickAxeRange
+  - component: {fileID: 7070159721362233604}
+  - component: {fileID: 2740747635292282193}
+  m_Layer: 2
+  m_Name: PickaxeRange
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -64,6 +131,69 @@ Transform:
   - {fileID: 1935195374230157072}
   m_Father: {fileID: 2931760563822295421}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!58 &7070159721362233604
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 857226705107392709}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0.5, y: 0.5}
+  m_Radius: 1
+--- !u!50 &2740747635292282193
+Rigidbody2D:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 857226705107392709}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDamping: 0
+  m_AngularDamping: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 4
 --- !u!1 &4123511811598454014
 GameObject:
   m_ObjectHideFlags: 0
@@ -74,7 +204,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4943579155368808553}
   - component: {fileID: 5063311063039252831}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Cross_Up
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -161,7 +291,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4866662605570766554}
   - component: {fileID: 2143659759962780476}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Cross_Down
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -248,7 +378,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7443436854007404422}
   - component: {fileID: 7770276932123017927}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Cross_Right
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -335,7 +465,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2931760563822295421}
   - component: {fileID: 9005678822146976036}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: DiggingRange
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -372,6 +502,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   grid: {fileID: 0}
+  miningStateMachine: {fileID: 0}
 --- !u!1 &6290574707563562771
 GameObject:
   m_ObjectHideFlags: 0
@@ -382,7 +513,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7217665121894013078}
   - component: {fileID: 3577506148530657627}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -469,7 +600,7 @@ GameObject:
   m_Component:
   - component: {fileID: 715412053637287547}
   - component: {fileID: 474950722170021813}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Cross_Left
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -556,7 +687,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1935195374230157072}
   - component: {fileID: 6629095392366044586}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: CenterSprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}

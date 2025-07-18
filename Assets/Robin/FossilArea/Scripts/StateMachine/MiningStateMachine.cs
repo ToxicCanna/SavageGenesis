@@ -6,9 +6,10 @@ using UnityEngine.UI;
 public class MiningStateMachine : BaseStateMachine
 {
     public Image loadingImage;
-    public Image gameplayUIPanel;
+    public GameplayUIManager uiManager;
     public GameObject diggingIcon;
-    
+    public float waitInSecAfterFinishDigging = 3f;
+
     #region Mining States
     //Keep Track of all mining states
     private InitializeState _initialState;
