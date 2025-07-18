@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 public class SkillSelection : MonoBehaviour
 {
@@ -10,18 +11,64 @@ public class SkillSelection : MonoBehaviour
 
     [SerializeField] private LevelInfo levelInfo;
 
+    private InventoryDinosaur combatSlotOne;
+
     private SkillSlot cursorHover;
+
+    private bool isApplicationQuitting = false;
+
+    public void LoadMoveSet()
+    {
+        combatSlotOne = levelInfo.GetPlayerDinoInventory().LoadCombatSlotOne();
+        levelInfo.GetSkillOne().GetComponent<Text>().text = combatSlotOne.moveOne.moveName;
+        if (combatSlotOne.moveTwoEmpty)
+        {
+            levelInfo.GetSkillTwo().GetComponent<Text>().text = "--";
+            levelInfo.GetSkillThree().GetComponent<Text>().text = "--";
+            levelInfo.GetSkillFour().GetComponent<Text>().text = "--";
+            levelInfo.GetSkillFive().GetComponent<Text>().text = "--";
+        }
+        else if (combatSlotOne.moveThreeEmpty)
+        {
+            levelInfo.GetSkillTwo().GetComponent<Text>().text = combatSlotOne.moveTwo.moveName;
+            levelInfo.GetSkillThree().GetComponent<Text>().text = "--";
+            levelInfo.GetSkillFour().GetComponent<Text>().text = "--";
+            levelInfo.GetSkillFive().GetComponent<Text>().text = "--";
+        }
+        else if (combatSlotOne.moveFourEmpty)
+        {
+            levelInfo.GetSkillTwo().GetComponent<Text>().text = combatSlotOne.moveTwo.moveName;
+            levelInfo.GetSkillThree().GetComponent<Text>().text = combatSlotOne.moveThree.moveName;
+            levelInfo.GetSkillFour().GetComponent<Text>().text = "--";
+            levelInfo.GetSkillFive().GetComponent<Text>().text = "--";
+        }
+        else if (combatSlotOne.moveFiveEmpty)
+        {
+            levelInfo.GetSkillTwo().GetComponent<Text>().text = combatSlotOne.moveTwo.moveName; ;
+            levelInfo.GetSkillThree().GetComponent<Text>().text = combatSlotOne.moveThree.moveName;
+            levelInfo.GetSkillFour().GetComponent<Text>().text = combatSlotOne.moveFour.moveName;
+            levelInfo.GetSkillFive().GetComponent<Text>().text = "--";
+        }
+    }
 
     void OnEnable()
     {
         transform.localPosition = cursorLocationPresetOne;
         cursorHover = SkillSlot.One;
         PlayerController.Instance.SkillSelectionAddListener();
+        LoadMoveSet();
     }
 
     void OnDisable()
     {
+        if (isApplicationQuitting) return;
+
         PlayerController.Instance.SkillSelectionRemoveListener();
+    }
+
+    void OnApplicationQuit()
+    {
+        isApplicationQuitting = true;
     }
 
     public void PlayerPressedUp()
@@ -117,7 +164,12 @@ public class SkillSelection : MonoBehaviour
     }
 
     public void PlayerPressedConfirm() {
-        
+        if (combatSlotOne.moveTwoEmpty && cursorHover == SkillSlot.Two) return;
+        if (combatSlotOne.moveThreeEmpty && cursorHover == SkillSlot.Three) return;
+        if (combatSlotOne.moveFourEmpty && cursorHover == SkillSlot.Four) return;
+        if (combatSlotOne.moveFiveEmpty && cursorHover == SkillSlot.Five) return;
+
+
     }
 
     public void PlayerPressedCancel() 

@@ -23,6 +23,9 @@ public class PlayerInputController : MonoBehaviour
 
     private void OnDisable()
     {
-        playerI.Disable();
+        if (playerI != null)
+        {
+            playerI.Disable();
+        }
     }
 }

@@ -30,6 +30,8 @@ public class LevelInfo : MonoBehaviour
     [SerializeField] private GameObject playerStatusBarBackground;
     [SerializeField] private GameObject playerStatusText;
 
+    [SerializeField] private GameObject playerExpBar;
+
     [SerializeField] private GameObject enemyNameText;
     [SerializeField] private GameObject enemyLevelText;
     [SerializeField] private GameObject enemyHealthBar;
@@ -37,6 +39,11 @@ public class LevelInfo : MonoBehaviour
 
     [SerializeField] private GameObject enemyStatusBarBackground;
     [SerializeField] private GameObject enemyStatusText;
+
+    [SerializeField] private PlayerInventory playerDinoInventory;
+
+    [SerializeField] private PlayerInventory enemyDinoInventory;
+
 
     public GameObject GetBacigroundImage()
     { return backgroundImage; }
@@ -101,6 +108,9 @@ public class LevelInfo : MonoBehaviour
     public GameObject GetPlayerStatusText()
     { return playerStatusText; }
 
+    public GameObject GetPlayerExpBar()
+    { return playerExpBar; }
+
     public GameObject GetEnemyNameText()
     { return enemyNameText; }
 
@@ -119,5 +129,14 @@ public class LevelInfo : MonoBehaviour
     public GameObject GetEnemyStatusText()
     { return enemyStatusText; }
 
+    public PlayerInventory GetPlayerDinoInventory()
+    {
+        return playerDinoInventory;
+    }
+
+    public PlayerInventory GetEnemyDinoInventory()
+    {
+        return enemyDinoInventory;
+    }
 
 }
