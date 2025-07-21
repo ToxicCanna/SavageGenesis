@@ -272,6 +272,11 @@ public class ActionStep : BaseState
                             playerCombatSlotOne.BuffDebuff(currentMove.strengthBuffDebuffUser, currentMove.defenseBuffDebuffUser, currentMove.agilityBuffDebuffUser);
                         }
 
+                        if (!playerCombatSlotOne.isFainted && currentMove.regenUser)
+                        {
+                            playerCombatSlotOne.Regen();
+                        }
+
                     }
                     else
                     { 
@@ -297,6 +302,10 @@ public class ActionStep : BaseState
                                 playerCombatSlotOne.BuffDebuff(currentMove.strengthBuffDebuffUser, currentMove.defenseBuffDebuffUser, currentMove.agilityBuffDebuffUser);
                             }
 
+                            if (!playerCombatSlotOne.isFainted && currentMove.regenUser)
+                            {
+                                playerCombatSlotOne.Regen();
+                            }
                         }
 
                     }
@@ -361,6 +370,11 @@ public class ActionStep : BaseState
                             enemyCombatSlotOne.BuffDebuff(currentMove.strengthBuffDebuffUser, currentMove.defenseBuffDebuffUser, currentMove.agilityBuffDebuffUser);
                         }
 
+                        if (!enemyCombatSlotOne.isFainted && currentMove.regenUser)
+                        {
+                            enemyCombatSlotOne.Regen();
+                        }
+
                     }
                     else
                     {
@@ -386,6 +400,10 @@ public class ActionStep : BaseState
                                 enemyCombatSlotOne.BuffDebuff(currentMove.strengthBuffDebuffUser, currentMove.defenseBuffDebuffUser, currentMove.agilityBuffDebuffUser);
                             }
 
+                            if (!enemyCombatSlotOne.isFainted && currentMove.regenUser)
+                            {
+                                enemyCombatSlotOne.Regen();
+                            }
                         }
 
                     }

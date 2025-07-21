@@ -29,7 +29,7 @@ public class InventoryDinosaur : MonoBehaviour
     [field: SerializeField] public int currentHP { get; private set; }
     [field: SerializeField] public int currentExp { get; private set; }
 
-    private bool isFainted;
+    [field: SerializeField] public bool isFainted { get; private set; }
 
     [field: SerializeField] public MoveInfo moveOne { get; private set; }
     [field: SerializeField] public MoveInfo moveTwo { get; private set; }
