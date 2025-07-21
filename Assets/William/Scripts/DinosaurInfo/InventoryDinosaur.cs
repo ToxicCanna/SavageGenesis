@@ -146,7 +146,10 @@ public class InventoryDinosaur : MonoBehaviour
     private void SetCurrentHP(int hpTo)
     { 
         currentHP = hpTo;
-        if (currentHP <= 0) { isFainted = true; }
+        if (currentHP <= 0) { 
+            isFainted = true;
+            currentHP = 0;
+        }
     }
 
     public void TakeDamage(int damage)

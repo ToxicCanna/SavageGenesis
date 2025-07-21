@@ -661,9 +661,14 @@ MonoBehaviour:
   <dinoInfoRef>k__BackingField: {fileID: 0}
   <nickName>k__BackingField: 
   <currentLevel>k__BackingField: 0
+  <currentStatus>k__BackingField: 0
   isEmpty: 1
   usedByEnemy: 0
   <currentExpNeeded>k__BackingField: 0
+  <currentStrength>k__BackingField: 0
+  <currentDefense>k__BackingField: 0
+  <currentAgility>k__BackingField: 0
+  <currentMaxHP>k__BackingField: 0
   <currentHP>k__BackingField: 0
   <currentExp>k__BackingField: 0
   <moveOne>k__BackingField: {fileID: 0}
@@ -1006,9 +1011,14 @@ MonoBehaviour:
   <dinoInfoRef>k__BackingField: {fileID: 0}
   <nickName>k__BackingField: 
   <currentLevel>k__BackingField: 0
+  <currentStatus>k__BackingField: 0
   isEmpty: 1
   usedByEnemy: 0
   <currentExpNeeded>k__BackingField: 0
+  <currentStrength>k__BackingField: 0
+  <currentDefense>k__BackingField: 0
+  <currentAgility>k__BackingField: 0
+  <currentMaxHP>k__BackingField: 0
   <currentHP>k__BackingField: 0
   <currentExp>k__BackingField: 0
   <moveOne>k__BackingField: {fileID: 0}
@@ -2119,12 +2129,16 @@ MonoBehaviour:
   _stateMachine: {fileID: 280089343}
   <playerChoice_ActionType>k__BackingField: 0
   <playerChoice_MoveInfo>k__BackingField: {fileID: 0}
+  <playerChoice_MoveOneTarget>k__BackingField: 0
   <switchFrom>k__BackingField: {fileID: 0}
   <switchTo>k__BackingField: {fileID: 0}
   <playerChoice_ActionTypeTwo>k__BackingField: 0
   <playerChoice_MoveInfoTwo>k__BackingField: {fileID: 0}
+  <playerChoice_MoveTwoTarget>k__BackingField: 0
   <switchFromTwo>k__BackingField: {fileID: 0}
   <switchToTwo>k__BackingField: {fileID: 0}
+  <enemy_MoveInfoOne>k__BackingField: {fileID: 0}
+  <enemy_MoveInfoTwo>k__BackingField: {fileID: 0}
   <loadingCount>k__BackingField: 0
 --- !u!1 &1260084310
 GameObject:
@@ -2510,9 +2524,14 @@ MonoBehaviour:
   <dinoInfoRef>k__BackingField: {fileID: 11400000, guid: cecefb8d6f3629946b8e2e6172a11dee, type: 2}
   <nickName>k__BackingField: 
   <currentLevel>k__BackingField: 3
+  <currentStatus>k__BackingField: 0
   isEmpty: 0
   usedByEnemy: 1
   <currentExpNeeded>k__BackingField: 1
+  <currentStrength>k__BackingField: 0
+  <currentDefense>k__BackingField: 0
+  <currentAgility>k__BackingField: 0
+  <currentMaxHP>k__BackingField: 0
   <currentHP>k__BackingField: 0
   <currentExp>k__BackingField: 0
   <moveOne>k__BackingField: {fileID: 11400000, guid: af0a865a4cb665846a58da5562560273, type: 2}
@@ -2520,10 +2539,10 @@ MonoBehaviour:
   <moveThree>k__BackingField: {fileID: 0}
   <moveFour>k__BackingField: {fileID: 0}
   <moveFive>k__BackingField: {fileID: 0}
-  <moveTwoEmpty>k__BackingField: 0
-  <moveThreeEmpty>k__BackingField: 0
-  <moveFourEmpty>k__BackingField: 0
-  <moveFiveEmpty>k__BackingField: 0
+  <moveTwoEmpty>k__BackingField: 1
+  <moveThreeEmpty>k__BackingField: 1
+  <moveFourEmpty>k__BackingField: 1
+  <moveFiveEmpty>k__BackingField: 1
 --- !u!1 &1410030304
 GameObject:
   m_ObjectHideFlags: 0
@@ -2571,9 +2590,14 @@ MonoBehaviour:
   <dinoInfoRef>k__BackingField: {fileID: 0}
   <nickName>k__BackingField: 
   <currentLevel>k__BackingField: 0
+  <currentStatus>k__BackingField: 0
   isEmpty: 1
   usedByEnemy: 0
   <currentExpNeeded>k__BackingField: 0
+  <currentStrength>k__BackingField: 0
+  <currentDefense>k__BackingField: 0
+  <currentAgility>k__BackingField: 0
+  <currentMaxHP>k__BackingField: 0
   <currentHP>k__BackingField: 0
   <currentExp>k__BackingField: 0
   <moveOne>k__BackingField: {fileID: 0}
@@ -2711,9 +2735,14 @@ MonoBehaviour:
   <dinoInfoRef>k__BackingField: {fileID: 0}
   <nickName>k__BackingField: 
   <currentLevel>k__BackingField: 0
+  <currentStatus>k__BackingField: 0
   isEmpty: 1
   usedByEnemy: 0
   <currentExpNeeded>k__BackingField: 0
+  <currentStrength>k__BackingField: 0
+  <currentDefense>k__BackingField: 0
+  <currentAgility>k__BackingField: 0
+  <currentMaxHP>k__BackingField: 0
   <currentHP>k__BackingField: 0
   <currentExp>k__BackingField: 0
   <moveOne>k__BackingField: {fileID: 0}
@@ -3117,9 +3146,14 @@ MonoBehaviour:
   <dinoInfoRef>k__BackingField: {fileID: 0}
   <nickName>k__BackingField: 
   <currentLevel>k__BackingField: 0
+  <currentStatus>k__BackingField: 0
   isEmpty: 1
   usedByEnemy: 0
   <currentExpNeeded>k__BackingField: 0
+  <currentStrength>k__BackingField: 0
+  <currentDefense>k__BackingField: 0
+  <currentAgility>k__BackingField: 0
+  <currentMaxHP>k__BackingField: 0
   <currentHP>k__BackingField: 0
   <currentExp>k__BackingField: 0
   <moveOne>k__BackingField: {fileID: 0}
@@ -3379,9 +3413,14 @@ MonoBehaviour:
   <dinoInfoRef>k__BackingField: {fileID: 11400000, guid: cecefb8d6f3629946b8e2e6172a11dee, type: 2}
   <nickName>k__BackingField: Maw
   <currentLevel>k__BackingField: 5
+  <currentStatus>k__BackingField: 0
   isEmpty: 0
   usedByEnemy: 0
   <currentExpNeeded>k__BackingField: 1
+  <currentStrength>k__BackingField: 0
+  <currentDefense>k__BackingField: 0
+  <currentAgility>k__BackingField: 0
+  <currentMaxHP>k__BackingField: 0
   <currentHP>k__BackingField: 0
   <currentExp>k__BackingField: 0
   <moveOne>k__BackingField: {fileID: 11400000, guid: af0a865a4cb665846a58da5562560273, type: 2}
@@ -3472,9 +3511,14 @@ MonoBehaviour:
   <dinoInfoRef>k__BackingField: {fileID: 0}
   <nickName>k__BackingField: 
   <currentLevel>k__BackingField: 0
+  <currentStatus>k__BackingField: 0
   isEmpty: 1
   usedByEnemy: 0
   <currentExpNeeded>k__BackingField: 0
+  <currentStrength>k__BackingField: 0
+  <currentDefense>k__BackingField: 0
+  <currentAgility>k__BackingField: 0
+  <currentMaxHP>k__BackingField: 0
   <currentHP>k__BackingField: 0
   <currentExp>k__BackingField: 0
   <moveOne>k__BackingField: {fileID: 0}
