@@ -51,6 +51,8 @@ public class ActionStep : BaseState
         {
             skipPlayerSlotTwo = true;
             skipEnemySlotTwo = true;
+
+            Debug.Log("OnevOne");
         }
         else if (GameManager.Instance.GetCurrentGameMode() == GameMode.OneVTwo)
         {
@@ -61,10 +63,10 @@ public class ActionStep : BaseState
             skipEnemySlotTwo = true;
         }
 
-        GameManager.Instance.enemy_MoveInfoOne = _stateMachine.levelInfo.GetEnemyDinoInventory().LoadCombatSlotOne().RandomMove();
+        GameManager.Instance.GenerateRandomMovesSlotOne();
         if (!skipEnemySlotTwo && !enemyCombatSlotTwo.IsEmpty())
         {
-            GameManager.Instance.enemy_MoveInfoTwo = enemyCombatSlotTwo.RandomMove();
+            GameManager.Instance.GenerateRandomMovesSlotTwo();
         }
 
         // now we have four moves. 
@@ -97,8 +99,8 @@ public class ActionStep : BaseState
         //act out attack
         PerformFastestAttack();
         PerformFastestAttack();
-        PerformFastestAttack();
-        PerformFastestAttack();
+       // PerformFastestAttack();
+        //PerformFastestAttack();
 
         
     }
@@ -122,6 +124,27 @@ public class ActionStep : BaseState
         {
             _stateMachine.JumpToPlayerMakeDecisionState();
         }
+    }
+
+    private int CalculateDamage(InventoryDinosaur attackFrom, InventoryDinosaur attackTo, MoveInfo attackMove, float targetMultiplier)
+    {
+        bool critHit = Random.Range(1, 101) < attackMove.critRate;
+        float critMulti = 1f;
+        if (critHit)
+        {
+            critMulti = attackMove.critDamageMultiplyer;
+        }
+        float STAB = 1f;
+        if (attackFrom.GetType() == attackMove.GetType())
+        {
+            STAB = 1.5f;
+        }
+        float randomFactor = Random.Range(0.85f, 1.01f);
+
+        int damage = Mathf.RoundToInt((((((2 * attackFrom.currentLevel) / 5) + 2) * attackMove.moveStrength * attackFrom.currentStrength / attackTo.currentDefense/50)+2) * targetMultiplier* critMulti * STAB *randomFactor);
+        Debug.Log("damage: "+ damage);
+
+        return damage;
     }
 
     private void PerformFastestAttack()
@@ -202,17 +225,86 @@ public class ActionStep : BaseState
 
         //fastest actor performs attack
         //attacking
-        //step 1 check for multiattack
-        //
+        //step 1 apply counter to self if countering
+        //step 2 check for multiattack
+        //step 3 do damage, including crit
+        //step 4 if hit someone countering and move can be countered, get countered
+        //step 5 apply status
+        //step 6 apply buffdebuff
+        //step 7 regen
+        MoveInfo currentMove;
         switch (currentFastestActor)
         {
             case CombatActors.PlayerSlotOne:
+                currentMove = GameManager.Instance.playerChoice_MoveInfo;
                 if (GameManager.Instance.GetCurrentGameMode() == GameMode.OneVOne)
                 {
                     playerCombatSlotOne.CalculateBuffDebuffs();
                     enemyCombatSlotOne.CalculateBuffDebuffs();
 
+                    if (currentMove.moveIsCounter)
+                    {
+                        playerSlotOneCountering = true;
+                        skipPlayerSlotOne = true;
+                        return;
+                    }
+                    if (enemySlotOneCountering && currentMove.moveCanBeCountered)
+                    {
+                        
+                        playerCombatSlotOne.TakeDamage(CalculateDamage(playerCombatSlotOne, enemyCombatSlotOne, currentMove, 1f));
 
+                        //use dotween here later
+                        _stateMachine.levelInfo.GetPlayerHealthBar().transform.localScale = new Vector3((float) playerCombatSlotOne.currentHP / playerCombatSlotOne.currentMaxHP, 1, 1);
+                        
+
+                        if (Random.Range(1, 101) < currentMove.statusChance * 100 && playerCombatSlotOne.currentStatus == StatusType.None)
+                        {
+                            playerCombatSlotOne.InflictStatus(currentMove.statusType);
+                        }
+
+                        if (Random.Range(1, 101) < currentMove.statChangeChance * 100)
+                        {
+                            playerCombatSlotOne.BuffDebuff(currentMove.strengthBuffDebuff, currentMove.defenseBuffDebuff, currentMove.agilityBuffDebuff);
+                        }
+
+                        if (Random.Range(1, 101) < currentMove.statChangeChance * 100)
+                        {
+                            playerCombatSlotOne.BuffDebuff(currentMove.strengthBuffDebuffUser, currentMove.defenseBuffDebuffUser, currentMove.agilityBuffDebuffUser);
+                        }
+
+                    }
+                    else
+                    { 
+                        for (int i = 0; i < GameManager.Instance.playerChoice_MoveInfo.multiHit; i++)
+                        {
+                            enemyCombatSlotOne.TakeDamage(CalculateDamage(playerCombatSlotOne, enemyCombatSlotOne, currentMove, 1f));
+                        
+                            //use dotween here later
+                            _stateMachine.levelInfo.GetEnemyHealthBar().transform.localScale = new Vector3((float) enemyCombatSlotOne.currentHP / enemyCombatSlotOne.currentMaxHP, 1, 1);
+
+                            if (Random.Range(1, 101) < currentMove.statusChance * 100 && playerCombatSlotOne.currentStatus == StatusType.None)
+                            {
+                                enemyCombatSlotOne.InflictStatus(currentMove.statusType);
+                            }
+
+                            if (Random.Range(1, 101) < currentMove.statChangeChance * 100)
+                            {
+                                enemyCombatSlotOne.BuffDebuff(currentMove.strengthBuffDebuff, currentMove.defenseBuffDebuff, currentMove.agilityBuffDebuff);
+                            }
+
+                            if (Random.Range(1, 101) < currentMove.statChangeChance * 100)
+                            {
+                                playerCombatSlotOne.BuffDebuff(currentMove.strengthBuffDebuffUser, currentMove.defenseBuffDebuffUser, currentMove.agilityBuffDebuffUser);
+                            }
+
+                        }
+
+                    }
+
+                    skipPlayerSlotOne = true;
+                    CheckAllActionsCompleted();
+
+                    
                 }
                 else if (GameManager.Instance.GetCurrentGameMode() == GameMode.TwoVOne)
                 { }
@@ -233,10 +325,73 @@ public class ActionStep : BaseState
                 
                 break;
             case CombatActors.EnemySlotOne:
+                currentMove = GameManager.Instance.enemy_MoveInfoOne;
                 if (GameManager.Instance.GetCurrentGameMode() == GameMode.OneVOne)
                 {
                     playerCombatSlotOne.CalculateBuffDebuffs();
                     enemyCombatSlotOne.CalculateBuffDebuffs();
+
+                    if (currentMove.moveIsCounter)
+                    {
+                        enemySlotOneCountering = true;
+                        skipEnemySlotOne = true;
+                        return;
+                    }
+                    if (playerSlotOneCountering && currentMove.moveCanBeCountered) //player is countering
+                    {
+
+                        enemyCombatSlotOne.TakeDamage(CalculateDamage(enemyCombatSlotOne, playerCombatSlotOne, currentMove, 1f));
+
+                        //use dotween here later
+                        _stateMachine.levelInfo.GetEnemyHealthBar().transform.localScale = new Vector3((float) enemyCombatSlotOne.currentHP / enemyCombatSlotOne.currentMaxHP, 1, 1);
+
+
+                        if (Random.Range(1, 101) < currentMove.statusChance * 100 && enemyCombatSlotOne.currentStatus == StatusType.None)
+                        {
+                            enemyCombatSlotOne.InflictStatus(currentMove.statusType);
+                        }
+
+                        if (Random.Range(1, 101) < currentMove.statChangeChance * 100)
+                        {
+                            enemyCombatSlotOne.BuffDebuff(currentMove.strengthBuffDebuff, currentMove.defenseBuffDebuff, currentMove.agilityBuffDebuff);
+                        }
+
+                        if (Random.Range(1, 101) < currentMove.statChangeChance * 100)
+                        {
+                            enemyCombatSlotOne.BuffDebuff(currentMove.strengthBuffDebuffUser, currentMove.defenseBuffDebuffUser, currentMove.agilityBuffDebuffUser);
+                        }
+
+                    }
+                    else
+                    {
+                        for (int i = 0; i < currentMove.multiHit; i++)
+                        {
+                            playerCombatSlotOne.TakeDamage(CalculateDamage(enemyCombatSlotOne, playerCombatSlotOne, currentMove, 1f));
+
+                            //use dotween here later
+                            _stateMachine.levelInfo.GetPlayerHealthBar().transform.localScale = new Vector3((float) playerCombatSlotOne.currentHP / playerCombatSlotOne.currentMaxHP, 1, 1);
+
+                            if (Random.Range(1, 101) < currentMove.statusChance * 100 && playerCombatSlotOne.currentStatus == StatusType.None)
+                            {
+                                playerCombatSlotOne.InflictStatus(currentMove.statusType);
+                            }
+
+                            if (Random.Range(1, 101) < currentMove.statChangeChance * 100)
+                            {
+                                playerCombatSlotOne.BuffDebuff(currentMove.strengthBuffDebuff, currentMove.defenseBuffDebuff, currentMove.agilityBuffDebuff);
+                            }
+
+                            if (Random.Range(1, 101) < currentMove.statChangeChance * 100)
+                            {
+                                enemyCombatSlotOne.BuffDebuff(currentMove.strengthBuffDebuffUser, currentMove.defenseBuffDebuffUser, currentMove.agilityBuffDebuffUser);
+                            }
+
+                        }
+
+                    }
+
+                    skipEnemySlotOne = true;
+                    CheckAllActionsCompleted();
 
                 }
                 else if (GameManager.Instance.GetCurrentGameMode() == GameMode.TwoVOne)

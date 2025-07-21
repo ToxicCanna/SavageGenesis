@@ -8,6 +8,8 @@ public class InventoryDinosaur : MonoBehaviour
     [field: SerializeField] public string nickName { get; private set; }
     [field: SerializeField] public int currentLevel { get; private set; }
 
+    [field: SerializeField] public StatusType currentStatus { get; private set; }
+
     [SerializeField] private bool isEmpty;
     [SerializeField] private bool usedByEnemy;
 
@@ -134,12 +136,28 @@ public class InventoryDinosaur : MonoBehaviour
         totalAgilityBuffDebuff = 0;
     }
 
+    public void BuffDebuff(int strengthChange, int defenseChange, int agilityChange)
+    {
+        totalStrengthBuffDebuff += strengthChange;
+        totalDefenseBuffDebuff += defenseChange;
+        totalAgilityBuffDebuff += agilityChange;
+    }
+
     private void SetCurrentHP(int hpTo)
     { 
         currentHP = hpTo;
         if (currentHP <= 0) { isFainted = true; }
     }
 
+    public void TakeDamage(int damage)
+    {
+        SetCurrentHP(currentHP - damage);
+    }
+
+    public void Regen()
+    {
+        SetCurrentHP(Mathf.RoundToInt(currentMaxHP * 0.1f + currentHP));
+    }
     private void CheckNickName()
     {
         if (nickName.Length == 0) {
@@ -199,4 +217,11 @@ public class InventoryDinosaur : MonoBehaviour
             return GetMove(Random.Range(1, 6));
         }
     }
+
+    public void InflictStatus(StatusType st)
+    {
+        currentStatus = st;
+    }
+
+
 }

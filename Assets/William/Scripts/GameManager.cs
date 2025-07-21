@@ -39,4 +39,15 @@ public class GameManager : Code.Scripts.Managers.Singleton<GameManager>
     {
         _stateMachine.JumpToActionStepState();
     }
+
+    public void GenerateRandomMovesSlotOne()
+    {
+        enemy_MoveInfoOne = _stateMachine.levelInfo.GetEnemyDinoInventory().LoadCombatSlotOne().RandomMove();
+        Debug.Log("generatemove");
+    }
+
+    public void GenerateRandomMovesSlotTwo()
+    {
+        enemy_MoveInfoTwo = _stateMachine.levelInfo.GetEnemyDinoInventory().LoadCombatSlotTwo().RandomMove();
+    }
 }
