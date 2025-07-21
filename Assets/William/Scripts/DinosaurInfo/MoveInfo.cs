@@ -18,6 +18,10 @@ public class MoveInfo : ScriptableObject
     public int defenseBuffDebuff;
     public int agilityBuffDebuff;
 
+    public int strengthBuffDebuffUser;
+    public int defenseBuffDebuffUser;
+    public int agilityBuffDebuffUser;
+
     public bool moveCleansesUserStatus;
     public bool moveCleansesUserBuffs;
     public bool moveCleansesOpponentBuffs;

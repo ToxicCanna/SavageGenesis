@@ -6,6 +6,10 @@ public class CombatStateMachine : BaseStateMachine
 {
     [SerializeField] public LevelInfo levelInfo;
 
+    private LoadCombat _loadCombatState;
+
+    public LoadCombat LoadCombatState => _loadCombatState;
+
     private CombatBegining _combatBeginingState;
 
     public CombatBegining CombatBeginingState => _combatBeginingState;
@@ -14,13 +18,9 @@ public class CombatStateMachine : BaseStateMachine
 
     public PlayerMakeDecision PlayerMakeDecisionState => _playerMakeDecisionState;
 
-    private PlayerAct _playerActState;
+    private ActionStep _actionStepState;
 
-    public PlayerAct PlayerActState => _playerActState;
-
-    private EnemyAct _enemyActState;
-
-    public EnemyAct EnemyActState => _enemyActState;
+    public ActionStep ActionStepState => _actionStepState;
 
     private CombatEnd _combatEndState;
 
@@ -39,21 +39,27 @@ public class CombatStateMachine : BaseStateMachine
 
     private void Awake()
     {
+        _loadCombatState = new LoadCombat(this);
         _combatBeginingState = new CombatBegining(this);
         _playerMakeDecisionState = new PlayerMakeDecision(this);
-        _playerActState = new PlayerAct(this);
-        _enemyActState = new EnemyAct(this);
+        _actionStepState = new ActionStep(this);
         _combatEndState = new CombatEnd(this);
         _playerLevelUpState = new PlayerLevelUp(this);
     }
     private void Start()
     {
-        SetState(_combatBeginingState);
-        combatStates = CombatStates.CombatBegining;
+        SetState(_loadCombatState);
+        combatStates = CombatStates.LoadCombat;
 
         playerActed = false;
         enemyActed = false;
         textAnimationFinished = true;
+    }
+
+    public void JumpToCombatBegining()
+    {
+        SetState(_combatBeginingState);
+        combatStates = CombatStates.CombatBegining;
     }
 
     public void JumpToPlayerMakeDecisionState()
@@ -62,18 +68,10 @@ public class CombatStateMachine : BaseStateMachine
         combatStates = CombatStates.PlayerMakeDecision;
     }
 
-    public void JumpToPlayerActState()
+    public void JumpToActionStepState()
     {
-        SetState(_playerActState);
-        combatStates = CombatStates.PlayerAct;
-        playerActed = true;
-    }
-
-    public void JumpToEnemyActState()
-    {
-        SetState(_enemyActState);
-        combatStates = CombatStates.EnemyAct;
-        enemyActed = true;
+        SetState(_actionStepState);
+        combatStates = CombatStates.ActionStep;
     }
 
     public void JumpToCombatEndState()
@@ -113,45 +111,11 @@ public class CombatStateMachine : BaseStateMachine
             //don't do anything and let the selector jump the state here. 
             return;
         }
-        if (combatStates == CombatStates.PlayerAct)
+        if (combatStates == CombatStates.ActionStep)
         {
-            if (textAnimationFinished)
-            {
-                if (enemyActed)
-                {
-                    ResetActedBools();
-                    JumpToPlayerMakeDecisionState();
-                }
-                else
-                {
-                    JumpToEnemyActState();
-                }
-            }
-            else
-            { 
-                //finish text animation
-            }
+            
         }
 
-        if (combatStates == CombatStates.EnemyAct)
-        {
-            if (textAnimationFinished)
-            {
-                if (playerActed)
-                {
-                    ResetActedBools();
-                    JumpToPlayerMakeDecisionState();
-                }
-                else
-                {
-                    JumpToPlayerActState();
-                }
-            }
-            else
-            {
-                //finish text animation
-            }
-        }
 
     }
 }

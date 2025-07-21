@@ -9,6 +9,7 @@ public class InventoryDinosaur : MonoBehaviour
     [field: SerializeField] public int currentLevel { get; private set; }
 
     [SerializeField] private bool isEmpty;
+    [SerializeField] private bool usedByEnemy;
 
     private int origionalStrength;
     private int origionalDefense;
@@ -19,10 +20,10 @@ public class InventoryDinosaur : MonoBehaviour
     private int totalAgilityBuffDebuff;
 
     [field: SerializeField] public int currentExpNeeded { get; private set; }
-    private int currentStrength;
-    private int currentDefense;
-    private int currentAgility;
-    private int currentMaxHP;
+    [field: SerializeField] public int currentStrength { get; private set; }
+    [field: SerializeField] public int currentDefense { get; private set; }
+    [field: SerializeField] public int currentAgility { get; private set; }
+    [field: SerializeField] public int currentMaxHP { get; private set; }
     [field: SerializeField] public int currentHP { get; private set; }
     [field: SerializeField] public int currentExp { get; private set; }
 
@@ -39,12 +40,16 @@ public class InventoryDinosaur : MonoBehaviour
     [field: SerializeField] public bool moveFourEmpty { get; private set; }
     [field: SerializeField] public bool moveFiveEmpty { get; private set; }
 
+
     void Start()
     {
         if (!isEmpty)
         {
             Reset();
         }
+
+        GameManager.Instance.loadingCount++;
+
     }
 
     public void Reset()
@@ -56,6 +61,7 @@ public class InventoryDinosaur : MonoBehaviour
         CheckNickName();
     }
 
+
     private void SetLevel(int level)
     { 
         currentLevel = level;
@@ -63,14 +69,17 @@ public class InventoryDinosaur : MonoBehaviour
 
     private void CalculateStats()
     {
-        currentExpNeeded = dinoInfoRef.CalculateExpNeeded(currentLevel);
+        if (!usedByEnemy)
+        {
+            currentExpNeeded = dinoInfoRef.CalculateExpNeeded(currentLevel);
+        }
         origionalStrength = dinoInfoRef.CalculateStrength(currentLevel);
         origionalDefense = dinoInfoRef.CalculateDefense(currentLevel);
         origionalAgility = dinoInfoRef.CalculateAgility(currentLevel);
         currentMaxHP = dinoInfoRef.CalculateMaxHP(currentLevel);
     }
 
-    private void CalculateBuffDebuffs()
+    public void CalculateBuffDebuffs()
     {
         if (totalStrengthBuffDebuff == 0)
         {
@@ -143,4 +152,51 @@ public class InventoryDinosaur : MonoBehaviour
         return isEmpty;
     }
 
+    public MoveInfo GetMove(int slotNum)
+    {
+        if (slotNum == 1)
+        {
+            return moveOne;
+        }
+
+        switch (slotNum)
+        {
+            case 1:
+                return moveOne;
+            case 2:
+                return moveTwo;
+            case 3:
+                return moveThree;
+            case 4:
+                return moveFour;
+            case 5:
+                return moveFive;
+            default:
+                Debug.Log("error, weird slotNum entered");
+                return null;
+        }
+    }
+    public MoveInfo RandomMove()
+    {
+        if (moveTwoEmpty)
+        {
+            return moveOne;
+        }
+        else if (moveThreeEmpty)
+        {
+            return GetMove(Random.Range(1, 3));
+        }
+        else if (moveFourEmpty)
+        {
+            return GetMove(Random.Range(1, 4));
+        }
+        else if (moveFiveEmpty)
+        {
+            return GetMove(Random.Range(1, 5));
+        }
+        else
+        {
+            return GetMove(Random.Range(1, 6));
+        }
+    }
 }

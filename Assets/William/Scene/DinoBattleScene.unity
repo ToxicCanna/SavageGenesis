@@ -662,6 +662,7 @@ MonoBehaviour:
   <nickName>k__BackingField: 
   <currentLevel>k__BackingField: 0
   isEmpty: 1
+  usedByEnemy: 0
   <currentExpNeeded>k__BackingField: 0
   <currentHP>k__BackingField: 0
   <currentExp>k__BackingField: 0
@@ -1006,6 +1007,7 @@ MonoBehaviour:
   <nickName>k__BackingField: 
   <currentLevel>k__BackingField: 0
   isEmpty: 1
+  usedByEnemy: 0
   <currentExpNeeded>k__BackingField: 0
   <currentHP>k__BackingField: 0
   <currentExp>k__BackingField: 0
@@ -2114,10 +2116,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startingGameMode: 0
   currentGameMode: 0
+  _stateMachine: {fileID: 280089343}
   <playerChoice_ActionType>k__BackingField: 0
   <playerChoice_MoveInfo>k__BackingField: {fileID: 0}
   <switchFrom>k__BackingField: {fileID: 0}
   <switchTo>k__BackingField: {fileID: 0}
+  <playerChoice_ActionTypeTwo>k__BackingField: 0
+  <playerChoice_MoveInfoTwo>k__BackingField: {fileID: 0}
+  <switchFromTwo>k__BackingField: {fileID: 0}
+  <switchToTwo>k__BackingField: {fileID: 0}
+  <loadingCount>k__BackingField: 0
 --- !u!1 &1260084310
 GameObject:
   m_ObjectHideFlags: 0
@@ -2503,7 +2511,8 @@ MonoBehaviour:
   <nickName>k__BackingField: 
   <currentLevel>k__BackingField: 3
   isEmpty: 0
-  <currentExpNeeded>k__BackingField: 0
+  usedByEnemy: 1
+  <currentExpNeeded>k__BackingField: 1
   <currentHP>k__BackingField: 0
   <currentExp>k__BackingField: 0
   <moveOne>k__BackingField: {fileID: 11400000, guid: af0a865a4cb665846a58da5562560273, type: 2}
@@ -2563,6 +2572,7 @@ MonoBehaviour:
   <nickName>k__BackingField: 
   <currentLevel>k__BackingField: 0
   isEmpty: 1
+  usedByEnemy: 0
   <currentExpNeeded>k__BackingField: 0
   <currentHP>k__BackingField: 0
   <currentExp>k__BackingField: 0
@@ -2702,6 +2712,7 @@ MonoBehaviour:
   <nickName>k__BackingField: 
   <currentLevel>k__BackingField: 0
   isEmpty: 1
+  usedByEnemy: 0
   <currentExpNeeded>k__BackingField: 0
   <currentHP>k__BackingField: 0
   <currentExp>k__BackingField: 0
@@ -3107,6 +3118,7 @@ MonoBehaviour:
   <nickName>k__BackingField: 
   <currentLevel>k__BackingField: 0
   isEmpty: 1
+  usedByEnemy: 0
   <currentExpNeeded>k__BackingField: 0
   <currentHP>k__BackingField: 0
   <currentExp>k__BackingField: 0
@@ -3368,7 +3380,8 @@ MonoBehaviour:
   <nickName>k__BackingField: Maw
   <currentLevel>k__BackingField: 5
   isEmpty: 0
-  <currentExpNeeded>k__BackingField: 0
+  usedByEnemy: 0
+  <currentExpNeeded>k__BackingField: 1
   <currentHP>k__BackingField: 0
   <currentExp>k__BackingField: 0
   <moveOne>k__BackingField: {fileID: 11400000, guid: af0a865a4cb665846a58da5562560273, type: 2}
@@ -3460,6 +3473,7 @@ MonoBehaviour:
   <nickName>k__BackingField: 
   <currentLevel>k__BackingField: 0
   isEmpty: 1
+  usedByEnemy: 0
   <currentExpNeeded>k__BackingField: 0
   <currentHP>k__BackingField: 0
   <currentExp>k__BackingField: 0
