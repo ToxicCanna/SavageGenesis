@@ -23,10 +23,10 @@ public enum StatusType
 
 public enum CombatStates
 { 
+    LoadCombat,
     CombatBegining,
     PlayerMakeDecision,
-    PlayerAct,
-    EnemyAct,
+    ActionStep,
     CombatEnd,
     PlayerLevelUp
 };
@@ -61,4 +61,16 @@ public enum GameMode
     OneVTwo,
     TwoVOne,
     TwoVTwo
+};
+
+public enum CombatActors
+{ 
+    None,
+    PlayerSlotOne,
+    PlayerSlotTwo,
+    EnemySlotOne,
+    EnemySlotTwo,
+    BothPlayer,
+    BothEnemy,
+    Everyone
 };

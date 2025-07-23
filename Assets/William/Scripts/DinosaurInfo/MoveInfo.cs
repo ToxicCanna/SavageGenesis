@@ -14,9 +14,14 @@ public class MoveInfo : ScriptableObject
     public StatusType statusType;
     public float statusChance;
 
+    public float statChangeChance;
     public int strengthBuffDebuff;
     public int defenseBuffDebuff;
     public int agilityBuffDebuff;
+
+    public int strengthBuffDebuffUser;
+    public int defenseBuffDebuffUser;
+    public int agilityBuffDebuffUser;
 
     public bool moveCleansesUserStatus;
     public bool moveCleansesUserBuffs;

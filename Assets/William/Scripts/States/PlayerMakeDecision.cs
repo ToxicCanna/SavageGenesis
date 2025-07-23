@@ -12,6 +12,10 @@ public class PlayerMakeDecision : BaseState
 
     public override void EnterState()
     {
+        //if something fainted send another in
+        //if(enemy didnt all die)
+        //
+
         _stateMachine.levelInfo.GetActionSelector().SetActive(true);
         _stateMachine.levelInfo.GetActionSelectorCursor().SetActive(true);
     }
