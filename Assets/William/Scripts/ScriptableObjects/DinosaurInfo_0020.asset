@@ -10,21 +10,21 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0f98a35a327854143a6375c115949b06, type: 3}
-  m_Name: DinosaurInfo_0010
+  m_Name: DinosaurInfo_0020
   m_EditorClassIdentifier: 
-  dexNumber: 201
-  dinosaurName: Tempasaurous
-  dinosaurTypeOne: 1
+  dexNumber: 202
+  dinosaurName: TempasaurousDwei
+  dinosaurTypeOne: 2
   dinosaurTypeTwo: 0
-  baseExp: 20
+  baseExp: 25
   expNeededRate: 0.4
-  baseStrength: 85
+  baseStrength: 70
   strengthGrowthRate: 0.4
-  baseDefense: 85
+  baseDefense: 120
   defenseGrowthRate: 0.4
-  baseAgility: 50
+  baseAgility: 85
   agilityGrowthRate: 0.4
-  baseMaxHP: 50
+  baseMaxHP: 120
   maxHpGrowthRate: 0.4
-  dinosaurCombatSprite: {fileID: -562560603093384636, guid: 406cce851ef87174eaa46674818b7714, type: 3}
-  dinosaurInventorySprite: {fileID: -8491446884446631509, guid: b716cbb3073f2e74e8f28cd7b7b08f0c, type: 3}
+  dinosaurCombatSprite: {fileID: 2145132743866808893, guid: 3b48418b1f1f36d4599e569ea4a9a277, type: 3}
+  dinosaurInventorySprite: {fileID: -2623366167537413169, guid: 86496100f4a1724409d2935003a1bb59, type: 3}
