@@ -1,3 +1,4 @@
+using System.Linq;
 using UnityEngine;
 
 //For now just testing how digging function work
@@ -17,14 +18,14 @@ public class PlayerDigging : BasePlayerController
 
         if (inputManager.GetInteractInput())
         {
-            foreach (var hit in InteractHits())
+            foreach (var hit in InteractHits().Reverse())
             {
                 //Debug.Log(hit.collider.gameObject.name);
                 iDiggingArea = hit.collider.gameObject.GetComponentInChildren<IDiggingArea>();
                 if (iDiggingArea != null)
                 {
                     iDiggingArea.OnDigging(collision, currentDiggingTool);
-                    //break;
+                    break;
                 }
             }
         }  
