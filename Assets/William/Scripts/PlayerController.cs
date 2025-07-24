@@ -14,6 +14,8 @@ public class PlayerController : Code.Scripts.Managers.Singleton<PlayerController
 
     [SerializeField] private ActionSelection actionSelection;
     [SerializeField] private SkillSelection skillSelection;
+    [SerializeField] private SwitchSelection switchSelection;
+
 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -77,6 +79,32 @@ public class PlayerController : Code.Scripts.Managers.Singleton<PlayerController
             confirmPressed.RemoveListener(skillSelection.PlayerPressedConfirm);
         if (cancelPressed != null)
             cancelPressed.RemoveListener(skillSelection.PlayerPressedCancel);
+    }
+
+    public void SwitchSelectionAddListener()
+    {
+        upPressed.AddListener(switchSelection.PlayerPressedUp);
+        downPressed.AddListener(switchSelection.PlayerPressedDown);
+        leftPressed.AddListener(switchSelection.PlayerPressedLeft);
+        rightPressed.AddListener(switchSelection.PlayerPressedRight);
+        confirmPressed.AddListener(switchSelection.PlayerPressedConfirm);
+        cancelPressed.AddListener(switchSelection.PlayerPressedCancel);
+    }
+
+    public void SwitchSelectionRemoveListener()
+    {
+        if (upPressed != null)
+            upPressed.RemoveListener(switchSelection.PlayerPressedUp);
+        if (downPressed != null)
+            downPressed.RemoveListener(switchSelection.PlayerPressedDown);
+        if (leftPressed != null)
+            leftPressed.RemoveListener(switchSelection.PlayerPressedLeft);
+        if (rightPressed != null)
+            rightPressed.RemoveListener(switchSelection.PlayerPressedRight);
+        if (confirmPressed != null)
+            confirmPressed.RemoveListener(switchSelection.PlayerPressedConfirm);
+        if (cancelPressed != null)
+            cancelPressed.RemoveListener(switchSelection.PlayerPressedCancel);
     }
 
     // Update is called once per frame

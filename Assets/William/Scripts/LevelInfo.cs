@@ -19,6 +19,15 @@ public class LevelInfo : MonoBehaviour
     [SerializeField] private GameObject skillFour;
     [SerializeField] private GameObject skillFive;
 
+    [SerializeField] private GameObject switchOne;
+    [SerializeField] private GameObject switchTwo;
+    [SerializeField] private GameObject switchThree;
+    [SerializeField] private GameObject switchFour;
+    [SerializeField] private GameObject switchOneSprite;
+    [SerializeField] private GameObject switchTwoSprite;
+    [SerializeField] private GameObject switchThreeSprite;
+    [SerializeField] private GameObject switchFourSprite;
+
     [SerializeField] private GameObject moveTypeText;
     [SerializeField] private GameObject movePowerText;
 
@@ -43,6 +52,10 @@ public class LevelInfo : MonoBehaviour
     [SerializeField] private PlayerInventory playerDinoInventory;
 
     [SerializeField] private PlayerInventory enemyDinoInventory;
+
+    [SerializeField] private GameObject switchSelector;
+    [SerializeField] private GameObject switchSelectorCursor;
+
 
 
     public GameObject GetBacigroundImage()
@@ -83,6 +96,30 @@ public class LevelInfo : MonoBehaviour
 
     public GameObject GetSkillFive()
     { return skillFive; }
+
+    public GameObject GetSwitchOne()
+    { return switchOne; }
+
+    public GameObject GetSwitchTwo()
+    { return switchTwo; }
+
+    public GameObject GetSwitchThree()
+    { return switchThree; }
+
+    public GameObject GetSwitchFour()
+    { return switchFour; }
+
+    public GameObject GetSwitchOneSprite()
+    { return switchOneSprite; }
+
+    public GameObject GetSwitchTwoSprite()
+    { return switchTwoSprite; }
+
+    public GameObject GetSwitchThreeSprite()
+    { return switchThreeSprite; }
+
+    public GameObject GetSwitchFourSprite()
+    { return switchFourSprite; }
 
     public GameObject GetMoveTypeText()
     { return moveTypeText; }
@@ -137,6 +174,16 @@ public class LevelInfo : MonoBehaviour
     public PlayerInventory GetEnemyDinoInventory()
     {
         return enemyDinoInventory;
+    }
+
+    public GameObject GetSwitchSelector()
+    { 
+        return switchSelector;
+    }
+
+    public GameObject GetSwitchSelectorCursor()
+    {
+        return switchSelectorCursor;
     }
 
 }

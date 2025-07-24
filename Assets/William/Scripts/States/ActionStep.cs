@@ -57,10 +57,13 @@ public class ActionStep : BaseState
         else if (GameManager.Instance.GetCurrentGameMode() == GameMode.OneVTwo)
         {
             skipPlayerSlotTwo = true;
+
+            Debug.Log("OnevTwo");
         }
         else if (GameManager.Instance.GetCurrentGameMode() == GameMode.TwoVOne)
         {
             skipEnemySlotTwo = true;
+            Debug.Log("TwovOne");
         }
 
         GameManager.Instance.GenerateRandomMovesSlotOne();
@@ -99,10 +102,10 @@ public class ActionStep : BaseState
         //act out attack
         PerformFastestAttack();
         PerformFastestAttack();
-       // PerformFastestAttack();
-        //PerformFastestAttack();
+        PerformFastestAttack();
+        PerformFastestAttack();
 
-        
+        _stateMachine.JumpToPlayerMakeDecisionState();
     }
 
     public override void ExitState()
@@ -118,12 +121,13 @@ public class ActionStep : BaseState
 
     }
 
-    private void CheckAllActionsCompleted()
+    private bool CheckAllActionsCompleted()
     {
         if (skipPlayerSlotOne && skipPlayerSlotTwo && skipEnemySlotOne && skipEnemySlotTwo)
         {
-            _stateMachine.JumpToPlayerMakeDecisionState();
+            return true;
         }
+        return false;
     }
 
     private int CalculateDamage(InventoryDinosaur attackFrom, InventoryDinosaur attackTo, MoveInfo attackMove, float targetMultiplier)
@@ -151,7 +155,12 @@ public class ActionStep : BaseState
     {
         //ties are performed in the order of player then enemy
 
-        CheckAllActionsCompleted();
+
+
+        if (CheckAllActionsCompleted())
+        {
+            return;
+        }
         
         CombatActors currentFastestActor = CombatActors.None;
         MoveSpeed currentFastestMoveSpeed = MoveSpeed.SpeedOne;
@@ -227,7 +236,7 @@ public class ActionStep : BaseState
         //attacking
         //step 1 apply counter to self if countering
         //step 2 check for multiattack
-        //step 3 do damage, including crit
+        //step 3 do damage, including crit and everything else buffs etc. 
         //step 4 if hit someone countering and move can be countered, get countered
         //step 5 apply status
         //step 6 apply buffdebuff
@@ -311,8 +320,6 @@ public class ActionStep : BaseState
                     }
 
                     skipPlayerSlotOne = true;
-                    CheckAllActionsCompleted();
-
                     
                 }
                 else if (GameManager.Instance.GetCurrentGameMode() == GameMode.TwoVOne)
@@ -433,6 +440,8 @@ public class ActionStep : BaseState
                 //something is wrong if it hits here
                 Debug.Log("error, you didn't secure/set the game mode correctly");
                 break;
+
+                
         }
 
 
