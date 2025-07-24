@@ -1,15 +1,21 @@
+using System;
 using System.Collections;
 using UnityEngine;
 
 public class DiggingLayer : BaseMiningLayer, IDiggingArea
 {
-    [Min(0.1f)]
-    public float durability = 50f;
+    [SerializeField] protected float diggingDelay = 0.5f;
+    [NonSerialized] public float durability = 50f;
 
-    [SerializeField] private float diggingDelay = 0.5f;
     private bool _isDigging = false;
 
-    public void OnDigging(CircleCollider2D collision, DiggingToolType tool)
+    protected override void Start()
+    {
+        base.Start();
+        durability = miningStateMachine.uiManager.maxDurability;
+    }
+
+    public virtual void OnDigging(CircleCollider2D collision, DiggingToolType tool)
     {
         if (tilemap == null || collision == null)
         {
