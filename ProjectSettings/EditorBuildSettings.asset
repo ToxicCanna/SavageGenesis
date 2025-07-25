@@ -6,22 +6,20 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/StartingLevel.unity
-    guid: 2cda990e2423bbf4892e6590ba056729
+    path: Assets/Dustin/Scenes/MainMenu_Scene.unity
+    guid: d7b9073b1b5e9cd43839e3242408c3f2
   - enabled: 1
-    path: Assets/Scenes/Level2.unity
-    guid: d8cb5230ca56e0548bde61f7f573b5a4
+    path: Assets/Dustin/Scenes/OptionsMenu_Scene.unity
+    guid: 7994d0fb2c79f1b44ad009cb83ea0bfd
   - enabled: 1
-    path: Assets/Scenes/BossLevel.unity
-    guid: 7bcb146f4908697429aea64d2e87fbfe
+    path: Assets/Dustin/Scenes/DinoRevival_Scene.unity
+    guid: 7def19081f6a36f4f8e9303a8d82883a
   - enabled: 1
-    path: Assets/Scenes/BattleScene.unity
-    guid: 226169915f8be28488492071d5e8a5f4
+    path: Assets/Dustin/Scenes/RobinDiggingTest_Copy.unity
+    guid: 8820d2aac07c25f429780df02ba8662a
   - enabled: 1
-    path: Assets/Scenes/BossBattle.unity
-    guid: 3f5754e3de43c5849bfee1f642ac0752
-  - enabled: 1
-    path: Assets/Scenes/WinScreen.unity
-    guid: cdd21dcd16370ef4d88f2739b9442d18
+    path: Assets/Dustin/Scenes/PrototypeScees/NavigationScene.unity
+    guid: ba4272cdc9763dc44bad87ab4c412007
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: 0a985b2b865fcf14aae10a80c74e237b, type: 2}
+  m_UseUCBPForAssetBundles: 0
