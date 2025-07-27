@@ -164,22 +164,55 @@ public class SkillSelection : MonoBehaviour
     }
 
     public void PlayerPressedConfirm() {
-        if (combatSlotOne.moveTwoEmpty && cursorHover == SkillSlot.Two) return;
-        if (combatSlotOne.moveThreeEmpty && cursorHover == SkillSlot.Three) return;
-        if (combatSlotOne.moveFourEmpty && cursorHover == SkillSlot.Four) return;
-        if (combatSlotOne.moveFiveEmpty && cursorHover == SkillSlot.Five) return;
+        if (GameManager.Instance.GetCurrentGameMode() == GameMode.OneVOne)
+        {
+            if (combatSlotOne.moveTwoEmpty && cursorHover == SkillSlot.Two) return;
+            if (combatSlotOne.moveThreeEmpty && cursorHover == SkillSlot.Three) return;
+            if (combatSlotOne.moveFourEmpty && cursorHover == SkillSlot.Four) return;
+            if (combatSlotOne.moveFiveEmpty && cursorHover == SkillSlot.Five) return;
 
+            if (cursorHover == SkillSlot.One)
+            {
+                GameManager.Instance.playerChoice_MoveInfo = combatSlotOne.moveOne;
+                GameManager.Instance.PlayerFinishedSelection();
+            }
+            else if (cursorHover == SkillSlot.Two)
+            {
+                GameManager.Instance.playerChoice_MoveInfo = combatSlotOne.moveTwo;
+                GameManager.Instance.PlayerFinishedSelection();
+            }
+            else if (cursorHover == SkillSlot.Three)
+            {
+                GameManager.Instance.playerChoice_MoveInfo = combatSlotOne.moveThree;
+                GameManager.Instance.PlayerFinishedSelection();
+            }
+            else if (cursorHover == SkillSlot.Four)
+            {
+                GameManager.Instance.playerChoice_MoveInfo = combatSlotOne.moveFour;
+                GameManager.Instance.PlayerFinishedSelection();
+            }
+            else if (cursorHover == SkillSlot.Five)
+            {
+                GameManager.Instance.playerChoice_MoveInfo = combatSlotOne.moveFive;
+                GameManager.Instance.PlayerFinishedSelection();
+            }
+        }
 
+        
     }
 
     public void PlayerPressedCancel() 
     {
-        levelInfo.GetActionSelector().SetActive(true);
-        levelInfo.GetActionSelectorCursor().SetActive(true);
+        if (GameManager.Instance.GetCurrentGameMode() == GameMode.OneVOne)
+        {
+            levelInfo.GetActionSelector().SetActive(true);
+            levelInfo.GetActionSelectorCursor().SetActive(true);
 
-        levelInfo.GetSkillSelector().SetActive(false);
-        levelInfo.GetSkillSelectorCursor().SetActive(false);
-        levelInfo.GetMoveTypeText().SetActive(false);
-        levelInfo.GetMovePowerText().SetActive(false);
+            levelInfo.GetSkillSelector().SetActive(false);
+            levelInfo.GetSkillSelectorCursor().SetActive(false);
+            levelInfo.GetMoveTypeText().SetActive(false);
+            levelInfo.GetMovePowerText().SetActive(false);
+        }
+
     }
 }

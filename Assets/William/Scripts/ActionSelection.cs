@@ -9,6 +9,8 @@ public class ActionSelection : MonoBehaviour
 
     private ActionType cursorHover;
 
+    private bool isPlayerSelectingActionTwo;
+
     private bool isApplicationQuitting = false;
 
     void OnEnable()
@@ -52,7 +54,6 @@ public class ActionSelection : MonoBehaviour
     {
         if (cursorHover == ActionType.Attack)
         {
-            
             cursorHover = ActionType.Switch;
             transform.localPosition = cursorLocationPresetTwo;
         }
@@ -71,16 +72,23 @@ public class ActionSelection : MonoBehaviour
 
     public void PlayerPressedConfirm()
     {
-        if (cursorHover == ActionType.Attack)
+        if (GameManager.Instance.GetCurrentGameMode() == GameMode.OneVOne)
         {
-            levelInfo.GetSkillSelector().SetActive(true);
-            levelInfo.GetSkillSelectorCursor().SetActive(true);
-            levelInfo.GetMoveTypeText().SetActive(true);
-            levelInfo.GetMovePowerText().SetActive(true);
+            if (cursorHover == ActionType.Attack)
+            {
 
-            levelInfo.GetActionSelector().SetActive(false);
-            levelInfo.GetActionSelectorCursor().SetActive(false);
+                GameManager.Instance.playerChoice_ActionType = ActionType.Attack;
+                levelInfo.GetSkillSelector().SetActive(true);
+                levelInfo.GetSkillSelectorCursor().SetActive(true);
+                levelInfo.GetMoveTypeText().SetActive(true);
+                levelInfo.GetMovePowerText().SetActive(true);
+
+                levelInfo.GetActionSelector().SetActive(false);
+                levelInfo.GetActionSelectorCursor().SetActive(false);
+
+            }
         }
+
 
     }
 

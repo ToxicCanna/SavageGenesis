@@ -1,14 +1,20 @@
-using System.Collections;
+using System;
 using UnityEngine;
 
 public class DiggingLayer : BaseMiningLayer, IDiggingArea
 {
-    [Min(0.1f)]
-    public float durability = 50f;
-
     [SerializeField] private float diggingDelay = 0.5f;
+    [NonSerialized] public float durability = 50f;
 
-    public void OnDigging(CircleCollider2D collision, DiggingToolType tool)
+    private bool _isDigging = false;
+
+    /*protected override void Start()
+    {
+        base.Start();
+        durability = miningStateMachine.uiManager.maxDurability;
+    }*/
+
+    public virtual void OnDigging(CircleCollider2D collision, DiggingToolType tool)
     {
         if (tilemap == null || collision == null)
         {
@@ -16,19 +22,21 @@ public class DiggingLayer : BaseMiningLayer, IDiggingArea
             return;
         }
 
-        StartCoroutine(HandleDigging(collision, tool));
+        if (!_isDigging)
+        {
+            _isDigging = true;
+            HandleDigging(collision, tool);
+            Invoke(nameof(ResetDigging), diggingDelay);
+        }
+        else
+            Debug.Log("Digging Delaying");
     }
 
-    private IEnumerator HandleDigging(CircleCollider2D collision, DiggingToolType tool)
+    private void HandleDigging(CircleCollider2D collision, DiggingToolType tool)
     {
         Vector2 center = collision.bounds.center;
         float radius = collision.radius * collision.transform.lossyScale.x;
         BoundsInt bounds = tilemap.cellBounds;
-        
-        Debug.Log("Digging");
-        miningStateMachine.diggingIcon.SetActive(false);
-
-        yield return new WaitForSeconds(diggingDelay);
 
         for (int x = bounds.xMin; x < bounds.xMax; x++)
         {
@@ -46,7 +54,6 @@ public class DiggingLayer : BaseMiningLayer, IDiggingArea
         }
 
         UpdateDurability(tool);
-        miningStateMachine.diggingIcon.SetActive(true);
     }
 
     private void UpdateDurability(DiggingToolType tool)
@@ -71,5 +78,10 @@ public class DiggingLayer : BaseMiningLayer, IDiggingArea
             miningStateMachine.uiManager.SetDurability(durability);
             //Debug.Log($"[Digging] Stability now {stability}");
         }
+    }
+
+    private void ResetDigging()
+    {
+        _isDigging = false;
     }
 }

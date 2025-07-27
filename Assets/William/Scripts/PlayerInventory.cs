@@ -13,12 +13,14 @@ public class PlayerInventory : MonoBehaviour
     [SerializeField] private InventoryDinosaur combatSlotThree;
     [SerializeField] private InventoryDinosaur combatSlotFour;
 
+
     void Start()
     {
         combatSlotOne = slotOneDino;
         combatSlotTwo = slotTwoDino;
         combatSlotThree = slotThreeDino;
         combatSlotFour = slotFourDino;
+        GameManager.Instance.loadingCount++;
     }
 
     private void SwapSlots(InventoryDinosaur slotFrom, InventoryDinosaur slotTo)    // only between regular slots off of combat. 

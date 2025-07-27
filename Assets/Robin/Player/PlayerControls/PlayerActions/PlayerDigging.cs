@@ -1,3 +1,4 @@
+using System.Linq;
 using UnityEngine;
 
 //For now just testing how digging function work
@@ -13,20 +14,26 @@ public class PlayerDigging : BasePlayerController
     }
     public void Dig(CircleCollider2D collision)
     {
-        if (InteractHitCollider() == null) return;
+        if (InteractHits().Length <= 0) return;
 
         if (inputManager.GetInteractInput())
         {
-            //Debug.Log(hit.collider.gameObject.name);
-            iDiggingArea = InteractHitCollider().gameObject.GetComponentInChildren<IDiggingArea>();
-            iDiggingArea?.OnDigging(collision, currentDiggingTool);
+            foreach (var hit in InteractHits().Reverse())
+            {
+                //Debug.Log(hit.collider.gameObject.name);
+                iDiggingArea = hit.collider.gameObject.GetComponentInChildren<IDiggingArea>();
+                if (iDiggingArea != null)
+                {
+                    iDiggingArea.OnDigging(collision, currentDiggingTool);
+                    break;
+                }
+            }
         }  
     }
 
-    private Collider2D InteractHitCollider()
+    private RaycastHit2D[] InteractHits()
     {
-        var hit = Physics2D.GetRayIntersection(_camera.ScreenPointToRay(inputManager.GetInteractPosition()));
-        return hit.collider;
+        return Physics2D.GetRayIntersectionAll(_camera.ScreenPointToRay(inputManager.GetInteractPosition()));;
     }
 
     #region Switch Tool
