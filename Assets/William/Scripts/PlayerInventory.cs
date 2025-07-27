@@ -113,4 +113,14 @@ public class PlayerInventory : MonoBehaviour
     {
         return combatSlotTwo;
     }
+
+    public InventoryDinosaur LoadCombatSlotThree()
+    {
+        return combatSlotThree;
+    }
+
+    public InventoryDinosaur LoadCombatSlotFour()
+    {
+        return combatSlotFour;
+    }
 }

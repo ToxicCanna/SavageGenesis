@@ -52,7 +52,8 @@ public enum DinosaurSlot
     One,
     Two,
     Three, 
-    Four
+    Four,
+    Back
 };
 
 public enum GameMode

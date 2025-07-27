@@ -87,6 +87,16 @@ public class ActionSelection : MonoBehaviour
                 levelInfo.GetActionSelectorCursor().SetActive(false);
 
             }
+            else if (cursorHover == ActionType.Switch)
+            {
+                GameManager.Instance.playerChoice_ActionType = ActionType.Switch;
+                levelInfo.GetSwitchSelector().SetActive(true);
+                levelInfo.GetSwitchSelectorCursor().SetActive(true) ;
+
+                levelInfo.GetActionSelector().SetActive(false);
+                levelInfo.GetActionSelectorCursor().SetActive(false);
+            }
+
         }
 
 
