@@ -20,14 +20,11 @@ public class CombatBegining : BaseState
     public override void EnterState()
     {
         combatSlotOne = _stateMachine.levelInfo.GetPlayerDinoInventory().LoadCombatSlotOne();
-        Debug.Log(combatSlotOne);
 
         enemySlotOne = _stateMachine.levelInfo.GetEnemyDinoInventory().LoadCombatSlotOne();
 
         if (GameManager.Instance.GetCurrentGameMode() == GameMode.OneVOne)
         {
-            
-
             _stateMachine.levelInfo.GetDialogText().GetComponent<Text>().text = "Battle Start";
             _stateMachine.levelInfo.GetActionSelector().SetActive(false);
             _stateMachine.levelInfo.GetMoveTypeText().SetActive(false);

@@ -34,7 +34,7 @@ public class PlayerInventory : MonoBehaviour
         
     }
 
-    private void SwapCombatSlots(DinosaurSlot slotFrom, DinosaurSlot slotTo) //only be done between combatSlots during combat
+    public void SwapCombatSlots(DinosaurSlot slotFrom, DinosaurSlot slotTo) //only be done between combatSlots during combat
     {
         if (slotFrom == slotTo )
         {

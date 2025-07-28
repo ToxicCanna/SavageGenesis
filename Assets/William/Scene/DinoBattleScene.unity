@@ -2769,13 +2769,13 @@ MonoBehaviour:
   <playerChoice_ActionType>k__BackingField: 0
   <playerChoice_MoveInfo>k__BackingField: {fileID: 0}
   <playerChoice_MoveOneTarget>k__BackingField: 0
-  <switchFrom>k__BackingField: {fileID: 0}
-  <switchTo>k__BackingField: {fileID: 0}
+  <switchFrom>k__BackingField: 0
+  <switchTo>k__BackingField: 0
   <playerChoice_ActionTypeTwo>k__BackingField: 0
   <playerChoice_MoveInfoTwo>k__BackingField: {fileID: 0}
   <playerChoice_MoveTwoTarget>k__BackingField: 0
-  <switchFromTwo>k__BackingField: {fileID: 0}
-  <switchToTwo>k__BackingField: {fileID: 0}
+  <switchFromTwo>k__BackingField: 0
+  <switchToTwo>k__BackingField: 0
   <enemy_MoveInfoOne>k__BackingField: {fileID: 0}
   <enemy_MoveInfoTwo>k__BackingField: {fileID: 0}
   <loadingCount>k__BackingField: 0
@@ -4210,7 +4210,7 @@ MonoBehaviour:
   <currentHP>k__BackingField: 0
   <currentExp>k__BackingField: 0
   <isFainted>k__BackingField: 0
-  <moveOne>k__BackingField: {fileID: 11400000, guid: af0a865a4cb665846a58da5562560273, type: 2}
+  <moveOne>k__BackingField: {fileID: 11400000, guid: ca41d428ed26b4547b2a22a82f92637d, type: 2}
   <moveTwo>k__BackingField: {fileID: 0}
   <moveThree>k__BackingField: {fileID: 0}
   <moveFour>k__BackingField: {fileID: 0}

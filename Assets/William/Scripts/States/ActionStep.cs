@@ -36,6 +36,9 @@ public class ActionStep : BaseState
         _stateMachine.levelInfo.GetSkillSelectorCursor().SetActive(false);
         _stateMachine.levelInfo.GetMoveTypeText().SetActive(false);
         _stateMachine.levelInfo.GetMovePowerText().SetActive(false);
+        _stateMachine.levelInfo.GetSwitchSelector().SetActive(false);
+        _stateMachine.levelInfo.GetSwitchSelectorCursor().SetActive(false);
+
 
         playerCombatSlotOne = _stateMachine.levelInfo.GetPlayerDinoInventory().LoadCombatSlotOne();
         playerCombatSlotTwo = _stateMachine.levelInfo.GetPlayerDinoInventory().LoadCombatSlotTwo(); 
@@ -78,6 +81,9 @@ public class ActionStep : BaseState
         if (GameManager.Instance.playerChoice_ActionType == ActionType.Switch)
         {
             //do switch
+            _stateMachine.levelInfo.GetPlayerDinoInventory().SwapCombatSlots(GameManager.Instance.switchFrom, GameManager.Instance.switchTo);
+
+            GameManager.Instance.RefreshPlayerCombatSlotOne();
             skipPlayerSlotOne = true;
         }
         if (GameManager.Instance.playerChoice_ActionType == ActionType.Item)
@@ -296,7 +302,7 @@ public class ActionStep : BaseState
                             //use dotween here later
                             _stateMachine.levelInfo.GetEnemyHealthBar().transform.localScale = new Vector3((float) enemyCombatSlotOne.currentHP / enemyCombatSlotOne.currentMaxHP, 1, 1);
 
-                            if (Random.Range(1, 101) < currentMove.statusChance * 100 && playerCombatSlotOne.currentStatus == StatusType.None)
+                            if (Random.Range(1, 101) < currentMove.statusChance * 100 && playerCombatSlotOne.currentStatus != StatusType.None)
                             {
                                 enemyCombatSlotOne.InflictStatus(currentMove.statusType);
                             }
