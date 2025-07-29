@@ -21,10 +21,27 @@ public class SwitchSelection : MonoBehaviour
     {
         levelInfo.GetSwitchOne().GetComponent<Text>().text = levelInfo.GetPlayerDinoInventory().LoadCombatSlotOne().nickName;
         levelInfo.GetSwitchOneSprite().GetComponent<Image>().sprite = levelInfo.GetPlayerDinoInventory().LoadCombatSlotOne().dinoInfoRef.dinosaurInventorySprite;
+
+        if (levelInfo.GetPlayerDinoInventory().LoadCombatSlotOne().isFainted)
+        {
+            levelInfo.GetSwitchOneFaintSprite().SetActive(true);
+        }
+        else
+        {
+            levelInfo.GetSwitchOneFaintSprite().SetActive(false);
+        }
+
         if (!levelInfo.GetPlayerDinoInventory().LoadCombatSlotTwo().IsEmpty())
         {
             levelInfo.GetSwitchTwo().GetComponent<Text>().text = levelInfo.GetPlayerDinoInventory().LoadCombatSlotTwo().nickName;
             levelInfo.GetSwitchTwoSprite().GetComponent<Image>().sprite = levelInfo.GetPlayerDinoInventory().LoadCombatSlotTwo().dinoInfoRef.dinosaurInventorySprite;
+            if (levelInfo.GetPlayerDinoInventory().LoadCombatSlotTwo().isFainted)
+            {
+                levelInfo.GetSwitchTwoFaintSprite().SetActive(true);
+            }
+            else {
+                levelInfo.GetSwitchTwoFaintSprite().SetActive(false);
+            }
         }
         else {
             levelInfo.GetSwitchTwo().GetComponent<Text>().text = "--";
@@ -35,16 +52,35 @@ public class SwitchSelection : MonoBehaviour
         {
             levelInfo.GetSwitchThree().GetComponent<Text>().text = levelInfo.GetPlayerDinoInventory().LoadCombatSlotThree().nickName;
             levelInfo.GetSwitchThreeSprite().GetComponent<Image>().sprite = levelInfo.GetPlayerDinoInventory().LoadCombatSlotThree().dinoInfoRef.dinosaurInventorySprite;
+
+            if (levelInfo.GetPlayerDinoInventory().LoadCombatSlotThree().isFainted)
+            {
+                levelInfo.GetSwitchThreeFaintSprite().SetActive(true);
+            }
+            else
+            {
+                levelInfo.GetSwitchThreeFaintSprite().SetActive(false);
+            }
+
         }
         else {
             levelInfo.GetSwitchThree().GetComponent<Text>().text = "--";
             levelInfo.GetSwitchThreeSprite().GetComponent<Image>().sprite = emptySprite;
         }
 
-        if (!levelInfo.GetPlayerDinoInventory().LoadCombatSlotThree().IsEmpty())
+        if (!levelInfo.GetPlayerDinoInventory().LoadCombatSlotFour().IsEmpty())
         {
             levelInfo.GetSwitchFour().GetComponent<Text>().text = levelInfo.GetPlayerDinoInventory().LoadCombatSlotFour().nickName;
             levelInfo.GetSwitchFourSprite().GetComponent<Image>().sprite = levelInfo.GetPlayerDinoInventory().LoadCombatSlotFour().dinoInfoRef.dinosaurInventorySprite;
+
+            if (levelInfo.GetPlayerDinoInventory().LoadCombatSlotFour().isFainted)
+            {
+                levelInfo.GetSwitchFourFaintSprite().SetActive(true);
+            }
+            else
+            {
+                levelInfo.GetSwitchFourFaintSprite().SetActive(false);
+            }
         }
         else{
             levelInfo.GetSwitchFour().GetComponent<Text>().text = "--";
@@ -203,6 +239,8 @@ public class SwitchSelection : MonoBehaviour
 
     public void PlayerPressedCancel()
     {
+        if (GameManager.Instance.goToPlayerFaintedState) return;
+
         if (GameManager.Instance.GetCurrentGameMode() == GameMode.OneVOne)
         {
             levelInfo.GetActionSelector().SetActive(true);

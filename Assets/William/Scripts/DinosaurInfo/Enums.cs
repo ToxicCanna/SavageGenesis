@@ -27,6 +27,8 @@ public enum CombatStates
     CombatBegining,
     PlayerMakeDecision,
     ActionStep,
+    EnemyFainted,
+    PlayerFainted,
     CombatEnd,
     PlayerLevelUp
 };

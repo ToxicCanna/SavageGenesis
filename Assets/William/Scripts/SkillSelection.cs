@@ -57,7 +57,6 @@ public class SkillSelection : MonoBehaviour
         cursorHover = SkillSlot.One;
         PlayerController.Instance.SkillSelectionAddListener();
         LoadMoveSet();
-        Debug.Log("enabled!");
     }
 
     void OnDisable()

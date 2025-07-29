@@ -28,6 +28,11 @@ public class LevelInfo : MonoBehaviour
     [SerializeField] private GameObject switchThreeSprite;
     [SerializeField] private GameObject switchFourSprite;
 
+    [SerializeField] private GameObject switchOneFaintSprite;
+    [SerializeField] private GameObject switchTwoFaintSprite;
+    [SerializeField] private GameObject switchThreeFaintSprite;
+    [SerializeField] private GameObject switchFourFaintSprite;
+
     [SerializeField] private GameObject moveTypeText;
     [SerializeField] private GameObject movePowerText;
 
@@ -120,6 +125,18 @@ public class LevelInfo : MonoBehaviour
 
     public GameObject GetSwitchFourSprite()
     { return switchFourSprite; }
+
+    public GameObject GetSwitchOneFaintSprite()
+    { return switchOneFaintSprite; }
+
+    public GameObject GetSwitchTwoFaintSprite()
+    { return switchTwoFaintSprite; }
+
+    public GameObject GetSwitchThreeFaintSprite()
+    { return switchThreeFaintSprite; }
+
+    public GameObject GetSwitchFourFaintSprite()
+    { return switchFourFaintSprite; }
 
     public GameObject GetMoveTypeText()
     { return moveTypeText; }
