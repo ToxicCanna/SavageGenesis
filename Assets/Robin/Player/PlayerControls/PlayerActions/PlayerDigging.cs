@@ -36,7 +36,7 @@ public class PlayerDigging : BasePlayerController
 
             if (hits.Length <= 0) break;
 
-            foreach(var hit in hits.Reverse())
+            foreach (var hit in hits.Reverse())
             {
                 iDiggingArea = hit.gameObject.GetComponentInChildren<IDiggingArea>();
                 if (iDiggingArea != null)
@@ -45,6 +45,7 @@ public class PlayerDigging : BasePlayerController
                 if (isDugOut)
                     break;
             }
+
         }
 
         if (iDiggingArea != null)

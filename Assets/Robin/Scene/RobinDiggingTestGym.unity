@@ -4653,12 +4653,20 @@ PrefabInstance:
       propertyPath: gameplayUIPanel
       value: 
       objectReference: {fileID: 121379240}
+    - target: {fileID: 1517265538674242853, guid: 3f9edd1994c84904391545e016a177ea, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1571422637026795781, guid: 3f9edd1994c84904391545e016a177ea, type: 3}
       propertyPath: m_Name
       value: TestDiggingArea
       objectReference: {fileID: 0}
     - target: {fileID: 1571422637026795781, guid: 3f9edd1994c84904391545e016a177ea, type: 3}
       propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1642954783174708708, guid: 3f9edd1994c84904391545e016a177ea, type: 3}
+      propertyPath: m_LocalPosition.z
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2324548041987568218, guid: 3f9edd1994c84904391545e016a177ea, type: 3}
