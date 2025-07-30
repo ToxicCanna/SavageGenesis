@@ -111,6 +111,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentDiggingTool: 0
+  diggingDelay: 0.5
 --- !u!1 &3408288456316664633
 GameObject:
   m_ObjectHideFlags: 0
@@ -1312,7 +1313,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   grid: {fileID: 5704360578979989490}
   miningStateMachine: {fileID: 1443622836600736448}
-  diggingDelay: 0.5
 --- !u!1 &6446358541950356559
 GameObject:
   m_ObjectHideFlags: 0
@@ -4328,7 +4328,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   grid: {fileID: 5704360578979989490}
   miningStateMachine: {fileID: 0}
-  diggingDelay: 0.5
 --- !u!1001 &4623616329571019330
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -880,6 +880,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8bda75753d75b5c4d93883fef5d8b113, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1257362506 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4731404604330863094, guid: 3f9edd1994c84904391545e016a177ea, type: 3}
+  m_PrefabInstance: {fileID: 4033322912588094467}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1352221840
 GameObject:
   m_ObjectHideFlags: 0
@@ -9728,6 +9733,10 @@ PrefabInstance:
       propertyPath: m_Tiles.Array.data[149].second.m_TileObjectToInstantiateIndex
       value: 65535
       objectReference: {fileID: 0}
+    - target: {fileID: 4382279113697821542, guid: 3f9edd1994c84904391545e016a177ea, type: 3}
+      propertyPath: currentToolRange
+      value: 
+      objectReference: {fileID: 1257362506}
     - target: {fileID: 5462613097470571143, guid: 3f9edd1994c84904391545e016a177ea, type: 3}
       propertyPath: m_IsActive
       value: 0

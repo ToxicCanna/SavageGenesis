@@ -3,10 +3,12 @@ using UnityEngine;
 public class DiggingState : BaseState
 {
     private MiningStateMachine _miningStateMachine;
+    private UpdateDiggingIcon _updateDiggingIcon;
 
     public DiggingState(MiningStateMachine stateMachine)
     {
         _miningStateMachine = stateMachine;
+        _updateDiggingIcon = _miningStateMachine.diggingIcon.GetComponent<UpdateDiggingIcon>();
     }
 
     public override void EnterState()
@@ -20,7 +22,8 @@ public class DiggingState : BaseState
 
     public override void UpdateState()
     {
-        _miningStateMachine.playerDigging.Dig(_miningStateMachine.diggingIcon.GetComponent<UpdateDiggingIcon>().iconCollider);
+        if (_updateDiggingIcon.gameObject.activeSelf)
+            _miningStateMachine.playerDigging.Dig(_updateDiggingIcon.currentToolRange);
 
         if (_miningStateMachine.diggingLayer.durability <= 0)
             _miningStateMachine.SetState(_miningStateMachine.FinishDiggingState);
