@@ -13,16 +13,20 @@ MonoBehaviour:
   m_Name: MoveInfo_0010
   m_EditorClassIdentifier: 
   moveName: Bite_tempPlaceholder
-  moveType: 0
+  moveType: 1
   moveStrength: 70
   moveCooldown: 5
   moveAccuracy: 100
   moveSpeed: 0
   statusType: 0
   statusChance: 0
+  statChangeChance: 0
   strengthBuffDebuff: 0
   defenseBuffDebuff: 0
   agilityBuffDebuff: 0
+  strengthBuffDebuffUser: 0
+  defenseBuffDebuffUser: 0
+  agilityBuffDebuffUser: 0
   moveCleansesUserStatus: 0
   moveCleansesUserBuffs: 0
   moveCleansesOpponentBuffs: 0
