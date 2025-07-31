@@ -9,11 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6adc95cefc0503b45bf83f842273bbc3, type: 3}
-  m_Name: Dino1
+  m_Script: {fileID: 11500000, guid: 28320938bc630cc459d0c3998fdb4843, type: 3}
+  m_Name: Player1
   m_EditorClassIdentifier: 
-  itemName: TestHerbivore
-  itemImage: {fileID: 6575581121138938176, guid: 527560a2c98fa4644af9a5e20ab7d65a, type: 3}
-  price: 50
-  rarity: 0
-  fossilType: 2
+  inventory: {fileID: 11400000, guid: bddbf3f616d82d64a82839710ef2db0d, type: 2}

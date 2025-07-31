@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class DiggingLayer : BaseMiningLayer, IDiggingArea
 {
-    public static float durability = 50f;
+    public static float durability;
 
     public virtual void OnDigging(BoxCollider2D collision, DiggingToolType tool, out bool isDugOut)
     {

@@ -1,8 +1,8 @@
 using UnityEngine;
 
-public abstract class BaseItem<TBaseItemStat> : MonoBehaviour, IShop where TBaseItemStat : BaseItemStat
+public abstract class BaseItem : IShop
 {
-    public TBaseItemStat statObject;
+    public BaseItemStat statObject;
 
     public void OnBuying()
     {

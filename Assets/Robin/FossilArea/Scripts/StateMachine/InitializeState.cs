@@ -12,6 +12,7 @@ public class InitializeState : BaseState
     public override void EnterState()
     {
         Debug.Log("Initializing");
+        DiggingLayer.durability = _miningStateMachine.uiManager.maxDurability;
         _miningStateMachine.EnableLayer(false, _miningStateMachine.diggingLayer);
         _miningStateMachine.loadingImage.gameObject.SetActive(true);
         _miningStateMachine.uiManager.ShowUI(false);

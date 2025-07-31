@@ -2,18 +2,25 @@ using System;
 using System.Collections;
 using UnityEngine;
 
-public class Fossil : BaseItem<FossilStat>
+public class Fossil : MonoBehaviour
 {
+    public FossilStat statObject;
+
     [SerializeField] private float boxCollisonEdgeWidth = 0.1f;
     
     [NonSerialized] public bool isColliding = false;
-    /*[NonSerialized]*/ public bool isDigOut = true;
+    [NonSerialized] public bool isDigOut = true;
+    [NonSerialized] public FossilItem data;
+
     private SpriteRenderer spriteMesh;
     private Vector2 boxCenter;
     private Vector2 boxSize;
 
     private void Awake()
     {
+        statObject.itemImage = GetComponentInChildren<SpriteRenderer>().sprite;
+        data = new FossilItem(statObject);
+
         spriteMesh = GetComponentInChildren<SpriteRenderer>();
         spriteMesh.transform.localPosition = GetComponent<BoxCollider2D>().offset;
     }

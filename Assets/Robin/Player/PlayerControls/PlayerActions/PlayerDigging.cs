@@ -1,7 +1,6 @@
 using System.Linq;
 using UnityEngine;
 
-//For now just testing how digging function work
 public class PlayerDigging : BasePlayerController
 {
     public DiggingToolType currentDiggingTool;
@@ -12,6 +11,8 @@ public class PlayerDigging : BasePlayerController
 
     public void Dig(GameObject diggingRange)
     {
+        if (diggingRange.GetComponentInParent<UpdateDiggingIcon>().isOutOfRange) return;
+
         if (inputManager.GetInteractInput())
         {
             if (!_isDigging)

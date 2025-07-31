@@ -17,9 +17,10 @@ public class FinishDiggingState : BaseState
 
         foreach (var fossil in _miningStateMachine.fossilDigOutList)
         {
-            Debug.Log($"You get {fossil}!");
+            PlayerInventory_Overworld.CollectItem(fossil.data, 1);
         }
 
+        PlayerInventory_Overworld.DebugDisplayAllItemsInInventory();
         _miningStateMachine.StartCoroutine(BackToOverworldScene(0));
 
     }
@@ -37,6 +38,7 @@ public class FinishDiggingState : BaseState
     IEnumerator BackToOverworldScene(int sceneIndex)
     {
         yield return new WaitForSeconds(_miningStateMachine.waitInSecAfterFinishDigging);
+        DiggingLayer.durability = 50f;
         SceneManager.LoadScene(sceneIndex);
     }
 }
