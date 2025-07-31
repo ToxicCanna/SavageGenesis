@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class PlayerInventory_Overworld
@@ -8,7 +9,7 @@ public class PlayerInventory_Overworld
     //Inventory as a dictionary
     //To Killian: since we only have single player for now then set the inventory to static, tell me if you want to make multi-player
 
-    public static Dictionary<BaseItem, int> itemsInInventory = new Dictionary<BaseItem, int>();
+    public static Dictionary<BaseItemStat, int> itemsInInventory = new Dictionary<BaseItemStat, int>();
 
     public static void DebugDisplayAllItemsInInventory()
     {
@@ -19,31 +20,34 @@ public class PlayerInventory_Overworld
         else
         {
             foreach (var inventorySlot in itemsInInventory)
-                Debug.Log($"You have {inventorySlot.Value} of {inventorySlot.Key.statObject.itemName}s in your inventory.");
+                Debug.Log($"You have {inventorySlot.Value} of {inventorySlot.Key.itemName}s in your inventory.");
         }
     }
     
-    public static void CollectItem(BaseItem item, int collectValue)
+    public static void CollectItem(BaseItemStat itemStat, int collectValue)
     {
-        itemsInInventory.Add(item, collectValue);
+        if (!itemsInInventory.TryAdd(itemStat, collectValue))
+        {
+            itemsInInventory[itemStat] += collectValue;
+        }
 
-        Debug.Log($"You get a {item.statObject.itemName}!");
+        Debug.Log($"You get {collectValue} of {itemStat.itemName}s!");
     }
 
-    public static void DiscardItem(BaseItem item, int discardValue)
+    public static void DiscardItem(BaseItemStat itemStat, int discardValue)
     {
-        if (!itemsInInventory.ContainsKey(item))
+        if (!itemsInInventory.ContainsKey(itemStat))
         {
             Debug.Log("Item not found");
             return;
         }
         
-        if (itemsInInventory[item] <= discardValue)
-            itemsInInventory.Remove(item);
+        if (itemsInInventory[itemStat] <= discardValue)
+            itemsInInventory.Remove(itemStat);
         else
-            itemsInInventory[item] -= discardValue;
+            itemsInInventory[itemStat] -= discardValue;
 
-        Debug.Log($"Item '{item}' has been discarded!");
+        Debug.Log($"Item '{itemStat.itemName}' has been discarded!");
     }
 
     public static void ClearInventory()

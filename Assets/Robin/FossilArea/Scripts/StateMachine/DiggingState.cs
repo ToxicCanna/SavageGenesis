@@ -33,7 +33,7 @@ public class DiggingState : BaseState
     {
         foreach (var fossil in _miningStateMachine.fossilSpawnedList)
         {
-            if (fossil.isDigOut)
+            if (fossil.CheckIfDugOut())
                 _miningStateMachine.fossilDigOutList.Add(fossil);
         }
 

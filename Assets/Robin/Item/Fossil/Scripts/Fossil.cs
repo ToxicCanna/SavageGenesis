@@ -9,7 +9,7 @@ public class Fossil : MonoBehaviour
     [SerializeField] private float boxCollisonEdgeWidth = 0.1f;
     
     [NonSerialized] public bool isColliding = false;
-    [NonSerialized] public bool isDigOut = true;
+    //*[NonSerialized] public*/ private bool isDigOut = true;
     [NonSerialized] public FossilItem data;
 
     private SpriteRenderer spriteMesh;
@@ -29,10 +29,10 @@ public class Fossil : MonoBehaviour
     //Check if dig out
     private void Update()
     {
-        isDigOut = CheckDigOut();
+        //isDigOut = CheckDigOut();
     }
 
-    private bool CheckDigOut()
+    public bool CheckIfDugOut()
     {
         // Define the box's center position
         boxCenter = new Vector2
@@ -54,8 +54,13 @@ public class Fossil : MonoBehaviour
         foreach (Collider2D collider in hitColliders)
         {
             if (collider.gameObject.GetComponent<DiggingLayer>())
+            {
+                //isDigOut = false;
                 return false;
+            } 
         }
+
+        //isDigOut = true;
 
         return true;
     }

@@ -17,7 +17,7 @@ public class FinishDiggingState : BaseState
 
         foreach (var fossil in _miningStateMachine.fossilDigOutList)
         {
-            PlayerInventory_Overworld.CollectItem(fossil.data, 1);
+            PlayerInventory_Overworld.CollectItem(fossil.data.statObject, 1);
         }
 
         PlayerInventory_Overworld.DebugDisplayAllItemsInInventory();
