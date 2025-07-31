@@ -13,7 +13,7 @@ public class DiggingState : BaseState
 
     public override void EnterState()
     {
-        Debug.Log($"Start Digging, diggingArea Stability: {DiggingLayer.durability}");
+        Debug.Log($"Start Digging, diggingArea Stability: {PlayerDigging.durability}");
         _miningStateMachine.EnableLayer(true, _miningStateMachine.diggingLayer);
         _miningStateMachine.loadingImage.gameObject.SetActive(false);
         _miningStateMachine.uiManager.ShowUI(true);
@@ -25,7 +25,7 @@ public class DiggingState : BaseState
         if (_updateDiggingIcon.gameObject.activeSelf)
             _miningStateMachine.playerDigging.Dig(_updateDiggingIcon.currentToolRange);
 
-        if (DiggingLayer.durability <= 0)
+        if (PlayerDigging.durability <= 0)
             _miningStateMachine.SetState(_miningStateMachine.FinishDiggingState);
     }
 

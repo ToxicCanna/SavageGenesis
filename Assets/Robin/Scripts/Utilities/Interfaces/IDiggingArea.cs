@@ -2,6 +2,5 @@ using UnityEngine;
 
 interface IDiggingArea
 {
-    void OnDigging(BoxCollider2D collision, DiggingToolType tool, out bool isDugOut);
-    void UpdateDurability(DiggingToolType tool);
+    void DigTile(float x, float y, DiggingToolType tool, out bool isDugOut);
 }

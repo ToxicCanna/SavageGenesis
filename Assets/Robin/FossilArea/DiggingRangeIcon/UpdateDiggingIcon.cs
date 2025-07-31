@@ -52,6 +52,8 @@ public class UpdateDiggingIcon : MonoBehaviour
 
     private void UpdateObjectPosition()
     {
+        if (PlayerDigging.isDigging) return;
+        
         mousePosition = Camera.main.ScreenToWorldPoint(inputManager.GetInteractPosition());
 
         transform.position = grid.LocalToCell(mousePosition);

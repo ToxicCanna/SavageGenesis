@@ -38,7 +38,7 @@ public class FinishDiggingState : BaseState
     IEnumerator BackToOverworldScene(int sceneIndex)
     {
         yield return new WaitForSeconds(_miningStateMachine.waitInSecAfterFinishDigging);
-        DiggingLayer.durability = 50f;
+        PlayerDigging.durability = _miningStateMachine.uiManager.maxDurability;
         SceneManager.LoadScene(sceneIndex);
     }
 }

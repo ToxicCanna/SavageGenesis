@@ -282,7 +282,7 @@ public partial class @SavageGenesis_PlayerInput: IInputActionCollection2, IDispo
                     ""id"": ""6c54fc11-4f65-476d-b93f-b007c3df877d"",
                     ""expectedControlType"": """",
                     ""processors"": """",
-                    ""interactions"": """",
+                    ""interactions"": ""Press"",
                     ""initialStateCheck"": true
                 },
                 {
