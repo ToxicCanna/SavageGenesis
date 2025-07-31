@@ -12,52 +12,59 @@ public class UpdateDiggingIcon : MonoBehaviour
     private Tilemap tilemap;
     private BoundsInt bounds;
 
-    [NonSerialized] public CircleCollider2D iconCollider;
+    [NonSerialized] public GameObject currentToolRange;
 
     private void Start()
     {
         inputManager = InputManager.Instance;
         tilemap = miningStateMachine.diggingLayer.GetComponent<Tilemap>();
         bounds = tilemap.cellBounds;
+        currentToolRange = GetChildrenObjects.GetAllChildren(gameObject)[0];
+
+        foreach (var child in GetChildrenObjects.GetAllChildren(gameObject))
+            child.SetActive(false);
     }
 
     #region Update Digging Icon
     private void Update()
     {
         UpdateIcon();
+        HandleIconOutOfRange();
         UpdateObjectPosition();
+    }
+
+    private void HandleIconOutOfRange()
+    {
+        if (
+            mousePosition.x < GetTilemapMinPos().x 
+            || mousePosition.x >= GetTilemapMaxPos().x 
+            || mousePosition.y < GetTilemapMinPos().y 
+            || mousePosition.y >= GetTilemapMaxPos().y
+        )
+            currentToolRange.SetActive(false);
     }
 
     private void UpdateObjectPosition()
     {
         mousePosition = Camera.main.ScreenToWorldPoint(inputManager.GetInteractPosition());
-        Vector2 newPosition = new Vector2
-        (
-            Mathf.Clamp(mousePosition.x, GetTilemapMinPos().x, GetTilemapMaxPos().x - 1f),
-            Mathf.Clamp(mousePosition.y, GetTilemapMinPos().y, GetTilemapMaxPos().y - 1f)
-        );
 
-        transform.position = grid.LocalToCell(newPosition);
+        transform.position = grid.LocalToCell(mousePosition);
     }
 
     private void UpdateIcon()
     {
-        foreach(var child in GetChildrenObjects.GetAllChildren(gameObject))
-            child.SetActive(false);
+        currentToolRange.SetActive(false);
 
-        switch (miningStateMachine.playerDigging.currentDiggingTool)
+        var newToolRange = transform.Find(miningStateMachine.playerDigging.currentDiggingTool.ToString() + "Range")?.gameObject;
+
+        if(newToolRange)
         {
-            case 0: //Brush
-                transform.Find("BrushRange")?.gameObject.SetActive(true);
-                iconCollider = transform.Find("BrushRange")?.gameObject.GetComponent<CircleCollider2D>();
-                break;
-            case (DiggingToolType)1: //Pickaxe
-                transform.Find("PickaxeRange")?.gameObject.SetActive(true);
-                iconCollider = transform.Find("PickaxeRange")?.gameObject.GetComponent<CircleCollider2D>();
-                break;
-            default:
-                Debug.Log("Tool enum is not set!");
-                break;
+            newToolRange.SetActive(true);
+            currentToolRange = newToolRange;
+        }
+        else
+        {
+            Debug.Log("Tool enum is not found!");
         }
     }
     #endregion

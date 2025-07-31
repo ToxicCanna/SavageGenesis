@@ -3,60 +3,36 @@ using UnityEngine;
 
 public class DiggingLayer : BaseMiningLayer, IDiggingArea
 {
-    [SerializeField] private float diggingDelay = 0.5f;
-    [NonSerialized] public float durability = 50f;
+    public static float durability = 50f;
 
-    private bool _isDigging = false;
-
-    /*protected override void Start()
+    public virtual void OnDigging(BoxCollider2D collision, DiggingToolType tool, out bool isDugOut)
     {
-        base.Start();
-        durability = miningStateMachine.uiManager.maxDurability;
-    }*/
+        isDugOut = false;
 
-    public virtual void OnDigging(CircleCollider2D collision, DiggingToolType tool)
-    {
         if (tilemap == null || collision == null)
         {
             Debug.Log($"{tilemap.name}, {collision.gameObject.name}. One of these inputs is not assigned!");
             return;
         }
 
-        if (!_isDigging)
+        HandleDigging(collision, tool, out isDugOut);
+    }
+
+    private void HandleDigging(BoxCollider2D collision, DiggingToolType tool, out bool isDugOut)
+    {
+        Vector3Int tilePosition = tilemap.WorldToCell(collision.transform.position);
+        Debug.Log("tilemap location: " + tilePosition);
+
+        if (tilemap.GetTile(tilePosition) != null)
         {
-            _isDigging = true;
-            HandleDigging(collision, tool);
-            Invoke(nameof(ResetDigging), diggingDelay);
+            tilemap.SetTile(tilePosition, null);
+            isDugOut = true;
         }
         else
-            Debug.Log("Digging Delaying");
+            isDugOut = false;
     }
 
-    private void HandleDigging(CircleCollider2D collision, DiggingToolType tool)
-    {
-        Vector2 center = collision.bounds.center;
-        float radius = collision.radius * collision.transform.lossyScale.x;
-        BoundsInt bounds = tilemap.cellBounds;
-
-        for (int x = bounds.xMin; x < bounds.xMax; x++)
-        {
-            for (int y = bounds.yMin; y < bounds.yMax; y++)
-            {
-                Vector3Int tilePosition = new Vector3Int(x, y, 0);
-                Vector3 worldPosition = tilemap.CellToWorld(tilePosition) + tilemap.cellSize / 2;
-
-                // Check if the tile is within the circle
-                if (Vector2.Distance(center, worldPosition) <= radius)
-                {
-                    tilemap.SetTile(tilePosition, null);
-                }
-            }
-        }
-
-        UpdateDurability(tool);
-    }
-
-    private void UpdateDurability(DiggingToolType tool)
+    public virtual void UpdateDurability(DiggingToolType tool)
     {
         switch (tool)
         {
@@ -78,10 +54,5 @@ public class DiggingLayer : BaseMiningLayer, IDiggingArea
             miningStateMachine.uiManager.SetDurability(durability);
             //Debug.Log($"[Digging] Stability now {stability}");
         }
-    }
-
-    private void ResetDigging()
-    {
-        _isDigging = false;
     }
 }

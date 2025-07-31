@@ -5,38 +5,61 @@ using UnityEngine;
 public class PlayerDigging : BasePlayerController
 {
     public DiggingToolType currentDiggingTool;
+    [SerializeField] private float diggingDelay = 0.5f;
+
     private IDiggingArea iDiggingArea;
-    private Camera _camera;
+    private bool _isDigging = false;
 
-    private void Awake()
+    public void Dig(GameObject diggingRange)
     {
-        _camera = Camera.main;
-    }
-    public void Dig(CircleCollider2D collision)
-    {
-        if (InteractHits().Length <= 0) return;
-
         if (inputManager.GetInteractInput())
         {
-            foreach (var hit in InteractHits().Reverse())
-            {
-                //Debug.Log(hit.collider.gameObject.name);
-                iDiggingArea = hit.collider.gameObject.GetComponentInChildren<IDiggingArea>();
-                if (iDiggingArea != null)
-                {
-                    iDiggingArea.OnDigging(collision, currentDiggingTool);
-                    break;
-                }
-            }
+            if (!_isDigging)
+                Digging(diggingRange);
+
+            Invoke(nameof(ResetDigging), diggingDelay);
         }  
     }
 
-    private RaycastHit2D[] InteractHits()
+    private void Digging(GameObject diggingRange)
     {
-        return Physics2D.GetRayIntersectionAll(_camera.ScreenPointToRay(inputManager.GetInteractPosition()));;
+        _isDigging = true;
+
+        //Debug.Log(hit.collider.gameObject.name);
+        var diggingSpriteList = GetChildrenObjects.GetAllChildren(diggingRange);
+
+        foreach(var diggingSprite in diggingSpriteList)
+        {
+            var spriteCollider = diggingSprite.GetComponent<BoxCollider2D>();
+            var hits = Physics2D.OverlapBoxAll(diggingSprite.transform.position, spriteCollider.size, 0f);
+            bool isDugOut = false;
+
+            if (hits.Length <= 0) break;
+
+            foreach (var hit in hits.Reverse())
+            {
+                iDiggingArea = hit.gameObject.GetComponentInChildren<IDiggingArea>();
+                if (iDiggingArea != null)
+                    iDiggingArea.OnDigging(diggingSprite.GetComponent<BoxCollider2D>(), currentDiggingTool, out isDugOut);
+
+                if (isDugOut)
+                    break;
+            }
+
+        }
+
+        if (iDiggingArea != null)
+            iDiggingArea.UpdateDurability(currentDiggingTool);
+    }
+
+
+    private void ResetDigging()
+    {
+        _isDigging = false;
     }
 
     #region Switch Tool
+    
     public void SwitchToBrush()
     {
         currentDiggingTool = DiggingToolType.Brush;

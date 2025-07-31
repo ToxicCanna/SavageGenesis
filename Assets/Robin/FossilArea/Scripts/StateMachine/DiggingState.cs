@@ -3,15 +3,17 @@ using UnityEngine;
 public class DiggingState : BaseState
 {
     private MiningStateMachine _miningStateMachine;
+    private UpdateDiggingIcon _updateDiggingIcon;
 
     public DiggingState(MiningStateMachine stateMachine)
     {
         _miningStateMachine = stateMachine;
+        _updateDiggingIcon = _miningStateMachine.diggingIcon.GetComponent<UpdateDiggingIcon>();
     }
 
     public override void EnterState()
     {
-        Debug.Log($"Start Digging, diggingArea Stability: {_miningStateMachine.diggingLayer.durability}");
+        Debug.Log($"Start Digging, diggingArea Stability: {DiggingLayer.durability}");
         _miningStateMachine.EnableLayer(true, _miningStateMachine.diggingLayer);
         _miningStateMachine.loadingImage.gameObject.SetActive(false);
         _miningStateMachine.uiManager.ShowUI(true);
@@ -20,9 +22,10 @@ public class DiggingState : BaseState
 
     public override void UpdateState()
     {
-        _miningStateMachine.playerDigging.Dig(_miningStateMachine.diggingIcon.GetComponent<UpdateDiggingIcon>().iconCollider);
+        if (_updateDiggingIcon.gameObject.activeSelf)
+            _miningStateMachine.playerDigging.Dig(_updateDiggingIcon.currentToolRange);
 
-        if (_miningStateMachine.diggingLayer.durability <= 0)
+        if (DiggingLayer.durability <= 0)
             _miningStateMachine.SetState(_miningStateMachine.FinishDiggingState);
     }
 
