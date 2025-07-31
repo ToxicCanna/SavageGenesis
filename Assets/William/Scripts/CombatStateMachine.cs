@@ -43,7 +43,7 @@ public class CombatStateMachine : BaseStateMachine
     private bool playerActed;
     private bool enemyActed;
 
-    private bool textAnimationFinished;
+    public bool textAnimationFinished;
 
     private void Awake()
     {
@@ -124,8 +124,9 @@ public class CombatStateMachine : BaseStateMachine
                 JumpToPlayerMakeDecisionState();
             }
             else
-            { 
+            {
                 //finish text animation 
+                textAnimationFinished = true;
             }
         }
         if (combatStates == CombatStates.PlayerMakeDecision)

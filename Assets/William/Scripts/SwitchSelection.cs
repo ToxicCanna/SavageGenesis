@@ -15,6 +15,8 @@ public class SwitchSelection : MonoBehaviour
 
     private DinosaurSlot cursorHover;
 
+    private bool playerFainted;
+
     private bool isApplicationQuitting = false;
 
     public void LoadInventoryDinosaurs()

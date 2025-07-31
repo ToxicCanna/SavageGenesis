@@ -13,6 +13,10 @@ public class InventoryDinosaur : MonoBehaviour
     [SerializeField] private bool isEmpty;
     [SerializeField] private bool usedByEnemy;
 
+    [SerializeField] private int inhertedStrength;
+    [SerializeField] private int inhertedDefense;
+    [SerializeField] private int inhertedAgility;
+
     private int origionalStrength;
     private int origionalDefense;
     private int origionalAgility;
@@ -75,9 +79,9 @@ public class InventoryDinosaur : MonoBehaviour
         {
             currentExpNeeded = dinoInfoRef.CalculateExpNeeded(currentLevel);
         }
-        origionalStrength = dinoInfoRef.CalculateStrength(currentLevel);
-        origionalDefense = dinoInfoRef.CalculateDefense(currentLevel);
-        origionalAgility = dinoInfoRef.CalculateAgility(currentLevel);
+        origionalStrength = dinoInfoRef.CalculateStrength(currentLevel, inhertedStrength);
+        origionalDefense = dinoInfoRef.CalculateDefense(currentLevel, inhertedDefense);
+        origionalAgility = dinoInfoRef.CalculateAgility(currentLevel, inhertedAgility);
         currentMaxHP = dinoInfoRef.CalculateMaxHP(currentLevel);
     }
 
