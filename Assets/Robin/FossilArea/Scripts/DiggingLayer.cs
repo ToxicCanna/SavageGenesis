@@ -25,5 +25,11 @@ public class DiggingLayer : BaseMiningLayer, IDiggingArea
             isDugOut = false;
     }
 
+    public bool IsNotDug(Vector2 tilePos)
+    {
+        Vector3Int tilePosition = tilemap.WorldToCell(tilePos);
+
+        return tilemap.GetTile(tilePosition);
+    }
     
 }

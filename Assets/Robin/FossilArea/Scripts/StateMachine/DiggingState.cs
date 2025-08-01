@@ -33,8 +33,10 @@ public class DiggingState : BaseState
     {
         foreach (var fossil in _miningStateMachine.fossilSpawnedList)
         {
-            if (fossil.CheckIfDugOut())
+            if (fossil.CheckIfDugOut(_miningStateMachine.playerDigging.Layers))
                 _miningStateMachine.fossilDigOutList.Add(fossil);
+
+            //Debug.Log($"Check: {fossil.gameObject.name}");
         }
 
         Debug.Log("Finish Digging");

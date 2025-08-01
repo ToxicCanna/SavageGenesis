@@ -12,6 +12,7 @@ public class PlayerDigging : BasePlayerController
     public static bool isDigging = false;
 
     [SerializeField] private DiggingLayer[] layers;
+    public DiggingLayer[] Layers => layers;
 
     public void Dig(GameObject diggingRange)
     {

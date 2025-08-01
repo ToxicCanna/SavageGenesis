@@ -1,5 +1,6 @@
 using System;
 using System.Collections;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Fossil : MonoBehaviour
@@ -9,12 +10,12 @@ public class Fossil : MonoBehaviour
     [SerializeField] private float boxCollisonEdgeWidth = 0.1f;
     
     [NonSerialized] public bool isColliding = false;
-    //*[NonSerialized] public*/ private bool isDigOut = true;
+    //public bool isDigOut = false;
     [NonSerialized] public FossilItem data;
 
     private SpriteRenderer spriteMesh;
-    private Vector2 boxCenter;
-    private Vector2 boxSize;
+
+    [SerializeField] private Vector2[] cellPoints;
 
     private void Awake()
     {
@@ -25,43 +26,31 @@ public class Fossil : MonoBehaviour
         spriteMesh.transform.localPosition = GetComponent<BoxCollider2D>().offset;
     }
 
-    #region Collision Detection
-    //Check if dig out
-    private void Update()
+    private void Start()
     {
-        //isDigOut = CheckDigOut();
+        //cellPoints = new Vector2[(int)(transform.lossyScale.x * transform.lossyScale.y)];
+
+        //Think a way to code the cellPoints array, math knowledge will define the rule 
     }
 
-    public bool CheckIfDugOut()
+    #region Collision Detection
+    //Check if dig out
+    public bool CheckIfDugOut(DiggingLayer[] layers)
     {
-        // Define the box's center position
-        boxCenter = new Vector2
-        (
-            transform.position.x + spriteMesh.transform.localPosition.x * transform.localScale.x,
-            transform.position.y + spriteMesh.transform.localPosition.y * transform.localScale.y
-        );
-
-        boxSize = new Vector2
-        (
-            transform.localScale.x - boxCollisonEdgeWidth,
-            transform.localScale.y - boxCollisonEdgeWidth
-        );
-
-        // Perform the OverlapBoxAll check
-        Collider2D[] hitColliders = Physics2D.OverlapBoxAll(boxCenter, boxSize, 0f);
-
-        // Process the detected colliders
-        foreach (Collider2D collider in hitColliders)
+        foreach(var cellpoint in cellPoints)
         {
-            if (collider.gameObject.GetComponent<DiggingLayer>())
+            foreach (var layer in layers)
             {
-                //isDigOut = false;
-                return false;
-            } 
+                if (layer.IsNotDug((Vector2)transform.position + cellpoint))
+                {
+                    //Debug.Log((Vector2)transform.position + cellpoint);
+                    
+                    //isDigOut = false;
+                    return false;
+                }
+            }
         }
-
         //isDigOut = true;
-
         return true;
     }
 

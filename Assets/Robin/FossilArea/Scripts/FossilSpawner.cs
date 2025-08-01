@@ -14,6 +14,8 @@ public class FossilSpawner : MonoBehaviour
     private Renderer _renderer;
     private Bounds spawnerBound;
 
+    private int fossilIndex = 0;
+
     private void Awake()
     {
         _renderer = GetComponent<TilemapRenderer>();
@@ -24,6 +26,7 @@ public class FossilSpawner : MonoBehaviour
 
     public IEnumerator SpawnFossilFromList(List<Fossil> spawnList)
     {
+        //fossilIndex = 0;
         for (int i = 0; i < spawnAttempts; i++)
         {
             if (spawnList.Count > 0)
@@ -34,13 +37,17 @@ public class FossilSpawner : MonoBehaviour
 
                 if (fossilGet != null)
                 {
-                    var spawnedFossil = Instantiate(spawnList[Random.Range(0, spawnList.Count)], fossilLayer.grid.LocalToCell(spawnPos), Quaternion.identity);
+                    var spawnedFossil = Instantiate(fossilGet, fossilLayer.grid.LocalToCell(spawnPos), Quaternion.identity);
                     miningStateMachine.fossilSpawnedList.Add(spawnedFossil);
+                    spawnedFossil.name = fossilGet.name + "-" + fossilIndex;
 
                     yield return spawnedFossil.WaitForCollisions();
 
                     if (!spawnedFossil.isColliding)
+                    {
+                        fossilIndex++;
                         yield break;
+                    }
                     else
                     {
                         //Debug.Log($"{spawnedFossil.gameObject.GetInstanceID()} is hitting something, deleting");
