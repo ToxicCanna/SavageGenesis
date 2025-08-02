@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class MiningStateMachine : BaseStateMachine
 {
-    public GameObject playerRef;
+    //public GameObject playerRef;
     public Image loadingImage;
     public GameplayUIManager uiManager;
     public GameObject diggingIcon;
@@ -46,7 +46,7 @@ public class MiningStateMachine : BaseStateMachine
 
     private void Start()
     {
-        playerRef.GetComponent<PlayerMovement>().enabled = false;
+        //playerRef.GetComponent<PlayerMovement>().enabled = false;
         SetState(InitialState);
     }
 
