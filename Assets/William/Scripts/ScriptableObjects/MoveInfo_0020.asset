@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9ed16c14bdacaed47b5add9b9e083d2e, type: 3}
-  m_Name: MoveInfo_0010
+  m_Name: MoveInfo_0020
   m_EditorClassIdentifier: 
-  moveName: Bite_tempPlaceholder
-  moveType: 1
-  moveStrength: 70
+  moveName: MoonBlast_tempPlaceholder
+  moveType: 2
+  moveStrength: 100
   moveCooldown: 5
   moveAccuracy: 100
   moveSpeed: 0

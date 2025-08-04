@@ -6,6 +6,10 @@ public class LevelInfo : MonoBehaviour
     [SerializeField] private GameObject backgroundImage;
     [SerializeField] private GameObject playerSprite;
     [SerializeField] private GameObject enemySprite;
+
+    [SerializeField] private GameObject playerTwoSprite;
+    [SerializeField] private GameObject enemyTwoSprite;
+
     [SerializeField] private GameObject actionSelector;
     [SerializeField] private GameObject actionSelectorCursor;
     [SerializeField] private GameObject skillSelector;
@@ -18,6 +22,20 @@ public class LevelInfo : MonoBehaviour
     [SerializeField] private GameObject skillThree;
     [SerializeField] private GameObject skillFour;
     [SerializeField] private GameObject skillFive;
+
+    [SerializeField] private GameObject switchOne;
+    [SerializeField] private GameObject switchTwo;
+    [SerializeField] private GameObject switchThree;
+    [SerializeField] private GameObject switchFour;
+    [SerializeField] private GameObject switchOneSprite;
+    [SerializeField] private GameObject switchTwoSprite;
+    [SerializeField] private GameObject switchThreeSprite;
+    [SerializeField] private GameObject switchFourSprite;
+
+    [SerializeField] private GameObject switchOneFaintSprite;
+    [SerializeField] private GameObject switchTwoFaintSprite;
+    [SerializeField] private GameObject switchThreeFaintSprite;
+    [SerializeField] private GameObject switchFourFaintSprite;
 
     [SerializeField] private GameObject moveTypeText;
     [SerializeField] private GameObject movePowerText;
@@ -32,6 +50,14 @@ public class LevelInfo : MonoBehaviour
 
     [SerializeField] private GameObject playerExpBar;
 
+    [SerializeField] private GameObject playerTwoNameText;
+    [SerializeField] private GameObject playerTwoLevelText;
+    [SerializeField] private GameObject playerTwoHealthBar;
+    [SerializeField] private GameObject playerTwoHealthText;
+
+    [SerializeField] private GameObject playerTwoStatusBarBackground;
+    [SerializeField] private GameObject playerTwoStatusText;
+
     [SerializeField] private GameObject enemyNameText;
     [SerializeField] private GameObject enemyLevelText;
     [SerializeField] private GameObject enemyHealthBar;
@@ -40,9 +66,21 @@ public class LevelInfo : MonoBehaviour
     [SerializeField] private GameObject enemyStatusBarBackground;
     [SerializeField] private GameObject enemyStatusText;
 
+    [SerializeField] private GameObject enemyTwoNameText;
+    [SerializeField] private GameObject enemyTwoLevelText;
+    [SerializeField] private GameObject enemyTwoHealthBar;
+    [SerializeField] private GameObject enemyTwoHealthText;
+
+    [SerializeField] private GameObject enemyTwoStatusBarBackground;
+    [SerializeField] private GameObject enemyTwoStatusText;
+
     [SerializeField] private PlayerInventory playerDinoInventory;
 
     [SerializeField] private PlayerInventory enemyDinoInventory;
+
+    [SerializeField] private GameObject switchSelector;
+    [SerializeField] private GameObject switchSelectorCursor;
+
 
 
     public GameObject GetBacigroundImage()
@@ -51,8 +89,14 @@ public class LevelInfo : MonoBehaviour
     public GameObject GetPlayerSprite()
     { return playerSprite; }
 
+    public GameObject GetPlayerTwoSprite()
+    { return playerTwoSprite; }
+
     public GameObject GetEnemySprite()
     { return enemySprite; }
+
+    public GameObject GetEnemyTwoSprite()
+    { return enemyTwoSprite; }
 
     public GameObject GetActionSelector()
     { return actionSelector; }
@@ -84,6 +128,42 @@ public class LevelInfo : MonoBehaviour
     public GameObject GetSkillFive()
     { return skillFive; }
 
+    public GameObject GetSwitchOne()
+    { return switchOne; }
+
+    public GameObject GetSwitchTwo()
+    { return switchTwo; }
+
+    public GameObject GetSwitchThree()
+    { return switchThree; }
+
+    public GameObject GetSwitchFour()
+    { return switchFour; }
+
+    public GameObject GetSwitchOneSprite()
+    { return switchOneSprite; }
+
+    public GameObject GetSwitchTwoSprite()
+    { return switchTwoSprite; }
+
+    public GameObject GetSwitchThreeSprite()
+    { return switchThreeSprite; }
+
+    public GameObject GetSwitchFourSprite()
+    { return switchFourSprite; }
+
+    public GameObject GetSwitchOneFaintSprite()
+    { return switchOneFaintSprite; }
+
+    public GameObject GetSwitchTwoFaintSprite()
+    { return switchTwoFaintSprite; }
+
+    public GameObject GetSwitchThreeFaintSprite()
+    { return switchThreeFaintSprite; }
+
+    public GameObject GetSwitchFourFaintSprite()
+    { return switchFourFaintSprite; }
+
     public GameObject GetMoveTypeText()
     { return moveTypeText; }
 
@@ -111,6 +191,24 @@ public class LevelInfo : MonoBehaviour
     public GameObject GetPlayerExpBar()
     { return playerExpBar; }
 
+    public GameObject GetPlayerTwoNameText()
+    { return playerTwoNameText; }
+
+    public GameObject GetPlayerTwoLevelText()
+    { return playerTwoLevelText; }
+
+    public GameObject GetPlayerTwoHealthBar()
+    { return playerTwoHealthBar; }
+
+    public GameObject GetPlayerTwoHealthText()
+    { return playerTwoHealthText; }
+
+    public GameObject GetPlayerTwoStatusBarBackground()
+    { return playerTwoStatusBarBackground; }
+
+    public GameObject GetPlayerTwoStatusText()
+    { return playerTwoStatusText; }
+
     public GameObject GetEnemyNameText()
     { return enemyNameText; }
 
@@ -129,6 +227,24 @@ public class LevelInfo : MonoBehaviour
     public GameObject GetEnemyStatusText()
     { return enemyStatusText; }
 
+    public GameObject GetEnemyTwoNameText()
+    { return enemyTwoNameText; }
+
+    public GameObject GetEnemyTwoLevelText()
+    { return enemyTwoLevelText; }
+
+    public GameObject GetEnemyTwoHealthBar()
+    { return enemyTwoHealthBar; }
+
+    public GameObject GetEnemyTwoHealthText()
+    { return enemyTwoHealthText; }
+
+    public GameObject GetEnemyTwoStatusBarBackground()
+    { return enemyTwoStatusBarBackground; }
+
+    public GameObject GetEnemyTwoStatusText()
+    { return enemyTwoStatusText; }
+
     public PlayerInventory GetPlayerDinoInventory()
     {
         return playerDinoInventory;
@@ -137,6 +253,16 @@ public class LevelInfo : MonoBehaviour
     public PlayerInventory GetEnemyDinoInventory()
     {
         return enemyDinoInventory;
+    }
+
+    public GameObject GetSwitchSelector()
+    { 
+        return switchSelector;
+    }
+
+    public GameObject GetSwitchSelectorCursor()
+    {
+        return switchSelectorCursor;
     }
 
 }

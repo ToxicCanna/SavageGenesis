@@ -22,6 +22,14 @@ public class CombatStateMachine : BaseStateMachine
 
     public ActionStep ActionStepState => _actionStepState;
 
+    private EnemyFainted _enemyFaintedState;
+
+    public EnemyFainted EnemyFaintedState => _enemyFaintedState;
+
+    private PlayerFainted _playerFaintedState;
+
+    public PlayerFainted PlayerFaintedState => _playerFaintedState;
+
     private CombatEnd _combatEndState;
 
     public CombatEnd CombatEndState => _combatEndState;
@@ -35,7 +43,7 @@ public class CombatStateMachine : BaseStateMachine
     private bool playerActed;
     private bool enemyActed;
 
-    private bool textAnimationFinished;
+    public bool textAnimationFinished;
 
     private void Awake()
     {
@@ -43,6 +51,8 @@ public class CombatStateMachine : BaseStateMachine
         _combatBeginingState = new CombatBegining(this);
         _playerMakeDecisionState = new PlayerMakeDecision(this);
         _actionStepState = new ActionStep(this);
+        _enemyFaintedState = new EnemyFainted(this);
+        _playerFaintedState = new PlayerFainted(this);
         _combatEndState = new CombatEnd(this);
         _playerLevelUpState = new PlayerLevelUp(this);
     }
@@ -74,6 +84,18 @@ public class CombatStateMachine : BaseStateMachine
         combatStates = CombatStates.ActionStep;
     }
 
+    public void JumpToEnemyFaintedState()
+    {
+        SetState(_enemyFaintedState);
+        combatStates = CombatStates.EnemyFainted;
+    }
+
+    public void JumpToPlayerFaintedState()
+    {
+        SetState(_playerFaintedState);
+        combatStates = CombatStates.PlayerFainted;
+    }
+
     public void JumpToCombatEndState()
     {
         SetState(_combatEndState);
@@ -102,8 +124,9 @@ public class CombatStateMachine : BaseStateMachine
                 JumpToPlayerMakeDecisionState();
             }
             else
-            { 
+            {
                 //finish text animation 
+                textAnimationFinished = true;
             }
         }
         if (combatStates == CombatStates.PlayerMakeDecision)

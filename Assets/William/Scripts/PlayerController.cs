@@ -14,6 +14,9 @@ public class PlayerController : Code.Scripts.Managers.Singleton<PlayerController
 
     [SerializeField] private ActionSelection actionSelection;
     [SerializeField] private SkillSelection skillSelection;
+    [SerializeField] private SwitchSelection switchSelection;
+    [SerializeField] private TargetSelection targetSelection;
+
 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -79,10 +82,50 @@ public class PlayerController : Code.Scripts.Managers.Singleton<PlayerController
             cancelPressed.RemoveListener(skillSelection.PlayerPressedCancel);
     }
 
-    // Update is called once per frame
-    void Update()
+    public void SwitchSelectionAddListener()
     {
-        
+        upPressed.AddListener(switchSelection.PlayerPressedUp);
+        downPressed.AddListener(switchSelection.PlayerPressedDown);
+        leftPressed.AddListener(switchSelection.PlayerPressedLeft);
+        rightPressed.AddListener(switchSelection.PlayerPressedRight);
+        confirmPressed.AddListener(switchSelection.PlayerPressedConfirm);
+        cancelPressed.AddListener(switchSelection.PlayerPressedCancel);
+    }
+
+    public void SwitchSelectionRemoveListener()
+    {
+        if (upPressed != null)
+            upPressed.RemoveListener(switchSelection.PlayerPressedUp);
+        if (downPressed != null)
+            downPressed.RemoveListener(switchSelection.PlayerPressedDown);
+        if (leftPressed != null)
+            leftPressed.RemoveListener(switchSelection.PlayerPressedLeft);
+        if (rightPressed != null)
+            rightPressed.RemoveListener(switchSelection.PlayerPressedRight);
+        if (confirmPressed != null)
+            confirmPressed.RemoveListener(switchSelection.PlayerPressedConfirm);
+        if (cancelPressed != null)
+            cancelPressed.RemoveListener(switchSelection.PlayerPressedCancel);
+    }
+
+    public void TargetSelectionAddListener()
+    {
+        leftPressed.AddListener(targetSelection.PlayerPressedLeft);
+        rightPressed.AddListener(targetSelection.PlayerPressedRight);
+        confirmPressed.AddListener(targetSelection.PlayerPressedConfirm);
+        cancelPressed.AddListener(targetSelection.PlayerPressedCancel);
+    }
+
+    public void TargetSelectionRemoveListener()
+    {
+        if (leftPressed != null)
+            leftPressed.RemoveListener(targetSelection.PlayerPressedLeft);
+        if (rightPressed != null)
+            rightPressed.RemoveListener(targetSelection.PlayerPressedRight);
+        if (confirmPressed != null)
+            confirmPressed.RemoveListener(targetSelection.PlayerPressedConfirm);
+        if (cancelPressed != null)
+            cancelPressed.RemoveListener(targetSelection.PlayerPressedCancel);
     }
 
     public void OnUp()

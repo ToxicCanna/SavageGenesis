@@ -27,6 +27,8 @@ public enum CombatStates
     CombatBegining,
     PlayerMakeDecision,
     ActionStep,
+    EnemyFainted,
+    PlayerFainted,
     CombatEnd,
     PlayerLevelUp
 };
@@ -52,7 +54,8 @@ public enum DinosaurSlot
     One,
     Two,
     Three, 
-    Four
+    Four,
+    Back
 };
 
 public enum GameMode
