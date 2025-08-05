@@ -3,25 +3,29 @@ using UnityEngine;
 public class DiggingState : BaseState
 {
     private MiningStateMachine _miningStateMachine;
+    private UpdateDiggingIcon _updateDiggingIcon;
 
     public DiggingState(MiningStateMachine stateMachine)
     {
         _miningStateMachine = stateMachine;
+        _updateDiggingIcon = _miningStateMachine.diggingIcon.GetComponent<UpdateDiggingIcon>();
     }
 
     public override void EnterState()
     {
-        Debug.Log($"Start Digging, diggingArea Stability: {_miningStateMachine.diggingLayer.stability}");
+        Debug.Log($"Start Digging, diggingArea Stability: {PlayerDigging.durability}");
         _miningStateMachine.EnableLayer(true, _miningStateMachine.diggingLayer);
         _miningStateMachine.loadingImage.gameObject.SetActive(false);
+        _miningStateMachine.uiManager.ShowUI(true);
         _miningStateMachine.diggingIcon.SetActive(true);
     }
 
     public override void UpdateState()
     {
-        _miningStateMachine.playerDigging.Dig();
+        if (_updateDiggingIcon.gameObject.activeSelf)
+            _miningStateMachine.playerDigging.Dig(_updateDiggingIcon.currentToolRange);
 
-        if (_miningStateMachine.diggingLayer.stability <= 0)
+        if (PlayerDigging.durability <= 0)
             _miningStateMachine.SetState(_miningStateMachine.FinishDiggingState);
     }
 
@@ -29,8 +33,10 @@ public class DiggingState : BaseState
     {
         foreach (var fossil in _miningStateMachine.fossilSpawnedList)
         {
-            if (fossil.isDigOut)
+            if (fossil.CheckIfDugOut(_miningStateMachine.playerDigging.Layers))
                 _miningStateMachine.fossilDigOutList.Add(fossil);
+
+            //Debug.Log($"Check: {fossil.gameObject.name}");
         }
 
         Debug.Log("Finish Digging");

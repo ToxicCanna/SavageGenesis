@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Dino1
   m_EditorClassIdentifier: 
   itemName: TestHerbivore
+  itemImage: {fileID: 6575581121138938176, guid: 527560a2c98fa4644af9a5e20ab7d65a, type: 3}
   price: 50
   rarity: 0
   fossilType: 2

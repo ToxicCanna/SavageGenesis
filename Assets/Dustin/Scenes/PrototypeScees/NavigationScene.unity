@@ -1131,10 +1131,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1e54f0925aabe3b42ade0b88068a4559, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  digSceneName: RobinDiggingTest_Copy
-  reviveSceneName: DinoRevival_Scene
-  stadiumSceneName: StadiumScene
-  fightingPitSceneName: FightingPitScene
+  digSceneName: RobinDiggingTestGym
+  reviveSceneName: ReviveScene
+  stadiumSceneName: DinoBattleScene
+  fightingPitSceneName: DinoUGArena
   digButton: {fileID: 843820625}
   reviveButton: {fileID: 1205111316}
   stadiumButton: {fileID: 1195992876}
@@ -2576,7 +2576,7 @@ MonoBehaviour:
   m_ScaleFactor: 1
   m_ReferenceResolution: {x: 1920, y: 1080}
   m_ScreenMatchMode: 0
-  m_MatchWidthOrHeight: 0
+  m_MatchWidthOrHeight: 0.5
   m_PhysicalUnit: 3
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
@@ -2594,7 +2594,7 @@ Canvas:
   m_RenderMode: 0
   m_Camera: {fileID: 0}
   m_PlaneDistance: 100
-  m_PixelPerfect: 0
+  m_PixelPerfect: 1
   m_ReceivesEvents: 1
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0

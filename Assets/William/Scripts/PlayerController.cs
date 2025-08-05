@@ -15,6 +15,7 @@ public class PlayerController : Code.Scripts.Managers.Singleton<PlayerController
     [SerializeField] private ActionSelection actionSelection;
     [SerializeField] private SkillSelection skillSelection;
     [SerializeField] private SwitchSelection switchSelection;
+    [SerializeField] private TargetSelection targetSelection;
 
 
 
@@ -107,10 +108,24 @@ public class PlayerController : Code.Scripts.Managers.Singleton<PlayerController
             cancelPressed.RemoveListener(switchSelection.PlayerPressedCancel);
     }
 
-    // Update is called once per frame
-    void Update()
+    public void TargetSelectionAddListener()
     {
-        
+        leftPressed.AddListener(targetSelection.PlayerPressedLeft);
+        rightPressed.AddListener(targetSelection.PlayerPressedRight);
+        confirmPressed.AddListener(targetSelection.PlayerPressedConfirm);
+        cancelPressed.AddListener(targetSelection.PlayerPressedCancel);
+    }
+
+    public void TargetSelectionRemoveListener()
+    {
+        if (leftPressed != null)
+            leftPressed.RemoveListener(targetSelection.PlayerPressedLeft);
+        if (rightPressed != null)
+            rightPressed.RemoveListener(targetSelection.PlayerPressedRight);
+        if (confirmPressed != null)
+            confirmPressed.RemoveListener(targetSelection.PlayerPressedConfirm);
+        if (cancelPressed != null)
+            cancelPressed.RemoveListener(targetSelection.PlayerPressedCancel);
     }
 
     public void OnUp()

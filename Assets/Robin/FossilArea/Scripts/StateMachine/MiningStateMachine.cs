@@ -5,9 +5,12 @@ using UnityEngine.UI;
 
 public class MiningStateMachine : BaseStateMachine
 {
+    //public GameObject playerRef;
     public Image loadingImage;
+    public GameplayUIManager uiManager;
     public GameObject diggingIcon;
-    
+    public float waitInSecAfterFinishDigging = 3f;
+
     #region Mining States
     //Keep Track of all mining states
     private InitializeState _initialState;
@@ -43,6 +46,7 @@ public class MiningStateMachine : BaseStateMachine
 
     private void Start()
     {
+        //playerRef.GetComponent<PlayerMovement>().enabled = false;
         SetState(InitialState);
     }
 

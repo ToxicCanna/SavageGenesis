@@ -36,8 +36,8 @@ public class ActionSelection : MonoBehaviour
     {
         if (cursorHover == ActionType.Attack)
         {
-            cursorHover = ActionType.Item;
-            transform.localPosition = cursorLocationPresetThree;
+            cursorHover = ActionType.Switch;
+            transform.localPosition = cursorLocationPresetTwo;
         }
         else if (cursorHover == ActionType.Switch)
         {
@@ -45,8 +45,6 @@ public class ActionSelection : MonoBehaviour
             transform.localPosition = cursorLocationPresetOne;
         } else if (cursorHover == ActionType.Item)
         {
-            cursorHover = ActionType.Switch;
-            transform.localPosition = cursorLocationPresetTwo;
         }
     }
 
@@ -59,14 +57,12 @@ public class ActionSelection : MonoBehaviour
         }
         else if (cursorHover == ActionType.Switch)
         {
-            cursorHover = ActionType.Item;
-            transform.localPosition = cursorLocationPresetThree;
+            cursorHover = ActionType.Attack;
+            transform.localPosition = cursorLocationPresetOne;
 
         }
         else if (cursorHover == ActionType.Item)
         {
-            cursorHover = ActionType.Attack;
-            transform.localPosition = cursorLocationPresetOne;
         }
     }
 
@@ -101,5 +97,7 @@ public class ActionSelection : MonoBehaviour
 
 
     }
+
+
 
 }

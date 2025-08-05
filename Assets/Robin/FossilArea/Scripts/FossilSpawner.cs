@@ -7,21 +7,26 @@ public class FossilSpawner : MonoBehaviour
 {
     [SerializeField] private int spawnAttempts = 10;
     [SerializeField] private float spawnBoundsOffset = 0.2f;
-    [SerializeField] private MiningStateMachine miningStateMachine;
+
+    private MiningStateMachine miningStateMachine;
 
     private FossilLayer fossilLayer;
     private Renderer _renderer;
     private Bounds spawnerBound;
+
+    private int fossilIndex = 0;
 
     private void Awake()
     {
         _renderer = GetComponent<TilemapRenderer>();
         fossilLayer = GetComponent<FossilLayer>();
         spawnerBound = _renderer.bounds;
+        miningStateMachine = fossilLayer.miningStateMachine;
     }
 
     public IEnumerator SpawnFossilFromList(List<Fossil> spawnList)
     {
+        //fossilIndex = 0;
         for (int i = 0; i < spawnAttempts; i++)
         {
             if (spawnList.Count > 0)
@@ -32,13 +37,17 @@ public class FossilSpawner : MonoBehaviour
 
                 if (fossilGet != null)
                 {
-                    var spawnedFossil = Instantiate(spawnList[Random.Range(0, spawnList.Count)], fossilLayer.grid.LocalToCell(spawnPos), Quaternion.identity);
+                    var spawnedFossil = Instantiate(fossilGet, fossilLayer.grid.LocalToCell(spawnPos), Quaternion.identity);
                     miningStateMachine.fossilSpawnedList.Add(spawnedFossil);
+                    spawnedFossil.name = fossilGet.name + "-" + fossilIndex;
 
                     yield return spawnedFossil.WaitForCollisions();
 
                     if (!spawnedFossil.isColliding)
+                    {
+                        fossilIndex++;
                         yield break;
+                    }
                     else
                     {
                         //Debug.Log($"{spawnedFossil.gameObject.GetInstanceID()} is hitting something, deleting");

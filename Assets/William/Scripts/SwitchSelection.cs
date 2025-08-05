@@ -15,16 +15,35 @@ public class SwitchSelection : MonoBehaviour
 
     private DinosaurSlot cursorHover;
 
+    private bool playerFainted;
+
     private bool isApplicationQuitting = false;
 
     public void LoadInventoryDinosaurs()
     {
         levelInfo.GetSwitchOne().GetComponent<Text>().text = levelInfo.GetPlayerDinoInventory().LoadCombatSlotOne().nickName;
         levelInfo.GetSwitchOneSprite().GetComponent<Image>().sprite = levelInfo.GetPlayerDinoInventory().LoadCombatSlotOne().dinoInfoRef.dinosaurInventorySprite;
+
+        if (levelInfo.GetPlayerDinoInventory().LoadCombatSlotOne().isFainted)
+        {
+            levelInfo.GetSwitchOneFaintSprite().SetActive(true);
+        }
+        else
+        {
+            levelInfo.GetSwitchOneFaintSprite().SetActive(false);
+        }
+
         if (!levelInfo.GetPlayerDinoInventory().LoadCombatSlotTwo().IsEmpty())
         {
             levelInfo.GetSwitchTwo().GetComponent<Text>().text = levelInfo.GetPlayerDinoInventory().LoadCombatSlotTwo().nickName;
             levelInfo.GetSwitchTwoSprite().GetComponent<Image>().sprite = levelInfo.GetPlayerDinoInventory().LoadCombatSlotTwo().dinoInfoRef.dinosaurInventorySprite;
+            if (levelInfo.GetPlayerDinoInventory().LoadCombatSlotTwo().isFainted)
+            {
+                levelInfo.GetSwitchTwoFaintSprite().SetActive(true);
+            }
+            else {
+                levelInfo.GetSwitchTwoFaintSprite().SetActive(false);
+            }
         }
         else {
             levelInfo.GetSwitchTwo().GetComponent<Text>().text = "--";
@@ -35,16 +54,35 @@ public class SwitchSelection : MonoBehaviour
         {
             levelInfo.GetSwitchThree().GetComponent<Text>().text = levelInfo.GetPlayerDinoInventory().LoadCombatSlotThree().nickName;
             levelInfo.GetSwitchThreeSprite().GetComponent<Image>().sprite = levelInfo.GetPlayerDinoInventory().LoadCombatSlotThree().dinoInfoRef.dinosaurInventorySprite;
+
+            if (levelInfo.GetPlayerDinoInventory().LoadCombatSlotThree().isFainted)
+            {
+                levelInfo.GetSwitchThreeFaintSprite().SetActive(true);
+            }
+            else
+            {
+                levelInfo.GetSwitchThreeFaintSprite().SetActive(false);
+            }
+
         }
         else {
             levelInfo.GetSwitchThree().GetComponent<Text>().text = "--";
             levelInfo.GetSwitchThreeSprite().GetComponent<Image>().sprite = emptySprite;
         }
 
-        if (!levelInfo.GetPlayerDinoInventory().LoadCombatSlotThree().IsEmpty())
+        if (!levelInfo.GetPlayerDinoInventory().LoadCombatSlotFour().IsEmpty())
         {
             levelInfo.GetSwitchFour().GetComponent<Text>().text = levelInfo.GetPlayerDinoInventory().LoadCombatSlotFour().nickName;
             levelInfo.GetSwitchFourSprite().GetComponent<Image>().sprite = levelInfo.GetPlayerDinoInventory().LoadCombatSlotFour().dinoInfoRef.dinosaurInventorySprite;
+
+            if (levelInfo.GetPlayerDinoInventory().LoadCombatSlotFour().isFainted)
+            {
+                levelInfo.GetSwitchFourFaintSprite().SetActive(true);
+            }
+            else
+            {
+                levelInfo.GetSwitchFourFaintSprite().SetActive(false);
+            }
         }
         else{
             levelInfo.GetSwitchFour().GetComponent<Text>().text = "--";
@@ -58,6 +96,7 @@ public class SwitchSelection : MonoBehaviour
         cursorHover = DinosaurSlot.One;
         PlayerController.Instance.SwitchSelectionAddListener();
         LoadInventoryDinosaurs();
+
     }
 
     void OnDisable()
@@ -170,47 +209,40 @@ public class SwitchSelection : MonoBehaviour
 
     public void PlayerPressedConfirm()
     {
-        /*if (GameManager.Instance.GetCurrentGameMode() == GameMode.OneVOne)
+        if (GameManager.Instance.GetCurrentGameMode() == GameMode.OneVOne)
         {
-            if (combatSlotOne.moveTwoEmpty && cursorHover == SkillSlot.Two) return;
-            if (combatSlotOne.moveThreeEmpty && cursorHover == SkillSlot.Three) return;
-            if (combatSlotOne.moveFourEmpty && cursorHover == SkillSlot.Four) return;
-            if (combatSlotOne.moveFiveEmpty && cursorHover == SkillSlot.Five) return;
+            if (cursorHover == DinosaurSlot.Two && levelInfo.GetPlayerDinoInventory().LoadCombatSlotTwo().IsEmpty()) return; 
+            if (cursorHover == DinosaurSlot.Three && levelInfo.GetPlayerDinoInventory().LoadCombatSlotThree().IsEmpty()) return;
+            if (cursorHover == DinosaurSlot.Four && levelInfo.GetPlayerDinoInventory().LoadCombatSlotFour().IsEmpty()) return;
 
-            if (cursorHover == SkillSlot.One)
+
+            if (cursorHover == DinosaurSlot.Two)
             {
-                GameManager.Instance.playerChoice_MoveInfo = combatSlotOne.moveOne;
+                GameManager.Instance.switchFrom = DinosaurSlot.One;
+                GameManager.Instance.switchTo = DinosaurSlot.Two;
                 GameManager.Instance.PlayerFinishedSelection();
             }
-            else if (cursorHover == SkillSlot.Two)
+            else if (cursorHover == DinosaurSlot.Three)
             {
-                GameManager.Instance.playerChoice_MoveInfo = combatSlotOne.moveTwo;
+                GameManager.Instance.switchFrom = DinosaurSlot.One;
+                GameManager.Instance.switchTo = DinosaurSlot.Three;
                 GameManager.Instance.PlayerFinishedSelection();
             }
-            else if (cursorHover == SkillSlot.Three)
+            else if (cursorHover == DinosaurSlot.Four)
             {
-                GameManager.Instance.playerChoice_MoveInfo = combatSlotOne.moveThree;
+                GameManager.Instance.switchFrom = DinosaurSlot.One;
+                GameManager.Instance.switchTo = DinosaurSlot.Four;
                 GameManager.Instance.PlayerFinishedSelection();
             }
-            else if (cursorHover == SkillSlot.Four)
-            {
-                GameManager.Instance.playerChoice_MoveInfo = combatSlotOne.moveFour;
-                GameManager.Instance.PlayerFinishedSelection();
-            }
-            else if (cursorHover == SkillSlot.Five)
-            {
-                GameManager.Instance.playerChoice_MoveInfo = combatSlotOne.moveFive;
-                GameManager.Instance.PlayerFinishedSelection();
-            }
+
         }
-        */
-
-
 
     }
 
     public void PlayerPressedCancel()
     {
+        if (GameManager.Instance.goToPlayerFaintedState) return;
+
         if (GameManager.Instance.GetCurrentGameMode() == GameMode.OneVOne)
         {
             levelInfo.GetActionSelector().SetActive(true);

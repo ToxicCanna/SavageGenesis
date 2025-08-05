@@ -6,5 +6,5 @@ public class RarityValue
 
 public class DiggingToolStrength
 {
-    public static float[] diggingStrength = { 1f, 3f};
+    public static float[] diggingStrength = { 1f, 6f};
 }

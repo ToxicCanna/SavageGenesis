@@ -1,4 +1,7 @@
 using UnityEngine;
+using System.Collections;
+using System.Collections.Generic;
+using System.Threading.Tasks;
 
 public class ActionStep : BaseState
 {
@@ -24,23 +27,32 @@ public class ActionStep : BaseState
     private bool playerSlotTwoCountering;
     private bool enemySlotOneCountering;
     private bool enemySlotTwoCountering;
+
+
     public ActionStep(CombatStateMachine stateMachine)
     {
         _stateMachine = stateMachine;
     }
 
+    private void LoadCombatSlots()
+    {
+        playerCombatSlotOne = _stateMachine.levelInfo.GetPlayerDinoInventory().LoadCombatSlotOne();
+        playerCombatSlotTwo = _stateMachine.levelInfo.GetPlayerDinoInventory().LoadCombatSlotTwo();
+        enemyCombatSlotOne = _stateMachine.levelInfo.GetEnemyDinoInventory().LoadCombatSlotOne();
+        enemyCombatSlotTwo = _stateMachine.levelInfo.GetEnemyDinoInventory().LoadCombatSlotTwo();
+    }
+
+
     public override void EnterState()
     {
-        Debug.Log("ActionStep");
         _stateMachine.levelInfo.GetSkillSelector().SetActive(false);
         _stateMachine.levelInfo.GetSkillSelectorCursor().SetActive(false);
         _stateMachine.levelInfo.GetMoveTypeText().SetActive(false);
         _stateMachine.levelInfo.GetMovePowerText().SetActive(false);
+        _stateMachine.levelInfo.GetSwitchSelector().SetActive(false);
+        _stateMachine.levelInfo.GetSwitchSelectorCursor().SetActive(false);
 
-        playerCombatSlotOne = _stateMachine.levelInfo.GetPlayerDinoInventory().LoadCombatSlotOne();
-        playerCombatSlotTwo = _stateMachine.levelInfo.GetPlayerDinoInventory().LoadCombatSlotTwo(); 
-        enemyCombatSlotOne = _stateMachine.levelInfo.GetEnemyDinoInventory().LoadCombatSlotOne();
-        enemyCombatSlotTwo = _stateMachine.levelInfo.GetEnemyDinoInventory().LoadCombatSlotTwo();
+        LoadCombatSlots();
 
         playerSlotOneCountering = false;
         playerSlotTwoCountering = false;
@@ -78,6 +90,9 @@ public class ActionStep : BaseState
         if (GameManager.Instance.playerChoice_ActionType == ActionType.Switch)
         {
             //do switch
+            _stateMachine.levelInfo.GetPlayerDinoInventory().SwapCombatSlots(GameManager.Instance.switchFrom, GameManager.Instance.switchTo);
+
+            GameManager.Instance.RefreshPlayerCombatSlotOne();
             skipPlayerSlotOne = true;
         }
         if (GameManager.Instance.playerChoice_ActionType == ActionType.Item)
@@ -98,6 +113,8 @@ public class ActionStep : BaseState
                 skipPlayerSlotOne = true;
             }
         }
+        LoadCombatSlots();
+
 
         //act out attack
         PerformFastestAttack();
@@ -105,7 +122,20 @@ public class ActionStep : BaseState
         PerformFastestAttack();
         PerformFastestAttack();
 
-        _stateMachine.JumpToPlayerMakeDecisionState();
+        if (GameManager.Instance.goToEnemyFaintedState)
+        {
+            _stateMachine.JumpToEnemyFaintedState();
+        }
+        else if (GameManager.Instance.goToPlayerFaintedState)
+        {
+            _stateMachine.JumpToPlayerFaintedState();
+        }
+        else
+        {
+            _stateMachine.JumpToPlayerMakeDecisionState();
+        }
+
+
     }
 
     public override void ExitState()
@@ -151,7 +181,15 @@ public class ActionStep : BaseState
         return damage;
     }
 
-    private void PerformFastestAttack()
+    private async Task WaitForTime(float waitTime) { 
+      //  await 
+    }
+
+    private async Task GetUserInput() { 
+        
+    }
+
+    private async void PerformFastestAttack()
     {
         //ties are performed in the order of player then enemy
 
@@ -235,7 +273,7 @@ public class ActionStep : BaseState
         //fastest actor performs attack
         //attacking
         //step 1 apply counter to self if countering
-        //step 2 check for multiattack
+        //step 2 check for multiattack, then accuracy(pending)
         //step 3 do damage, including crit and everything else buffs etc. 
         //step 4 if hit someone countering and move can be countered, get countered
         //step 5 apply status
@@ -251,6 +289,8 @@ public class ActionStep : BaseState
                     playerCombatSlotOne.CalculateBuffDebuffs();
                     enemyCombatSlotOne.CalculateBuffDebuffs();
 
+                    _stateMachine.textAnimationFinished = false;
+                    //_stateMachine.levelInfo.GetDialogText().GetComponent<Text>().text = playerCombatSlotOne.nickName+ " used " + currentMove.moveName + "!";
                     if (currentMove.moveIsCounter)
                     {
                         playerSlotOneCountering = true;
@@ -259,10 +299,19 @@ public class ActionStep : BaseState
                     }
                     if (enemySlotOneCountering && currentMove.moveCanBeCountered)
                     {
-                        
-                        playerCombatSlotOne.TakeDamage(CalculateDamage(playerCombatSlotOne, enemyCombatSlotOne, currentMove, 1f));
+                        //need accuracy modifier, deal with this here
 
-                        //use dotween here later
+                        playerCombatSlotOne.TakeDamage(CalculateDamage(playerCombatSlotOne, enemyCombatSlotOne, currentMove, 1f));
+                        if (playerCombatSlotOne.isFainted)
+                        {
+                            GameManager.Instance.goToPlayerFaintedState = true;
+                            
+                            //put dialogue here. 
+
+
+                        }
+
+                        
                         _stateMachine.levelInfo.GetPlayerHealthBar().transform.localScale = new Vector3((float) playerCombatSlotOne.currentHP / playerCombatSlotOne.currentMaxHP, 1, 1);
                         
 
@@ -292,11 +341,15 @@ public class ActionStep : BaseState
                         for (int i = 0; i < GameManager.Instance.playerChoice_MoveInfo.multiHit; i++)
                         {
                             enemyCombatSlotOne.TakeDamage(CalculateDamage(playerCombatSlotOne, enemyCombatSlotOne, currentMove, 1f));
-                        
+                            if (enemyCombatSlotOne.isFainted)
+                            {
+                                GameManager.Instance.goToEnemyFaintedState = true;
+                            }
+
                             //use dotween here later
                             _stateMachine.levelInfo.GetEnemyHealthBar().transform.localScale = new Vector3((float) enemyCombatSlotOne.currentHP / enemyCombatSlotOne.currentMaxHP, 1, 1);
 
-                            if (Random.Range(1, 101) < currentMove.statusChance * 100 && playerCombatSlotOne.currentStatus == StatusType.None)
+                            if (Random.Range(1, 101) < currentMove.statusChance * 100 && playerCombatSlotOne.currentStatus != StatusType.None)
                             {
                                 enemyCombatSlotOne.InflictStatus(currentMove.statusType);
                             }
@@ -357,6 +410,11 @@ public class ActionStep : BaseState
                     {
 
                         enemyCombatSlotOne.TakeDamage(CalculateDamage(enemyCombatSlotOne, playerCombatSlotOne, currentMove, 1f));
+                        if (enemyCombatSlotOne.isFainted)
+                        {
+                            GameManager.Instance.goToEnemyFaintedState = true;
+                        }
+
 
                         //use dotween here later
                         _stateMachine.levelInfo.GetEnemyHealthBar().transform.localScale = new Vector3((float) enemyCombatSlotOne.currentHP / enemyCombatSlotOne.currentMaxHP, 1, 1);
@@ -388,6 +446,10 @@ public class ActionStep : BaseState
                         for (int i = 0; i < currentMove.multiHit; i++)
                         {
                             playerCombatSlotOne.TakeDamage(CalculateDamage(enemyCombatSlotOne, playerCombatSlotOne, currentMove, 1f));
+                            if (playerCombatSlotOne.isFainted)
+                            {
+                                GameManager.Instance.goToPlayerFaintedState = true;
+                            }
 
                             //use dotween here later
                             _stateMachine.levelInfo.GetPlayerHealthBar().transform.localScale = new Vector3((float) playerCombatSlotOne.currentHP / playerCombatSlotOne.currentMaxHP, 1, 1);

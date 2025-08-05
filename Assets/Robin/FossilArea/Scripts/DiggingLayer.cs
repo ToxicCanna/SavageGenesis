@@ -1,36 +1,35 @@
+using System;
 using UnityEngine;
+using UnityEngine.Tilemaps;
 
 public class DiggingLayer : BaseMiningLayer, IDiggingArea
 {
-    public float stability = 10f;
-    [SerializeField] private GameplayUIManager uiManager;
-    public void OnDigging(Vector2 diggingPos, DiggingToolType tool)
+    public virtual void DigTile(float x, float y, DiggingToolType tool, out bool isDugOut)
     {
-        if (tilemap != null)
+       if (!tilemap)
+       {
+            isDugOut = false;
+            Debug.Log("Tilemap is not assigned!");
+            return;
+       }
+
+        Vector3Int tilePosition = tilemap.WorldToCell(new Vector3(x, y, 0));
+        var tile = tilemap.GetTile(tilePosition);
+
+        if (tile != null)
         {
-            tilemap.SetTile(grid.LocalToCell(diggingPos), null);
-            switch (tool)
-            {
-                case 0:
-                    stability -= DiggingToolStrength.diggingStrength[0];
-                    break;
-                case (DiggingToolType)1:
-                    stability -= DiggingToolStrength.diggingStrength[1];
-                    break;
-                default:
-                    stability -= 1f;
-                    break;
-            }
-
-            Debug.Log($"Current stability: {stability}");
-
-            if (uiManager != null)
-            {
-                uiManager.SetDurability(stability);
-                //Debug.Log($"[Digging] Stability now {stability}");
-            }
+            tilemap.SetTile(tilePosition, null);
+            isDugOut = true;
         }
         else
-            Debug.Log("Tilemap is not found!");
+            isDugOut = false;
     }
+
+    public bool IsNotDug(Vector2 tilePos)
+    {
+        Vector3Int tilePosition = tilemap.WorldToCell(tilePos);
+
+        return tilemap.GetTile(tilePosition);
+    }
+    
 }

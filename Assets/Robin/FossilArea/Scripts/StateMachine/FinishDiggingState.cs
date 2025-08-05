@@ -1,4 +1,6 @@
+using System.Collections;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class FinishDiggingState : BaseState
 {
@@ -11,8 +13,16 @@ public class FinishDiggingState : BaseState
 
     public override void EnterState()
     {
+        _miningStateMachine.diggingIcon.SetActive(false);
+
         foreach (var fossil in _miningStateMachine.fossilDigOutList)
-            Debug.Log($"You get {fossil}!");
+        {
+            PlayerInventory_Overworld.CollectItem(fossil.data.statObject, 1);
+        }
+
+        PlayerInventory_Overworld.DebugDisplayAllItemsInInventory();
+        //_miningStateMachine.StartCoroutine(BackToOverworldScene(0));
+
     }
 
     public override void UpdateState()
@@ -23,5 +33,12 @@ public class FinishDiggingState : BaseState
     public override void ExitState()
     {
 
+    }
+
+    IEnumerator BackToOverworldScene(int sceneIndex)
+    {
+        yield return new WaitForSeconds(_miningStateMachine.waitInSecAfterFinishDigging);
+        PlayerDigging.durability = _miningStateMachine.uiManager.maxDurability;
+        SceneManager.LoadScene(sceneIndex);
     }
 }

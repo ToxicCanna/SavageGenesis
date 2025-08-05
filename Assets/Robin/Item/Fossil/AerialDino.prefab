@@ -48,6 +48,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   statObject: {fileID: 11400000, guid: 594c93c1bd4adcb4786c1e9bd3aeb7d2, type: 2}
+  boxCollisonEdgeWidth: 0.1
+  isDigOut: 1
+  cellPoints:
+  - {x: 0.5, y: 0.5}
 --- !u!61 &7374466523369793793
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -92,7 +96,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 0.99, y: 0.99}
   m_EdgeRadius: 0
 --- !u!50 &3714052653984435174
 Rigidbody2D:
