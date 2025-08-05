@@ -10089,6 +10089,14 @@ PrefabInstance:
       propertyPath: lootTable.Array.data[4].maxFossilNumber
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8628422474298477457, guid: 3f9edd1994c84904391545e016a177ea, type: 3}
+      propertyPath: generateChance
+      value: 35
+      objectReference: {fileID: 0}
+    - target: {fileID: 8628422474298477457, guid: 3f9edd1994c84904391545e016a177ea, type: 3}
+      propertyPath: maxRemovedGridValue
+      value: 90
+      objectReference: {fileID: 0}
     - target: {fileID: 8760842261651433835, guid: 3f9edd1994c84904391545e016a177ea, type: 3}
       propertyPath: m_LocalScale.x
       value: 1

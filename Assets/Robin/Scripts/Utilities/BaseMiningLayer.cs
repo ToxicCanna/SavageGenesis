@@ -9,8 +9,8 @@ public abstract class BaseMiningLayer : MonoBehaviour
 
     [NonSerialized] public Tilemap tilemap;
 
-    protected virtual void Start()
+    protected virtual void Awake()
     {
-        tilemap = GetComponentInChildren<Tilemap>();
+        tilemap = GetComponent<Tilemap>();
     }
 }

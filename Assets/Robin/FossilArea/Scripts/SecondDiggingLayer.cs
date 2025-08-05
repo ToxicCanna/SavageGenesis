@@ -2,11 +2,28 @@ using UnityEngine;
 
 public class SecondDiggingLayer : DiggingLayer, IDiggingArea
 {
-    /*public override void DigTile(float x, float y, DiggingToolType tool, out bool isDugOut)
-    {
-        base.DigTile(x, y, out isDugOut);
-        Debug.Log("Second Layer");
-    }*/
+    [SerializeField] private int maxRemovedGridValue = 60;
+    [SerializeField] private float generateChance = 30f;
 
-    //I will do the random generation of the tilemap for top layer
+    private void OnEnable()
+    {
+        int generatedGrid = 0;
+
+        for (int x = 0; x < tilemap.size.x; x++)
+        {
+            for (int y = 0; y < tilemap.size.y; y++)
+            {
+                if (generatedGrid >= maxRemovedGridValue)
+                    break;
+
+                float randomChance = Random.Range(1f, 100f);
+                if (randomChance <= generateChance)
+                {
+                    tilemap.SetTile(new Vector3Int(x + tilemap.origin.x, y + tilemap.origin.y), null);
+                    generatedGrid++;
+                }
+            }
+        }
+    }
+
 }
