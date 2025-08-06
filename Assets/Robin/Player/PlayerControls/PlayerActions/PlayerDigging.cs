@@ -1,61 +1,77 @@
+using System;
 using System.Linq;
 using UnityEngine;
 
-//For now just testing how digging function work
 public class PlayerDigging : BasePlayerController
 {
     public DiggingToolType currentDiggingTool;
     [SerializeField] private float diggingDelay = 0.5f;
+    [SerializeField] private MiningStateMachine miningStateMachine;
 
-    private IDiggingArea iDiggingArea;
-    private bool _isDigging = false;
+    public static float durability = 0f;
+    public static bool isDigging = false;
+
+    [SerializeField] private DiggingLayer[] layers;
+    public DiggingLayer[] Layers => layers;
 
     public void Dig(GameObject diggingRange)
     {
+        if (diggingRange.GetComponentInParent<UpdateDiggingIcon>().isOutOfRange) return;
+
         if (inputManager.GetInteractInput())
         {
-            if (!_isDigging)
-                Digging(diggingRange);
+            if (!isDigging)
+                HandleDigging(diggingRange);
 
             Invoke(nameof(ResetDigging), diggingDelay);
         }  
     }
 
-    private void Digging(GameObject diggingRange)
+    private void HandleDigging(GameObject diggingRange)
     {
-        _isDigging = true;
+        isDigging = true;
 
         //Debug.Log(hit.collider.gameObject.name);
         var diggingSpriteList = GetChildrenObjects.GetAllChildren(diggingRange);
 
         foreach(var diggingSprite in diggingSpriteList)
         {
-            var spriteCollider = diggingSprite.GetComponent<BoxCollider2D>();
-            var hits = Physics2D.OverlapBoxAll(diggingSprite.transform.position, spriteCollider.size, 0f);
-            bool isDugOut = false;
-
-            if (hits.Length <= 0) break;
-
-            foreach (var hit in hits.Reverse())
+            foreach (var layer in layers)
             {
-                iDiggingArea = hit.gameObject.GetComponentInChildren<IDiggingArea>();
-                if (iDiggingArea != null)
-                    iDiggingArea.OnDigging(diggingSprite.GetComponent<BoxCollider2D>(), currentDiggingTool, out isDugOut);
-
-                if (isDugOut)
-                    break;
+                layer.DigTile(diggingSprite.transform.position.x, diggingSprite.transform.position.y, currentDiggingTool, out var isDugOut);
+                if (isDugOut) break;
             }
-
         }
-
-        if (iDiggingArea != null)
-            iDiggingArea.UpdateDurability(currentDiggingTool);
+        UpdateDurability();
     }
 
+    private void UpdateDurability()
+    {
+        switch (currentDiggingTool)
+        {
+            case 0:
+                durability -= DiggingToolStrength.diggingStrength[0];
+                break;
+            case (DiggingToolType)1:
+                durability -= DiggingToolStrength.diggingStrength[1];
+                break;
+            default:
+                durability -= 1f;
+                break;
+        }
+
+        Debug.Log($"Current stability: {durability}");
+
+        if (miningStateMachine.uiManager != null)
+        {
+            miningStateMachine.uiManager.SetDurability(durability);
+            //Debug.Log($"[Digging] Stability now {stability}");
+        }
+    }
 
     private void ResetDigging()
     {
-        _isDigging = false;
+        isDigging = false;
     }
 
     #region Switch Tool

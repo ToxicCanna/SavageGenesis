@@ -9,7 +9,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 330723779288680335}
-  - component: {fileID: 191088182821027909}
   m_Layer: 2
   m_Name: BrushRange
   m_TagString: Untagged
@@ -33,33 +32,6 @@ Transform:
   - {fileID: 145749519405597377}
   m_Father: {fileID: 2931760563822295421}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!50 &191088182821027909
-Rigidbody2D:
-  serializedVersion: 5
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 108985677417235380}
-  m_BodyType: 0
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDamping: 0
-  m_AngularDamping: 0.05
-  m_GravityScale: 0
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 4
 --- !u!1 &857226705107392709
 GameObject:
   m_ObjectHideFlags: 0
@@ -69,7 +41,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8269963851856663765}
-  - component: {fileID: 2740747635292282193}
   m_Layer: 2
   m_Name: PickaxeRange
   m_TagString: Untagged
@@ -97,33 +68,6 @@ Transform:
   - {fileID: 8330183987126741187}
   m_Father: {fileID: 2931760563822295421}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!50 &2740747635292282193
-Rigidbody2D:
-  serializedVersion: 5
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 857226705107392709}
-  m_BodyType: 0
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDamping: 0
-  m_AngularDamping: 0.05
-  m_GravityScale: 0
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 4
 --- !u!1 &4745002885714067444
 GameObject:
   m_ObjectHideFlags: 0

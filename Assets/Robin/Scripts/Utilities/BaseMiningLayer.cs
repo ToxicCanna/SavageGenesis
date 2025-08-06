@@ -5,12 +5,12 @@ using UnityEngine.Tilemaps;
 public abstract class BaseMiningLayer : MonoBehaviour
 {
     public Grid grid;
-    
     public MiningStateMachine miningStateMachine;
+
     [NonSerialized] public Tilemap tilemap;
 
-    protected virtual void Start()
+    protected virtual void Awake()
     {
-        tilemap = GetComponentInChildren<Tilemap>();
+        tilemap = GetComponent<Tilemap>();
     }
 }

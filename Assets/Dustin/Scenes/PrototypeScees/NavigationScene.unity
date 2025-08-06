@@ -1132,9 +1132,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   digSceneName: RobinDiggingTestGym
-  reviveSceneName: DinoRevival_Scene
-  stadiumSceneName: StadiumScene
-  fightingPitSceneName: FightingPitScene
+  reviveSceneName: ReviveScene
+  stadiumSceneName: DinoBattleScene
+  fightingPitSceneName: DinoUGArena
   digButton: {fileID: 843820625}
   reviveButton: {fileID: 1205111316}
   stadiumButton: {fileID: 1195992876}

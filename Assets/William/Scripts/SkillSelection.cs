@@ -17,6 +17,8 @@ public class SkillSelection : MonoBehaviour
 
     private bool isApplicationQuitting = false;
 
+    private bool isPlayerCombatSlotOne;
+
     public void LoadMoveSet()
     {
         combatSlotOne = levelInfo.GetPlayerDinoInventory().LoadCombatSlotOne();

@@ -13,6 +13,7 @@ public class UpdateDiggingIcon : MonoBehaviour
     private BoundsInt bounds;
 
     [NonSerialized] public GameObject currentToolRange;
+    [NonSerialized] public bool isOutOfRange = false;
 
     private void Start()
     {
@@ -41,11 +42,18 @@ public class UpdateDiggingIcon : MonoBehaviour
             || mousePosition.y < GetTilemapMinPos().y 
             || mousePosition.y >= GetTilemapMaxPos().y
         )
+        {
+            isOutOfRange = true;
             currentToolRange.SetActive(false);
+        }
+        else
+            isOutOfRange = false;
     }
 
     private void UpdateObjectPosition()
     {
+        if (PlayerDigging.isDigging) return;
+        
         mousePosition = Camera.main.ScreenToWorldPoint(inputManager.GetInteractPosition());
 
         transform.position = grid.LocalToCell(mousePosition);

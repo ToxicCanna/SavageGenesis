@@ -1,29 +1,22 @@
 using System;
 using UnityEngine;
+using UnityEngine.Tilemaps;
 
 public class DiggingLayer : BaseMiningLayer, IDiggingArea
 {
-    public static float durability = 50f;
-
-    public virtual void OnDigging(BoxCollider2D collision, DiggingToolType tool, out bool isDugOut)
+    public virtual void DigTile(float x, float y, DiggingToolType tool, out bool isDugOut)
     {
-        isDugOut = false;
-
-        if (tilemap == null || collision == null)
-        {
-            Debug.Log($"{tilemap.name}, {collision.gameObject.name}. One of these inputs is not assigned!");
+       if (!tilemap)
+       {
+            isDugOut = false;
+            Debug.Log("Tilemap is not assigned!");
             return;
-        }
+       }
 
-        HandleDigging(collision, tool, out isDugOut);
-    }
+        Vector3Int tilePosition = tilemap.WorldToCell(new Vector3(x, y, 0));
+        var tile = tilemap.GetTile(tilePosition);
 
-    private void HandleDigging(BoxCollider2D collision, DiggingToolType tool, out bool isDugOut)
-    {
-        Vector3Int tilePosition = tilemap.WorldToCell(collision.transform.position);
-        Debug.Log("tilemap location: " + tilePosition);
-
-        if (tilemap.GetTile(tilePosition) != null)
+        if (tile != null)
         {
             tilemap.SetTile(tilePosition, null);
             isDugOut = true;
@@ -32,27 +25,11 @@ public class DiggingLayer : BaseMiningLayer, IDiggingArea
             isDugOut = false;
     }
 
-    public virtual void UpdateDurability(DiggingToolType tool)
+    public bool IsNotDug(Vector2 tilePos)
     {
-        switch (tool)
-        {
-            case 0:
-                durability -= DiggingToolStrength.diggingStrength[0];
-                break;
-            case (DiggingToolType)1:
-                durability -= DiggingToolStrength.diggingStrength[1];
-                break;
-            default:
-                durability -= 1f;
-                break;
-        }
+        Vector3Int tilePosition = tilemap.WorldToCell(tilePos);
 
-        Debug.Log($"Current stability: {durability}");
-
-        if (miningStateMachine.uiManager != null)
-        {
-            miningStateMachine.uiManager.SetDurability(durability);
-            //Debug.Log($"[Digging] Stability now {stability}");
-        }
+        return tilemap.GetTile(tilePosition);
     }
+    
 }
