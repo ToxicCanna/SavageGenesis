@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Dino3
   m_EditorClassIdentifier: 
   itemName: TestAerial
-  itemImage: {fileID: -9052588184078419204, guid: f0b75e92ac4ac7048a93ae76e857ec5f, type: 3}
+  itemImage: {fileID: 6309439583366566387, guid: 12e1afd632a6ae64fbee71848324da15, type: 3}
   price: 150
-  rarity: 2
+  rarity: 0
   fossilType: 3
