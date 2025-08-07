@@ -29,6 +29,8 @@ public class DinoRevivalUIManager : MonoBehaviour
     // Optional delay before revive is complete, set to 0 by default
     public float revivalDelay = 0f;
 
+    [SerializeField] private RevivalCompleteUI confirmationUI;
+
     private void Start()
     {
         for (int i = 0; i < fossilSlotButtons.Length; i++)
@@ -104,6 +106,11 @@ public class DinoRevivalUIManager : MonoBehaviour
         else
         {
             OnReviveClicked?.Invoke();
+
+            if (confirmationUI != null)
+            {
+                confirmationUI.Show();
+            }
         }
     }
 
@@ -112,5 +119,10 @@ public class DinoRevivalUIManager : MonoBehaviour
     {
         yield return new WaitForSeconds(revivalDelay);
         OnReviveClicked?.Invoke();
+
+        if (confirmationUI != null)
+        {
+            confirmationUI.Show();
+        }
     }
 }
