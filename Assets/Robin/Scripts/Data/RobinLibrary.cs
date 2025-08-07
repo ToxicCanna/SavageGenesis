@@ -16,7 +16,7 @@ public class GetChildrenObjects
 
 public class RobinMathMethods
 {
-    public static List<Vector2> CellPoints(int x, int y)
+    public static List<Vector2> CellPoints(int x, int y, Vector3 offset)
     {
         var vector2 = new List<Vector2>();
         
@@ -24,7 +24,7 @@ public class RobinMathMethods
         {
             for (int j = 0; j < y; j++)
             {
-                vector2.Add(new Vector2(i + 0.5f, j + 0.5f));
+                vector2.Add(new Vector2(i + 0.5f + offset.x, j + 0.5f + offset.y));
             }
         }
 

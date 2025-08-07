@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/Dustin/Prefabs/DinoButton.prefab.meta
 guid: d96c8b2c4dc088c43bd0a4190f44ead8
+========
+guid: 436ea4835a3006c47992eb1b5cd87b6e
+>>>>>>>> MergingBranch:Assets/Robin/Inventory/ItemSlot.prefab.meta
 PrefabImporter:
   externalObjects: {}
   userData: 

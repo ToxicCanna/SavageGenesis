@@ -8,6 +8,5 @@ public abstract class BaseItemStat : ScriptableObject
     
     [Min(0)]
     public float price;
-
-    public RarityLevel rarity;
+    [NonSerialized] public RarityLevel rarity;
 }

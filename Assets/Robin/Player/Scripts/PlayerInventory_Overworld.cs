@@ -1,13 +1,10 @@
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class PlayerInventory_Overworld
 {
     //Inventory as a dictionary
-    //To Killian: since we only have single player for now then set the inventory to static, tell me if you want to make multi-player
+    //collectValue and discardValue denote how many fossils at a time 
 
     public static Dictionary<BaseItemStat, int> itemsInInventory = new Dictionary<BaseItemStat, int>();
 
@@ -20,7 +17,14 @@ public class PlayerInventory_Overworld
         else
         {
             foreach (var inventorySlot in itemsInInventory)
-                Debug.Log($"You have {inventorySlot.Value} of {inventorySlot.Key.itemName}s in your inventory.");
+            {
+                Debug.Log
+                (
+                    $"You have {inventorySlot.Value} of {inventorySlot.Key.itemName}s in your inventory, " +
+                    $"and the rarity is {inventorySlot.Key.rarity}."
+                );
+            }
+                
         }
     }
     

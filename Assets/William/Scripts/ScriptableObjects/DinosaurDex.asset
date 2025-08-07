@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d02a6ef6ded98c4c8c647e2b7a42a7d, type: 3}
+  m_Name: DinosaurDex
+  m_EditorClassIdentifier: 
+  info:
+  - {fileID: 11400000, guid: cecefb8d6f3629946b8e2e6172a11dee, type: 2}
+  - {fileID: 0}
+  - {fileID: 11400000, guid: bc2c3a5dbad1bee4ca713692da516297, type: 2}
+  - {fileID: 0}
+  - {fileID: 0}
+  predatorMin: 0
+  predatorMax: 1
+  armoredMin: 2
+  armoredMax: 3
+  agileMin: 4
+  agileMax: 4

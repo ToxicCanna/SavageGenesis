@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0f98a35a327854143a6375c115949b06, type: 3}
+  m_Name: DinosaurInfo_002
+  m_EditorClassIdentifier: 
+  dexNumber: 202
+  dinosaurName: TempasaurousDwei
+  dinosaurTypeOne: 2
+  dinosaurTypeTwo: 0
+  baseExp: 25
+  expNeededRate: 0.4
+  baseStrength: 70
+  strengthGrowthRate: 0.4
+  baseDefense: 120
+  defenseGrowthRate: 0.4
+  baseAgility: 85
+  agilityGrowthRate: 0.4
+  baseMaxHP: 120
+  maxHpGrowthRate: 0.4
+  dinosaurCombatSprite: {fileID: -9061617709322622122, guid: cb53904b3fc5b394398f870973d48b7b, type: 3}
+  dinosaurInventorySprite: {fileID: -3126205758566660998, guid: 0bfef763bb9e35244a962ad78cf7c7c0, type: 3}
