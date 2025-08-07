@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 26d7f7e0770f78e43b1c4f9f3970f051
+guid: 0140aa0ee5a829749ab581befd9e37aa
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -2424057093992816304
-    second: StadiumPlacehold_0
+      213: -496110549227829584
+    second: Stadium_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,7 +100,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: StadiumPlacehold_0
+      name: Stadium_0
       rect:
         serializedVersion: 2
         x: 0
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 051ea4d8ae40c5ed0800000000000000
-      internalID: -2424057093992816304
+      spriteID: 0b683ff75167d19f0800000000000000
+      internalID: -496110549227829584
       vertices: []
       indices: 
       edges: []
@@ -135,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      StadiumPlacehold_0: -2424057093992816304
+      Stadium_0: -496110549227829584
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
