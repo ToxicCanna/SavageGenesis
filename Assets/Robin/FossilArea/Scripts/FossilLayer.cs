@@ -1,6 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
 using System;
 using UnityEngine;
 
@@ -8,12 +7,11 @@ using UnityEngine;
 public class FossilLayer : BaseMiningLayer
 {
     #region Input Variables
-    [SerializeField] private FossilLoot[] lootTable;
+    [SerializeField] private Fossil[] lootTable;
     [SerializeField] private int maxFossils = 5;
 
     private FossilSpawner _fossilSpawner;
     private List<Fossil> _possibleLootList = new List<Fossil>();   //Keep track of fossils that can be possibly dug out
-    private float _lootChance;   //chance to get a specific loot
 
     [NonSerialized] public bool isInitializationComplete = false;
     #endregion
@@ -44,15 +42,11 @@ public class FossilLayer : BaseMiningLayer
     {
         foreach (var loot in lootTable)
         {
-            if (loot.fossil.statObject.rarity == GetSpawnableRarityLevel())
-            {
-                for (int i = 0; i < loot.lootNumber; i++)
-                    _possibleLootList.Add(loot.fossil);
-            }
+            _possibleLootList.Add(loot);
         }
     }
 
-    private RarityLevel GetSpawnableRarityLevel()
+    /*private RarityLevel GetSpawnableRarityLevel()
     {
         _lootChance = UnityEngine.Random.Range(0, RarityValue.rarityValues.Sum());
 
@@ -68,6 +62,6 @@ public class FossilLayer : BaseMiningLayer
         }
 
         return 0;
-    }
+    }*/
     #endregion
 }

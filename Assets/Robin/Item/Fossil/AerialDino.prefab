@@ -48,7 +48,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   statObject: {fileID: 11400000, guid: 594c93c1bd4adcb4786c1e9bd3aeb7d2, type: 2}
-  boxCollisonEdgeWidth: 0.1
+  boxCollisonEdgeWidth: 0.01
 --- !u!61 &7374466523369793793
 BoxCollider2D:
   m_ObjectHideFlags: 0

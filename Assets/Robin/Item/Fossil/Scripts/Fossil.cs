@@ -7,7 +7,7 @@ public class Fossil : MonoBehaviour
 {
     public FossilStat statObject;
 
-    [SerializeField] private float boxCollisonEdgeWidth = 0.1f;
+    [SerializeField] private float boxCollisonEdgeWidth = 0.01f;
     //[SerializeField] private bool isDigOut = false;
 
     [NonSerialized] public bool isColliding = false;
@@ -16,7 +16,9 @@ public class Fossil : MonoBehaviour
     private SpriteRenderer spriteMesh;
 
     //[SerializeField] private Vector2[] cellPoints;
+    private BoxCollider2D _fossilCollider;
     private List<Vector2> cellPoints;
+    private Vector2 _fossilOffset;
 
     private void Awake()
     {
@@ -24,9 +26,31 @@ public class Fossil : MonoBehaviour
         data = new FossilItem(statObject);
 
         spriteMesh = GetComponentInChildren<SpriteRenderer>();
-        spriteMesh.transform.localPosition = GetComponent<BoxCollider2D>().offset;
+        _fossilCollider = GetComponent<BoxCollider2D>();
 
-        cellPoints = RobinMathMethods.CellPoints((int)transform.lossyScale.x, (int)transform.lossyScale.y);
+        if (StatObject.itemImage == null)
+            StatObject.itemImage = spriteMesh.sprite;
+
+        //data = new FossilItem(statObject);
+
+        //spriteMesh.transform.localPosition = GetComponent<BoxCollider2D>().offset;
+
+        _fossilOffset = _fossilCollider.offset - _fossilCollider.size * 0.5f;
+        cellPoints = RobinMathMethods.CellPoints((int)_fossilCollider.size.x, (int)_fossilCollider.size.y, _fossilOffset);
+
+        _fossilCollider.size = new Vector2(_fossilCollider.size.x - boxCollisonEdgeWidth, _fossilCollider.size.y - boxCollisonEdgeWidth);
+    }
+
+    private void Start()
+    {
+        /*Debug.Log($"{gameObject.name}'s offset: {_fossilOffset}");
+        
+        foreach (var cellpoint in cellPoints)
+        {
+            Debug.Log($"{gameObject.name}: {cellpoint}");
+        }*/
+
+        //OnBuying();
     }
 
     #region Collision Detection
@@ -39,7 +63,6 @@ public class Fossil : MonoBehaviour
             {
                 if (layer.IsNotDug((Vector2)transform.position + cellpoint))
                 {
-                    //Debug.Log($"{gameObject.name}: {cellpoint}");
                     //isDigOut = false;
                     return false;
                 }

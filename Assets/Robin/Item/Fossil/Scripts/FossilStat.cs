@@ -4,6 +4,6 @@ using System;
 [CreateAssetMenu(fileName = "NewFossil", menuName = "Scriptable Objects/Item", order = 1)]
 public class FossilStat : BaseItemStat
 {
-    [NonSerialized] public new Sprite itemImage;
     public DinosaurType fossilType;
+    [NonSerialized] public RarityLevel rarity;
 }
