@@ -14,7 +14,7 @@ public class FossilSpawner : MonoBehaviour
     private Renderer _renderer;
     private Bounds spawnerBound;
 
-    private int fossilIndex = 0;
+    private int fossilIndex = 1;
 
     private void Awake()
     {

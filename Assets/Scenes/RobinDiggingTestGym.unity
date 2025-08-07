@@ -8139,7 +8139,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3088069041842991650, guid: 3f9edd1994c84904391545e016a177ea, type: 3}
       propertyPath: spawnBoundsOffset
-      value: 0.1
+      value: 0.01
       objectReference: {fileID: 0}
     - target: {fileID: 3724653627584840321, guid: 3f9edd1994c84904391545e016a177ea, type: 3}
       propertyPath: m_LocalScale.x
@@ -10019,8 +10019,20 @@ PrefabInstance:
       objectReference: {fileID: 868953712}
     - target: {fileID: 8208876020659209936, guid: 3f9edd1994c84904391545e016a177ea, type: 3}
       propertyPath: lootTable.Array.size
-      value: 6
+      value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 8208876020659209936, guid: 3f9edd1994c84904391545e016a177ea, type: 3}
+      propertyPath: 'lootTable.Array.data[0]'
+      value: 
+      objectReference: {fileID: 8804438050711525788, guid: ae561142c0bf59f4196b2b1a655d785c, type: 3}
+    - target: {fileID: 8208876020659209936, guid: 3f9edd1994c84904391545e016a177ea, type: 3}
+      propertyPath: 'lootTable.Array.data[1]'
+      value: 
+      objectReference: {fileID: 8804438050711525788, guid: 9f524e37c1da514479ce6eaad647fe3e, type: 3}
+    - target: {fileID: 8208876020659209936, guid: 3f9edd1994c84904391545e016a177ea, type: 3}
+      propertyPath: 'lootTable.Array.data[2]'
+      value: 
+      objectReference: {fileID: 8804438050711525788, guid: ed49d69729531fd459d2e42859a3f51b, type: 3}
     - target: {fileID: 8208876020659209936, guid: 3f9edd1994c84904391545e016a177ea, type: 3}
       propertyPath: lootTable.Array.data[0].fossil
       value: 

@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6adc95cefc0503b45bf83f842273bbc3, type: 3}
-  m_Name: Dino2
+  m_Name: BasicCarnivore
   m_EditorClassIdentifier: 
   itemName: TestCarnivore
   itemImage: {fileID: 2462110627616091459, guid: adc8c9d8a77e8eb41bea1bec53fce579, type: 3}

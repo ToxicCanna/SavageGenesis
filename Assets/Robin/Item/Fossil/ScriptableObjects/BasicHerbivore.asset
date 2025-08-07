@@ -10,10 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6adc95cefc0503b45bf83f842273bbc3, type: 3}
-  m_Name: Dino3
+  m_Name: BasicHerbivore
   m_EditorClassIdentifier: 
-  itemName: TestAerial
-  itemImage: {fileID: 6309439583366566387, guid: 12e1afd632a6ae64fbee71848324da15, type: 3}
-  price: 150
-  rarity: 0
-  fossilType: 3
+  itemName: TestHerbivore
+  itemImage: {fileID: -8942342926937479916, guid: f5839a93e240af94782064e329e797ba, type: 3}
+  price: 50
+  fossilType: 2

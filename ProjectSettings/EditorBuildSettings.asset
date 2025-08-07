@@ -4,6 +4,12 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/RobinDiggingTestGym.unity
+    guid: 155d580cf404a6946bacd2bb8d4fb016
+  - enabled: 1
+    path: Assets/Robin/Scene/InventoryTest.unity
+    guid: 8341e1877cf6b7d408966e4a9333fc97
   m_configObjects: {}
   m_UseUCBPForAssetBundles: 0

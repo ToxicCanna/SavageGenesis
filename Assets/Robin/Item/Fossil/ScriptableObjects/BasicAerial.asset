@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6adc95cefc0503b45bf83f842273bbc3, type: 3}
-  m_Name: EpicDino2
+  m_Name: BasicAerial
   m_EditorClassIdentifier: 
-  itemName: LegendDino
-  itemImage: {fileID: 6575581121138938176, guid: 527560a2c98fa4644af9a5e20ab7d65a, type: 3}
-  price: 250
-  rarity: 4
-  fossilType: 1
+  itemName: TestAerial
+  itemImage: {fileID: 6309439583366566387, guid: 12e1afd632a6ae64fbee71848324da15, type: 3}
+  price: 150
+  rarity: 0
+  fossilType: 3
