@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 02f8fcf74ad31af4ca643443b9bbb233
+guid: b6c62a654f628ca4aadc0a07c91f4b5d
 ScriptedImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -123,7 +123,7 @@ ScriptedImporter:
     tessellationDetail: 0
     uvTransform: {x: 0, y: 0}
   animatedSpriteImportData:
-  - name: LongNeckFly
+  - name: LongNeck
     originalName: 
     pivot: {x: 0.50793654, y: -0.19626167}
     alignment: 9
@@ -135,7 +135,7 @@ ScriptedImporter:
       y: 4
       width: 126
       height: 107
-    spriteID: 81d3274335b55ba49b0dbfa7a79d888c
+    spriteID: 87f4da254b9c20649919db6feb8179dd
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -148,17 +148,17 @@ ScriptedImporter:
   asepriteLayers:
   - layerIndex: 0
     uuid:
-      value0: 522240288
+      value0: 2489218425
       value1: 0
       value2: 0
       value3: 0
     guid: 0
-    name: LongNeckFly
+    name: LongNeck
     layerFlags: 0
     layerType: 0
     blendMode: 0
     cells:
-    - name: LongNeckFly
+    - name: LongNeck
       frameIndex: 0
       additiveSortOrder: 0
       cellRect:
@@ -166,7 +166,7 @@ ScriptedImporter:
         y: 21
         width: 126
         height: 107
-      spriteId: 81d3274335b55ba49b0dbfa7a79d888c
+      spriteId: 87f4da254b9c20649919db6feb8179dd
     linkedCells: []
     parentIndex: -1
   platformSettings:

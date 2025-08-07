@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 527560a2c98fa4644af9a5e20ab7d65a
+guid: 556fec741e1552d469c731a03b9bf971
 ScriptedImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -123,9 +123,9 @@ ScriptedImporter:
     tessellationDetail: 0
     uvTransform: {x: 0, y: 0}
   animatedSpriteImportData:
-  - name: AnkyloProto
+  - name: Raptor
     originalName: 
-    pivot: {x: 0.4869565, y: 0}
+    pivot: {x: 0.5090909, y: -0.033613447}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     customData: 
@@ -133,9 +133,9 @@ ScriptedImporter:
       serializedVersion: 2
       x: 4
       y: 4
-      width: 115
-      height: 46
-    spriteID: 67db180a6b6a8db4c88bbf08c4a6ba07
+      width: 110
+      height: 119
+    spriteID: 915a80f9d08481940921c22904975cb7
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -148,25 +148,25 @@ ScriptedImporter:
   asepriteLayers:
   - layerIndex: 0
     uuid:
-      value0: 1477349210
+      value0: 4059004402
       value1: 0
       value2: 0
       value3: 0
     guid: 0
-    name: AnkyloProto
+    name: Raptor
     layerFlags: 0
     layerType: 0
     blendMode: 0
     cells:
-    - name: AnkyloProto
+    - name: Raptor
       frameIndex: 0
       additiveSortOrder: 0
       cellRect:
         x: 8
-        y: 0
-        width: 115
-        height: 46
-      spriteId: 67db180a6b6a8db4c88bbf08c4a6ba07
+        y: 4
+        width: 110
+        height: 119
+      spriteId: 915a80f9d08481940921c22904975cb7
     linkedCells: []
     parentIndex: -1
   platformSettings:
@@ -185,5 +185,5 @@ ScriptedImporter:
   generatePhysicsShape: 0
   secondarySpriteTextures: []
   spritePackingTag: 
-  canvasSize: {x: 128, y: 64}
-  previousTextureSize: {x: 128, y: 64}
+  canvasSize: {x: 128, y: 128}
+  previousTextureSize: {x: 128, y: 128}

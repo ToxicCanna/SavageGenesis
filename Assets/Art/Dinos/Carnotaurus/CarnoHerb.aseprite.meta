@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 02f8fcf74ad31af4ca643443b9bbb233
+guid: bef095585b86c9d45a2bcb9e741f4eb8
 ScriptedImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -123,9 +123,9 @@ ScriptedImporter:
     tessellationDetail: 0
     uvTransform: {x: 0, y: 0}
   animatedSpriteImportData:
-  - name: LongNeckFly
+  - name: CarnoHerb
     originalName: 
-    pivot: {x: 0.50793654, y: -0.19626167}
+    pivot: {x: 0.48780486, y: -0.14285715}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     customData: 
@@ -133,9 +133,9 @@ ScriptedImporter:
       serializedVersion: 2
       x: 4
       y: 4
-      width: 126
-      height: 107
-    spriteID: 81d3274335b55ba49b0dbfa7a79d888c
+      width: 123
+      height: 112
+    spriteID: 6afe7989b2baf5c4bbb964b308423439
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -148,25 +148,25 @@ ScriptedImporter:
   asepriteLayers:
   - layerIndex: 0
     uuid:
-      value0: 522240288
+      value0: 1651662380
       value1: 0
       value2: 0
       value3: 0
     guid: 0
-    name: LongNeckFly
+    name: CarnoHerb
     layerFlags: 0
     layerType: 0
     blendMode: 0
     cells:
-    - name: LongNeckFly
+    - name: CarnoHerb
       frameIndex: 0
       additiveSortOrder: 0
       cellRect:
-        x: 0
-        y: 21
-        width: 126
-        height: 107
-      spriteId: 81d3274335b55ba49b0dbfa7a79d888c
+        x: 4
+        y: 16
+        width: 123
+        height: 112
+      spriteId: 6afe7989b2baf5c4bbb964b308423439
     linkedCells: []
     parentIndex: -1
   platformSettings:
