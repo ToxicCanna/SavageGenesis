@@ -2,6 +2,7 @@ using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using UnityEngine.UIElements;
 
 public class ActionStep : BaseState
 {
@@ -164,6 +165,7 @@ public class ActionStep : BaseState
     {
         bool critHit = Random.Range(1, 101) < attackMove.critRate;
         float critMulti = 1f;
+        int damage = 0;
         if (critHit)
         {
             critMulti = attackMove.critDamageMultiplyer;
@@ -173,11 +175,20 @@ public class ActionStep : BaseState
         {
             STAB = 1.5f;
         }
-        float randomFactor = Random.Range(0.85f, 1.01f);
-
-        int damage = Mathf.RoundToInt((((((2 * attackFrom.currentLevel) / 5) + 2) * attackMove.moveStrength * attackFrom.currentStrength / attackTo.currentDefense/50)+2) * targetMultiplier* critMulti * STAB *randomFactor);
-        Debug.Log("damage: "+ damage);
-
+        float randomFactor = Random.Range(0.85f, 1.15f);
+        if (attackMove.moveType == DinosaurType.Predator)
+        {
+            damage = Mathf.RoundToInt((((((2 * attackFrom.currentLevel) / 5) + 2) * attackMove.moveStrength * attackFrom.currentStrength / attackTo.currentDefense / 50) + 2) * targetMultiplier * critMulti * STAB * randomFactor);
+            Debug.Log("damage: " + damage);
+        } else if (attackMove.moveType == DinosaurType.Armored)
+        {
+            damage = Mathf.RoundToInt((((((2 * attackFrom.currentLevel) / 5) + 2) * attackMove.moveStrength * attackFrom.currentDefense / attackTo.currentDefense / 50) + 2) * targetMultiplier * critMulti * STAB * randomFactor);
+            Debug.Log("damage: " + damage);
+        } else if (attackMove.moveType == DinosaurType.Agile)
+        {
+            damage = Mathf.RoundToInt((((((2 * attackFrom.currentLevel) / 5) + 2) * attackMove.moveStrength * attackFrom.currentAgility / attackTo.currentDefense / 50) + 2) * targetMultiplier * critMulti * STAB * randomFactor);
+            Debug.Log("damage: " + damage);
+        }
         return damage;
     }
 
@@ -314,18 +325,18 @@ public class ActionStep : BaseState
                         
                         _stateMachine.levelInfo.GetPlayerHealthBar().transform.localScale = new Vector3((float) playerCombatSlotOne.currentHP / playerCombatSlotOne.currentMaxHP, 1, 1);
                         
-
-                        if (Random.Range(1, 101) < currentMove.statusChance * 100 && playerCombatSlotOne.currentStatus == StatusType.None)
+                        //status chance is in decimal form
+                        if (Random.Range(1, 101) < currentMove.statusChance && playerCombatSlotOne.currentStatus == StatusType.None)
                         {
                             playerCombatSlotOne.InflictStatus(currentMove.statusType);
                         }
 
-                        if (Random.Range(1, 101) < currentMove.statChangeChance * 100)
+                        if (Random.Range(1, 101) < currentMove.statChangeChance)
                         {
                             playerCombatSlotOne.BuffDebuff(currentMove.strengthBuffDebuff, currentMove.defenseBuffDebuff, currentMove.agilityBuffDebuff);
                         }
 
-                        if (Random.Range(1, 101) < currentMove.statChangeChance * 100)
+                        if (Random.Range(1, 101) < currentMove.statChangeChance)
                         {
                             playerCombatSlotOne.BuffDebuff(currentMove.strengthBuffDebuffUser, currentMove.defenseBuffDebuffUser, currentMove.agilityBuffDebuffUser);
                         }
@@ -340,34 +351,43 @@ public class ActionStep : BaseState
                     { 
                         for (int i = 0; i < GameManager.Instance.playerChoice_MoveInfo.multiHit; i++)
                         {
-                            enemyCombatSlotOne.TakeDamage(CalculateDamage(playerCombatSlotOne, enemyCombatSlotOne, currentMove, 1f));
-                            if (enemyCombatSlotOne.isFainted)
+                            if (Random.Range(1, 101) < currentMove.moveAccuracy)
                             {
-                                GameManager.Instance.goToEnemyFaintedState = true;
+                                enemyCombatSlotOne.TakeDamage(CalculateDamage(playerCombatSlotOne, enemyCombatSlotOne, currentMove, 1f));
+                                if (enemyCombatSlotOne.isFainted)
+                                {
+                                    GameManager.Instance.goToEnemyFaintedState = true;
+                                }
+
+                                //use dotween here later
+                                _stateMachine.levelInfo.GetEnemyHealthBar().transform.localScale = new Vector3((float)enemyCombatSlotOne.currentHP / enemyCombatSlotOne.currentMaxHP, 1, 1);
+
+                                if (Random.Range(1, 101) < currentMove.statusChance && playerCombatSlotOne.currentStatus != StatusType.None)
+                                {
+                                    enemyCombatSlotOne.InflictStatus(currentMove.statusType);
+                                }
+
+                                if (Random.Range(1, 101) < currentMove.statChangeChance)
+                                {
+                                    enemyCombatSlotOne.BuffDebuff(currentMove.strengthBuffDebuff, currentMove.defenseBuffDebuff, currentMove.agilityBuffDebuff);
+                                }
+
+                                if (Random.Range(1, 101) < currentMove.statChangeChance)
+                                {
+                                    playerCombatSlotOne.BuffDebuff(currentMove.strengthBuffDebuffUser, currentMove.defenseBuffDebuffUser, currentMove.agilityBuffDebuffUser);
+                                }
+
+                                if (!playerCombatSlotOne.isFainted && currentMove.regenUser)
+                                {
+                                    playerCombatSlotOne.Regen();
+                                }
+                            }
+                            else
+                            {
+                                //move misses
                             }
 
-                            //use dotween here later
-                            _stateMachine.levelInfo.GetEnemyHealthBar().transform.localScale = new Vector3((float) enemyCombatSlotOne.currentHP / enemyCombatSlotOne.currentMaxHP, 1, 1);
-
-                            if (Random.Range(1, 101) < currentMove.statusChance * 100 && playerCombatSlotOne.currentStatus != StatusType.None)
-                            {
-                                enemyCombatSlotOne.InflictStatus(currentMove.statusType);
-                            }
-
-                            if (Random.Range(1, 101) < currentMove.statChangeChance * 100)
-                            {
-                                enemyCombatSlotOne.BuffDebuff(currentMove.strengthBuffDebuff, currentMove.defenseBuffDebuff, currentMove.agilityBuffDebuff);
-                            }
-
-                            if (Random.Range(1, 101) < currentMove.statChangeChance * 100)
-                            {
-                                playerCombatSlotOne.BuffDebuff(currentMove.strengthBuffDebuffUser, currentMove.defenseBuffDebuffUser, currentMove.agilityBuffDebuffUser);
-                            }
-
-                            if (!playerCombatSlotOne.isFainted && currentMove.regenUser)
-                            {
-                                playerCombatSlotOne.Regen();
-                            }
+                            
                         }
 
                     }
@@ -420,17 +440,17 @@ public class ActionStep : BaseState
                         _stateMachine.levelInfo.GetEnemyHealthBar().transform.localScale = new Vector3((float) enemyCombatSlotOne.currentHP / enemyCombatSlotOne.currentMaxHP, 1, 1);
 
 
-                        if (Random.Range(1, 101) < currentMove.statusChance * 100 && enemyCombatSlotOne.currentStatus == StatusType.None)
+                        if (Random.Range(1, 101) < currentMove.statusChance && enemyCombatSlotOne.currentStatus == StatusType.None)
                         {
                             enemyCombatSlotOne.InflictStatus(currentMove.statusType);
                         }
 
-                        if (Random.Range(1, 101) < currentMove.statChangeChance * 100)
+                        if (Random.Range(1, 101) < currentMove.statChangeChance)
                         {
                             enemyCombatSlotOne.BuffDebuff(currentMove.strengthBuffDebuff, currentMove.defenseBuffDebuff, currentMove.agilityBuffDebuff);
                         }
 
-                        if (Random.Range(1, 101) < currentMove.statChangeChance * 100)
+                        if (Random.Range(1, 101) < currentMove.statChangeChance)
                         {
                             enemyCombatSlotOne.BuffDebuff(currentMove.strengthBuffDebuffUser, currentMove.defenseBuffDebuffUser, currentMove.agilityBuffDebuffUser);
                         }
@@ -443,36 +463,44 @@ public class ActionStep : BaseState
                     }
                     else
                     {
+
                         for (int i = 0; i < currentMove.multiHit; i++)
                         {
-                            playerCombatSlotOne.TakeDamage(CalculateDamage(enemyCombatSlotOne, playerCombatSlotOne, currentMove, 1f));
-                            if (playerCombatSlotOne.isFainted)
+                            if (Random.Range(1, 101) < currentMove.moveAccuracy)
                             {
-                                GameManager.Instance.goToPlayerFaintedState = true;
-                            }
+                                playerCombatSlotOne.TakeDamage(CalculateDamage(enemyCombatSlotOne, playerCombatSlotOne, currentMove, 1f));
+                                if (playerCombatSlotOne.isFainted)
+                                {
+                                    GameManager.Instance.goToPlayerFaintedState = true;
+                                }
 
-                            //use dotween here later
-                            _stateMachine.levelInfo.GetPlayerHealthBar().transform.localScale = new Vector3((float) playerCombatSlotOne.currentHP / playerCombatSlotOne.currentMaxHP, 1, 1);
+                                //use dotween here later
+                                _stateMachine.levelInfo.GetPlayerHealthBar().transform.localScale = new Vector3((float) playerCombatSlotOne.currentHP / playerCombatSlotOne.currentMaxHP, 1, 1);
 
-                            if (Random.Range(1, 101) < currentMove.statusChance * 100 && playerCombatSlotOne.currentStatus == StatusType.None)
-                            {
-                                playerCombatSlotOne.InflictStatus(currentMove.statusType);
-                            }
+                                if (Random.Range(1, 101) < currentMove.statusChance && playerCombatSlotOne.currentStatus == StatusType.None)
+                                {
+                                    playerCombatSlotOne.InflictStatus(currentMove.statusType);
+                                }
 
-                            if (Random.Range(1, 101) < currentMove.statChangeChance * 100)
-                            {
-                                playerCombatSlotOne.BuffDebuff(currentMove.strengthBuffDebuff, currentMove.defenseBuffDebuff, currentMove.agilityBuffDebuff);
-                            }
+                                if (Random.Range(1, 101) < currentMove.statChangeChance)
+                                {
+                                    playerCombatSlotOne.BuffDebuff(currentMove.strengthBuffDebuff, currentMove.defenseBuffDebuff, currentMove.agilityBuffDebuff);
+                                }
 
-                            if (Random.Range(1, 101) < currentMove.statChangeChance * 100)
-                            {
-                                enemyCombatSlotOne.BuffDebuff(currentMove.strengthBuffDebuffUser, currentMove.defenseBuffDebuffUser, currentMove.agilityBuffDebuffUser);
-                            }
+                                if (Random.Range(1, 101) < currentMove.statChangeChance)
+                                {
+                                    enemyCombatSlotOne.BuffDebuff(currentMove.strengthBuffDebuffUser, currentMove.defenseBuffDebuffUser, currentMove.agilityBuffDebuffUser);
+                                }
 
-                            if (!enemyCombatSlotOne.isFainted && currentMove.regenUser)
-                            {
-                                enemyCombatSlotOne.Regen();
+                                if (!enemyCombatSlotOne.isFainted && currentMove.regenUser)
+                                {
+                                    enemyCombatSlotOne.Regen();
+                                }
                             }
+                            else { 
+                                //move misses
+                            }
+                           
                         }
 
                     }

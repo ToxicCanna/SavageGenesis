@@ -46,6 +46,27 @@ public class InventoryDinosaur : MonoBehaviour
     [field: SerializeField] public bool moveFourEmpty { get; private set; }
     [field: SerializeField] public bool moveFiveEmpty { get; private set; }
 
+    public InventoryDinosaur(int inhertedStr, int inhertedDef, int inhertedAgi, DinosaurInfo dInfo, MoveInfo[] mInfo)
+    { 
+        inhertedStrength = inhertedStr;
+        inhertedDefense = inhertedDef;
+        inhertedAgility = inhertedAgi;
+        dinoInfoRef = dInfo;
+        SetLevel(5);
+        nameDino(dinoInfoRef.name);
+        isEmpty = false;
+        moveOne = mInfo[0];
+        moveTwo = mInfo[1];
+        moveThree = mInfo[2];
+        moveFour = mInfo[3];
+        moveFive = mInfo[4];
+
+    }
+
+    public void nameDino(string name)
+    { 
+        nickName = name;
+    }
 
     void Start()
     {
