@@ -18,12 +18,14 @@ public class FinishDiggingState : BaseState
 
         foreach (var fossil in _miningStateMachine.fossilDigOutList)
         {
-            fossil.StatObject.rarity = GetDugOutRarity();
-            Debug.Log($"Fossil rarity is {fossil.StatObject.rarity}");
-            PlayerInventory_Overworld<FossilStat>.CollectItem(fossil.StatObject, 1);
+            fossil.statObject.rarity = GetDugOutRarity();
+            fossil.data = new FossilItem(fossil.statObject);
+
+            PlayerInventory_Overworld.CollectItem(fossil.data.stat, 1);
+            //Debug.Log($"Fossil rarity is {fossil.data.stat.rarity}");
         }
 
-        PlayerInventory_Overworld<FossilStat>.DebugDisplayAllItemsInInventory();
+        PlayerInventory_Overworld.DebugDisplayAllItemsInInventory();
         _miningStateMachine.StartCoroutine(BackToOverworldScene(0));
     }
 

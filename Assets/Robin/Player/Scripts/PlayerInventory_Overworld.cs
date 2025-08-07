@@ -21,7 +21,14 @@ public class PlayerInventory_Overworld
         else
         {
             foreach (var inventorySlot in itemsInInventory)
-                Debug.Log($"You have {inventorySlot.Value} of {inventorySlot.Key.itemName}s in your inventory.");
+            {
+                Debug.Log
+                (
+                    $"You have {inventorySlot.Value} of {inventorySlot.Key.itemName}s in your inventory, " +
+                    $"and the rarity is {inventorySlot.Key.rarity}."
+                );
+            }
+                
         }
     }
     

@@ -60,7 +60,7 @@ public class PlayerDigging : BasePlayerController
                 break;
         }
 
-        Debug.Log($"Current stability: {durability}");
+        //Debug.Log($"Current stability: {durability}");
 
         if (miningStateMachine.uiManager != null)
         {

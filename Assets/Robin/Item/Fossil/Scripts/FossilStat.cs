@@ -5,5 +5,4 @@ using System;
 public class FossilStat : BaseItemStat
 {
     public DinosaurType fossilType;
-    [NonSerialized] public RarityLevel rarity;
 }

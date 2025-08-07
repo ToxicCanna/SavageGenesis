@@ -8139,7 +8139,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3088069041842991650, guid: 3f9edd1994c84904391545e016a177ea, type: 3}
       propertyPath: spawnBoundsOffset
-      value: 0.1
+      value: 0.01
       objectReference: {fileID: 0}
     - target: {fileID: 3724653627584840321, guid: 3f9edd1994c84904391545e016a177ea, type: 3}
       propertyPath: m_LocalScale.x

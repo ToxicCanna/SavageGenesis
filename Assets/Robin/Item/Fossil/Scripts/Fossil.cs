@@ -7,9 +7,10 @@ public class Fossil : MonoBehaviour
 {
     public FossilStat statObject;
 
+    [Min(0.01f)]
     [SerializeField] private float boxCollisonEdgeWidth = 0.01f;
+    
     //[SerializeField] private bool isDigOut = false;
-
     [NonSerialized] public bool isColliding = false;
     [NonSerialized] public FossilItem data;
 
@@ -18,25 +19,22 @@ public class Fossil : MonoBehaviour
     //[SerializeField] private Vector2[] cellPoints;
     private BoxCollider2D _fossilCollider;
     private List<Vector2> cellPoints;
-    private Vector2 _fossilOffset;
+    private Vector2 _colliderOrigin;
 
     private void Awake()
     {
         statObject.itemImage = GetComponentInChildren<SpriteRenderer>().sprite;
-        data = new FossilItem(statObject);
 
         spriteMesh = GetComponentInChildren<SpriteRenderer>();
         _fossilCollider = GetComponent<BoxCollider2D>();
 
-        if (StatObject.itemImage == null)
-            StatObject.itemImage = spriteMesh.sprite;
+        if (statObject.itemImage == null)
+            statObject.itemImage = spriteMesh.sprite;
 
         //data = new FossilItem(statObject);
 
-        //spriteMesh.transform.localPosition = GetComponent<BoxCollider2D>().offset;
-
-        _fossilOffset = _fossilCollider.offset - _fossilCollider.size * 0.5f;
-        cellPoints = RobinMathMethods.CellPoints((int)_fossilCollider.size.x, (int)_fossilCollider.size.y, _fossilOffset);
+        _colliderOrigin = _fossilCollider.offset - _fossilCollider.size * 0.5f;
+        cellPoints = RobinMathMethods.CellPoints((int)_fossilCollider.size.x, (int)_fossilCollider.size.y, _colliderOrigin);
 
         _fossilCollider.size = new Vector2(_fossilCollider.size.x - boxCollisonEdgeWidth, _fossilCollider.size.y - boxCollisonEdgeWidth);
     }
