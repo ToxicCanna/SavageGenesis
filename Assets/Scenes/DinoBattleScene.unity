@@ -2541,40 +2541,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9451a891051799144ad65e3a7725f449, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lettersPerSecond: 60
-  highlightedColor: {r: 0, g: 0.09729433, b: 1, a: 1}
-  dialogText: {fileID: 1560513576}
-  actionSelector: {fileID: 715096411}
-  skillSelector: {fileID: 91990646}
-  skillDetails: {fileID: 382705835}
-  actionTexts:
-  - {fileID: 1851903318}
-  - {fileID: 1678728557}
-  - {fileID: 893150752}
-  - {fileID: 0}
-  skillTexts:
-  - {fileID: 363726010}
-  - {fileID: 1117969650}
-  - {fileID: 1190502712}
-  - {fileID: 382976261}
-  - {fileID: 152887314}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  manaText: {fileID: 334090569}
-  typeText: {fileID: 563238421}
 --- !u!1 &1000660464
 GameObject:
   m_ObjectHideFlags: 0
@@ -3681,7 +3647,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 297.65}
   m_SizeDelta: {x: 300, y: 168}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1292123362
@@ -3704,7 +3670,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 5b402efef4446c04cabb02b6ad7038c0, type: 3}
+  m_Sprite: {fileID: -496110549227829584, guid: 0140aa0ee5a829749ab581befd9e37aa, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -3757,8 +3723,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -845.5, y: -380.4}
-  m_SizeDelta: {x: 400, y: 400}
+  m_AnchoredPosition: {x: -833.05, y: -318}
+  m_SizeDelta: {x: 200, y: 200}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1315285805
 MonoBehaviour:
@@ -3780,7 +3746,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -1568312042, guid: 7ff7ca6b12a7a0d4d9d2f3b9e31e1b07, type: 3}
+  m_Sprite: {fileID: 8074334133244922232, guid: 0657bf426e5ce0e47b0cc6ddb871667a, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -4560,8 +4526,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6485f6a2bfb85394c978211267c7ae0e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isPlayer: 0
-  hud: {fileID: 0}
 --- !u!114 &1497904644
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5289,7 +5253,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -312, y: -74}
+  m_AnchoredPosition: {x: -321, y: 34.497}
   m_SizeDelta: {x: 400, y: 400}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1674477683
@@ -5312,7 +5276,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -1013740497, guid: 7ff7ca6b12a7a0d4d9d2f3b9e31e1b07, type: 3}
+  m_Sprite: {fileID: 2467041002347142545, guid: 1b3abcaa40ff2c7468991283b5027ba8, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -5742,7 +5706,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 231, y: -5}
+  m_AnchoredPosition: {x: 336.44, y: 38.8}
   m_SizeDelta: {x: 400, y: 400}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1768809990
@@ -5765,7 +5729,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 0ba79c14b144f0d4a8dda8c4331d3995, type: 2}
+  m_Sprite: {fileID: 3680790143824369730, guid: bef095585b86c9d45a2bcb9e741f4eb8, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -5795,8 +5759,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6485f6a2bfb85394c978211267c7ae0e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isPlayer: 0
-  hud: {fileID: 0}
 --- !u!1 &1772143668
 GameObject:
   m_ObjectHideFlags: 0

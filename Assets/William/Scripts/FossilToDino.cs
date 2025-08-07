@@ -163,7 +163,7 @@ public class FossilToDino : MonoBehaviour
             currentMove++;
             agileCount--;
         }
-        InventoryDinosaur newDino = new InventoryDinosaur(baseStrength, baseDefense, baseAgility, newDinoInfo, newMoveInfo[]);
+        InventoryDinosaur newDino = new InventoryDinosaur(baseStrength, baseDefense, baseAgility, newDinoInfo, newMoveInfo);
 
         return newDino;
     }

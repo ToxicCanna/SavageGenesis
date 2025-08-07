@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 5ca798a5410737a4c964fa7fee36d43c
+guid: 1d36540c90371f64c829301df0075201
 ScriptedImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -123,7 +123,7 @@ ScriptedImporter:
     tessellationDetail: 0
     uvTransform: {x: 0, y: 0}
   animatedSpriteImportData:
-  - name: NavMenu
+  - name: JournalOpen
     originalName: 
     pivot: {x: 0.5, y: 0}
     alignment: 9
@@ -133,9 +133,9 @@ ScriptedImporter:
       serializedVersion: 2
       x: 4
       y: 4
-      width: 320
-      height: 180
-    spriteID: c68d0b9f7ae02434da00424ccde207cb
+      width: 640
+      height: 360
+    spriteID: a5df1d1946ed9184788f097d14d68c0e
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -148,25 +148,25 @@ ScriptedImporter:
   asepriteLayers:
   - layerIndex: 0
     uuid:
-      value0: 2062312912
+      value0: 2783063845
       value1: 0
       value2: 0
       value3: 0
     guid: 0
-    name: NavMenu
+    name: JournalOpen
     layerFlags: 0
     layerType: 0
     blendMode: 0
     cells:
-    - name: NavMenu
+    - name: JournalOpen
       frameIndex: 0
       additiveSortOrder: 0
       cellRect:
         x: 0
         y: 0
-        width: 320
-        height: 180
-      spriteId: c68d0b9f7ae02434da00424ccde207cb
+        width: 640
+        height: 360
+      spriteId: a5df1d1946ed9184788f097d14d68c0e
     linkedCells: []
     parentIndex: -1
   platformSettings:
@@ -185,5 +185,5 @@ ScriptedImporter:
   generatePhysicsShape: 0
   secondarySpriteTextures: []
   spritePackingTag: 
-  canvasSize: {x: 320, y: 180}
-  previousTextureSize: {x: 512, y: 256}
+  canvasSize: {x: 640, y: 360}
+  previousTextureSize: {x: 1024, y: 512}

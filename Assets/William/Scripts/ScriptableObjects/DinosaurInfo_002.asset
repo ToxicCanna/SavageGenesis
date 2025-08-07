@@ -26,5 +26,5 @@ MonoBehaviour:
   agilityGrowthRate: 0.4
   baseMaxHP: 120
   maxHpGrowthRate: 0.4
-  dinosaurCombatSprite: {fileID: 2145132743866808893, guid: 3b48418b1f1f36d4599e569ea4a9a277, type: 3}
-  dinosaurInventorySprite: {fileID: -2623366167537413169, guid: 86496100f4a1724409d2935003a1bb59, type: 3}
+  dinosaurCombatSprite: {fileID: -9061617709322622122, guid: cb53904b3fc5b394398f870973d48b7b, type: 3}
+  dinosaurInventorySprite: {fileID: -3126205758566660998, guid: 0bfef763bb9e35244a962ad78cf7c7c0, type: 3}
