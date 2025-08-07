@@ -26,14 +26,14 @@ public class FinishDiggingState : BaseState
         }
 
         PlayerInventory_Overworld.DebugDisplayAllItemsInInventory();
-        _miningStateMachine.StartCoroutine(BackToOverworldScene(0));
+        _miningStateMachine.StartCoroutine(LeaveScene(1));
     }
 
-    IEnumerator BackToOverworldScene(int sceneIndex)
+    IEnumerator LeaveScene(int sceneID)
     {
         yield return new WaitForSeconds(_miningStateMachine.waitInSecAfterFinishDigging);
         PlayerDigging.durability = _miningStateMachine.uiManager.maxDurability;
-        SceneManager.LoadScene(sceneIndex);
+        SceneManager.LoadScene(sceneID);
     }
 
     private RarityLevel GetDugOutRarity()

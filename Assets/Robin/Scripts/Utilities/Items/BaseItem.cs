@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-public abstract class BaseItem : IShop
+public abstract class BaseItem : MonoBehaviour, IShop
 {
     public BaseItemStat statObject;
 

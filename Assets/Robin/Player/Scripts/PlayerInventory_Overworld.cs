@@ -1,14 +1,10 @@
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class PlayerInventory_Overworld
 {
     //Inventory as a dictionary
-    //To Killian: since we only have single player for now then set the inventory to static, tell me if you want to make multi-player
-    //collectValue and discardValue denotes how many fossils at a time 
+    //collectValue and discardValue denote how many fossils at a time 
 
     public static Dictionary<BaseItemStat, int> itemsInInventory = new Dictionary<BaseItemStat, int>();
 
