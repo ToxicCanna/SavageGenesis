@@ -1,12 +1,14 @@
 using UnityEngine;
 
-public class FossilToDino : MonoBehaviour
+public class FossilToDino : Code.Scripts.Managers.Singleton<FossilToDino>
 {
     [SerializeField] MoveDex moveDex;
     [SerializeField] DinosaurDex dinoDex;
 
     DinosaurInfo newDinoInfo;
     MoveInfo[] newMoveInfo = new MoveInfo[5];
+
+    public InventoryDinosaur result;
     public InventoryDinosaur MakeDino(FossilStat[] fossil) {
         int baseStrength = 0;
         int baseDefense = 0;
@@ -163,8 +165,7 @@ public class FossilToDino : MonoBehaviour
             currentMove++;
             agileCount--;
         }
-        InventoryDinosaur newDino = new InventoryDinosaur(baseStrength, baseDefense, baseAgility, newDinoInfo, newMoveInfo);
-
-        return newDino;
+        InventoryDinosaur resultCopy = Instantiate<InventoryDinosaur>(result);
+        return resultCopy;
     }
 }

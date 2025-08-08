@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 7594252420432185085}
   - component: {fileID: 5644400351872326331}
   - component: {fileID: 4575321381671228082}
+  - component: {fileID: 2240298024137566279}
   m_Layer: 5
   m_Name: SlotValue
   m_TagString: Untagged
@@ -136,6 +137,19 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &2240298024137566279
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1088731641983547065}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 03e3edf9bd8b8554f8050eb187b26507, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  slotVal: 0
 --- !u!1 &7752961083029908348
 GameObject:
   m_ObjectHideFlags: 0
@@ -149,6 +163,7 @@ GameObject:
   - component: {fileID: 9112210917842950173}
   - component: {fileID: 846041812140221072}
   - component: {fileID: 1945763985791189714}
+  - component: {fileID: 6040674693156806498}
   m_Layer: 5
   m_Name: ItemSlot
   m_TagString: Untagged
@@ -257,7 +272,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 9112210917842950173}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 6040674693156806498}
+        m_TargetAssemblyTypeName: ItemSlotButton, Assembly-CSharp
+        m_MethodName: OnClick
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1945763985791189714
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -271,3 +298,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   statObject: {fileID: 0}
+  stat: {fileID: 0}
+--- !u!114 &6040674693156806498
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7752961083029908348}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a8f90275745192747aa07c035a05d52d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  numOfFossilUI: {fileID: 2240298024137566279}

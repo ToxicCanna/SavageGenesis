@@ -2189,7 +2189,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 1939699467}
+  - {fileID: 1139902657914273642}
   - {fileID: 1755746753}
   - {fileID: 381464444}
   - {fileID: 2100763831}
@@ -2207,7 +2207,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 036c406507fe84d4b9d793a845674fc6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  slotOneDino: {fileID: 1939699468}
+  slotOneDino: {fileID: 9027907606608486794}
   slotTwoDino: {fileID: 1755746754}
   slotThreeDino: {fileID: 381464445}
   slotFourDino: {fileID: 2100763832}
@@ -6223,6 +6223,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1878782797}
+  - component: {fileID: 1878782798}
   m_Layer: 0
   m_Name: PlayerLoader
   m_TagString: Untagged
@@ -6246,6 +6247,19 @@ Transform:
   - {fileID: 839804119}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1878782798
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1878782796}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d54f8c14a2c11834299abe6739398e50, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  slotThree: {fileID: 381464445}
 --- !u!1 &1888833823
 GameObject:
   m_ObjectHideFlags: 0
@@ -6375,76 +6389,6 @@ MonoBehaviour:
   m_Spacing: {x: 0, y: 0}
   m_Constraint: 0
   m_ConstraintCount: 2
---- !u!1 &1939699466
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1939699467}
-  - component: {fileID: 1939699468}
-  m_Layer: 0
-  m_Name: Slot0010
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1939699467
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1939699466}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 839804119}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1939699468
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1939699466}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5c018dd4197bc6541a36db3bbddb261b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  <dinoInfoRef>k__BackingField: {fileID: 11400000, guid: cecefb8d6f3629946b8e2e6172a11dee, type: 2}
-  <nickName>k__BackingField: Maw
-  <currentLevel>k__BackingField: 5
-  <currentStatus>k__BackingField: 0
-  isEmpty: 0
-  usedByEnemy: 0
-  inhertedStrength: 85
-  inhertedDefense: 85
-  inhertedAgility: 50
-  <currentExpNeeded>k__BackingField: 1
-  <currentStrength>k__BackingField: 0
-  <currentDefense>k__BackingField: 0
-  <currentAgility>k__BackingField: 0
-  <currentMaxHP>k__BackingField: 0
-  <currentHP>k__BackingField: 0
-  <currentExp>k__BackingField: 0
-  <isFainted>k__BackingField: 0
-  <moveOne>k__BackingField: {fileID: 11400000, guid: af0a865a4cb665846a58da5562560273, type: 2}
-  <moveTwo>k__BackingField: {fileID: 0}
-  <moveThree>k__BackingField: {fileID: 0}
-  <moveFour>k__BackingField: {fileID: 0}
-  <moveFive>k__BackingField: {fileID: 0}
-  <moveTwoEmpty>k__BackingField: 1
-  <moveThreeEmpty>k__BackingField: 1
-  <moveFourEmpty>k__BackingField: 1
-  <moveFiveEmpty>k__BackingField: 1
 --- !u!1 &2029949057
 GameObject:
   m_ObjectHideFlags: 0
@@ -6902,6 +6846,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7468008698846631040}
   m_CullTransparentMesh: 1
+--- !u!4 &1139902657914273642
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7908746474247207670}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 839804119}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!224 &1164276137961620180
 RectTransform:
   m_ObjectHideFlags: 0
@@ -7338,6 +7297,23 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 0
+--- !u!1 &7908746474247207670
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1139902657914273642}
+  - component: {fileID: 9027907606608486794}
+  m_Layer: 0
+  m_Name: Slot0010
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!114 &8034933575785623685
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7417,6 +7393,44 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8414018486963100367}
   m_CullTransparentMesh: 1
+--- !u!114 &9027907606608486794
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7908746474247207670}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c018dd4197bc6541a36db3bbddb261b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <dinoInfoRef>k__BackingField: {fileID: 11400000, guid: cecefb8d6f3629946b8e2e6172a11dee, type: 2}
+  <nickName>k__BackingField: Maw
+  <currentLevel>k__BackingField: 5
+  <currentStatus>k__BackingField: 0
+  isEmpty: 0
+  usedByEnemy: 0
+  inhertedStrength: 85
+  inhertedDefense: 85
+  inhertedAgility: 50
+  <currentExpNeeded>k__BackingField: 1
+  <currentStrength>k__BackingField: 0
+  <currentDefense>k__BackingField: 0
+  <currentAgility>k__BackingField: 0
+  <currentMaxHP>k__BackingField: 0
+  <currentHP>k__BackingField: 0
+  <currentExp>k__BackingField: 0
+  <isFainted>k__BackingField: 0
+  <moveOne>k__BackingField: {fileID: 11400000, guid: af0a865a4cb665846a58da5562560273, type: 2}
+  <moveTwo>k__BackingField: {fileID: 0}
+  <moveThree>k__BackingField: {fileID: 0}
+  <moveFour>k__BackingField: {fileID: 0}
+  <moveFive>k__BackingField: {fileID: 0}
+  <moveTwoEmpty>k__BackingField: 1
+  <moveThreeEmpty>k__BackingField: 1
+  <moveFourEmpty>k__BackingField: 1
+  <moveFiveEmpty>k__BackingField: 1
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
