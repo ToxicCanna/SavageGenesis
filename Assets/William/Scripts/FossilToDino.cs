@@ -165,7 +165,8 @@ public class FossilToDino : Code.Scripts.Managers.Singleton<FossilToDino>
             currentMove++;
             agileCount--;
         }
-        InventoryDinosaur resultCopy = Instantiate<InventoryDinosaur>(result);
+        InventoryDinosaur resultCopy = Instantiate<InventoryDinosaur>(result, DinoHolder.Instance.transform);
+        resultCopy.Initiate(baseStrength, baseDefense, baseAgility, newDinoInfo, newMoveInfo, 5, 0);
         return resultCopy;
     }
 }

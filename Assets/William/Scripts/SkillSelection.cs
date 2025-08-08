@@ -51,6 +51,13 @@ public class SkillSelection : MonoBehaviour
             levelInfo.GetSkillFour().GetComponent<Text>().text = combatSlotOne.moveFour.moveName;
             levelInfo.GetSkillFive().GetComponent<Text>().text = "--";
         }
+        else
+        {
+            levelInfo.GetSkillTwo().GetComponent<Text>().text = combatSlotOne.moveTwo.moveName; ;
+            levelInfo.GetSkillThree().GetComponent<Text>().text = combatSlotOne.moveThree.moveName;
+            levelInfo.GetSkillFour().GetComponent<Text>().text = combatSlotOne.moveFour.moveName;
+            levelInfo.GetSkillFive().GetComponent<Text>().text = combatSlotOne.moveFive.moveName;
+        }
     }
 
     void OnEnable()

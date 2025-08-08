@@ -752,9 +752,10 @@ MonoBehaviour:
   <currentStatus>k__BackingField: 0
   isEmpty: 0
   usedByEnemy: 1
-  inhertedStrength: 70
-  inhertedDefense: 120
-  inhertedAgility: 85
+  isLoadingIntoCombat: 1
+  <inhertedStrength>k__BackingField: 0
+  <inhertedDefense>k__BackingField: 0
+  <inhertedAgility>k__BackingField: 0
   <currentExpNeeded>k__BackingField: 1
   <currentStrength>k__BackingField: 0
   <currentDefense>k__BackingField: 0
@@ -1112,9 +1113,10 @@ MonoBehaviour:
   <currentStatus>k__BackingField: 0
   isEmpty: 1
   usedByEnemy: 0
-  inhertedStrength: 0
-  inhertedDefense: 0
-  inhertedAgility: 0
+  isLoadingIntoCombat: 1
+  <inhertedStrength>k__BackingField: 0
+  <inhertedDefense>k__BackingField: 0
+  <inhertedAgility>k__BackingField: 0
   <currentExpNeeded>k__BackingField: 0
   <currentStrength>k__BackingField: 0
   <currentDefense>k__BackingField: 0
@@ -3830,9 +3832,10 @@ MonoBehaviour:
   <currentStatus>k__BackingField: 0
   isEmpty: 0
   usedByEnemy: 1
-  inhertedStrength: 85
-  inhertedDefense: 85
-  inhertedAgility: 50
+  isLoadingIntoCombat: 1
+  <inhertedStrength>k__BackingField: 0
+  <inhertedDefense>k__BackingField: 0
+  <inhertedAgility>k__BackingField: 0
   <currentExpNeeded>k__BackingField: 1
   <currentStrength>k__BackingField: 0
   <currentDefense>k__BackingField: 0
@@ -3900,9 +3903,10 @@ MonoBehaviour:
   <currentStatus>k__BackingField: 0
   isEmpty: 1
   usedByEnemy: 0
-  inhertedStrength: 0
-  inhertedDefense: 0
-  inhertedAgility: 0
+  isLoadingIntoCombat: 1
+  <inhertedStrength>k__BackingField: 0
+  <inhertedDefense>k__BackingField: 0
+  <inhertedAgility>k__BackingField: 0
   <currentExpNeeded>k__BackingField: 0
   <currentStrength>k__BackingField: 0
   <currentDefense>k__BackingField: 0
@@ -5161,9 +5165,10 @@ MonoBehaviour:
   <currentStatus>k__BackingField: 0
   isEmpty: 1
   usedByEnemy: 0
-  inhertedStrength: 0
-  inhertedDefense: 0
-  inhertedAgility: 0
+  isLoadingIntoCombat: 1
+  <inhertedStrength>k__BackingField: 0
+  <inhertedDefense>k__BackingField: 0
+  <inhertedAgility>k__BackingField: 0
   <currentExpNeeded>k__BackingField: 0
   <currentStrength>k__BackingField: 0
   <currentDefense>k__BackingField: 0
@@ -5651,9 +5656,10 @@ MonoBehaviour:
   <currentStatus>k__BackingField: 0
   isEmpty: 0
   usedByEnemy: 0
-  inhertedStrength: 70
-  inhertedDefense: 120
-  inhertedAgility: 85
+  isLoadingIntoCombat: 1
+  <inhertedStrength>k__BackingField: 0
+  <inhertedDefense>k__BackingField: 0
+  <inhertedAgility>k__BackingField: 0
   <currentExpNeeded>k__BackingField: 1
   <currentStrength>k__BackingField: 0
   <currentDefense>k__BackingField: 0
@@ -6632,9 +6638,10 @@ MonoBehaviour:
   <currentStatus>k__BackingField: 0
   isEmpty: 1
   usedByEnemy: 0
-  inhertedStrength: 0
-  inhertedDefense: 0
-  inhertedAgility: 0
+  isLoadingIntoCombat: 1
+  <inhertedStrength>k__BackingField: 0
+  <inhertedDefense>k__BackingField: 0
+  <inhertedAgility>k__BackingField: 0
   <currentExpNeeded>k__BackingField: 0
   <currentStrength>k__BackingField: 0
   <currentDefense>k__BackingField: 0
@@ -7411,9 +7418,10 @@ MonoBehaviour:
   <currentStatus>k__BackingField: 0
   isEmpty: 0
   usedByEnemy: 0
-  inhertedStrength: 85
-  inhertedDefense: 85
-  inhertedAgility: 50
+  isLoadingIntoCombat: 1
+  <inhertedStrength>k__BackingField: 0
+  <inhertedDefense>k__BackingField: 0
+  <inhertedAgility>k__BackingField: 0
   <currentExpNeeded>k__BackingField: 1
   <currentStrength>k__BackingField: 0
   <currentDefense>k__BackingField: 0
