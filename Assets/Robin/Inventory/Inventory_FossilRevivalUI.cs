@@ -8,6 +8,7 @@ public class Inventory_FossilRevivalUI : MonoBehaviour
 {
     private Dictionary<BaseItemStat, int> _itemsInInventory;
 
+    [SerializeField] private TextMeshProUGUI infoText;
     [SerializeField] private Transform scrollContent;
     [SerializeField] private GameObject slotPrefab;
 
@@ -23,6 +24,7 @@ public class Inventory_FossilRevivalUI : MonoBehaviour
         {
             GameObject newItem = Instantiate(slotPrefab, scrollContent);
 
+            newItem.GetComponent<FossilItem>().infoText = infoText;
             newItem.GetComponent<FossilItem>().statObject = (FossilStat)itemSlot.Key;
             newItem.GetComponent<FossilItem>().stat = (FossilStat)itemSlot.Key;
             newItem.name = itemSlot.Key.itemName;
