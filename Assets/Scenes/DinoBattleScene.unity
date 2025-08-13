@@ -2461,7 +2461,6 @@ GameObject:
   - component: {fileID: 971259925}
   - component: {fileID: 971259927}
   - component: {fileID: 971259926}
-  - component: {fileID: 971259928}
   m_Layer: 5
   m_Name: DialogBox
   m_TagString: Untagged
@@ -2531,18 +2530,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 971259924}
   m_CullTransparentMesh: 1
---- !u!114 &971259928
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 971259924}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9451a891051799144ad65e3a7725f449, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1000660464
 GameObject:
   m_ObjectHideFlags: 0
@@ -4814,6 +4801,7 @@ GameObject:
   - component: {fileID: 1560513575}
   - component: {fileID: 1560513577}
   - component: {fileID: 1560513576}
+  - component: {fileID: 1560513578}
   m_Layer: 5
   m_Name: DialogText
   m_TagString: Untagged
@@ -4882,6 +4870,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1560513574}
   m_CullTransparentMesh: 1
+--- !u!114 &1560513578
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1560513574}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 18d40cf8f185a9e47844b192665c4535, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1571405914
 GameObject:
   m_ObjectHideFlags: 0
