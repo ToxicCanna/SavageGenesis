@@ -26,7 +26,7 @@ public class FinishDiggingState : BaseState
         }
 
         PlayerInventory_Overworld.DebugDisplayAllItemsInInventory();
-        _miningStateMachine.StartCoroutine(LeaveScene(1));
+        _miningStateMachine.StartCoroutine(LeaveScene(2));
     }
 
     IEnumerator LeaveScene(int sceneID)

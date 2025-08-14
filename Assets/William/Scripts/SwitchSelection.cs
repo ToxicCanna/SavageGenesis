@@ -211,9 +211,9 @@ public class SwitchSelection : MonoBehaviour
     {
         if (GameManager.Instance.GetCurrentGameMode() == GameMode.OneVOne)
         {
-            if (cursorHover == DinosaurSlot.Two && levelInfo.GetPlayerDinoInventory().LoadCombatSlotTwo().IsEmpty()) return; 
-            if (cursorHover == DinosaurSlot.Three && levelInfo.GetPlayerDinoInventory().LoadCombatSlotThree().IsEmpty()) return;
-            if (cursorHover == DinosaurSlot.Four && levelInfo.GetPlayerDinoInventory().LoadCombatSlotFour().IsEmpty()) return;
+            if (cursorHover == DinosaurSlot.Two && (levelInfo.GetPlayerDinoInventory().LoadCombatSlotTwo().IsEmpty()|| levelInfo.GetPlayerDinoInventory().LoadCombatSlotTwo().isFainted)) return; 
+            if (cursorHover == DinosaurSlot.Three && (levelInfo.GetPlayerDinoInventory().LoadCombatSlotThree().IsEmpty() || levelInfo.GetPlayerDinoInventory().LoadCombatSlotThree().isFainted)) return;
+            if (cursorHover == DinosaurSlot.Four && (levelInfo.GetPlayerDinoInventory().LoadCombatSlotFour().IsEmpty() || levelInfo.GetPlayerDinoInventory().LoadCombatSlotFour().isFainted)) return;
 
 
             if (cursorHover == DinosaurSlot.Two)

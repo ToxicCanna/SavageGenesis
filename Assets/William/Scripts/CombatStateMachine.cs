@@ -136,7 +136,7 @@ public class CombatStateMachine : BaseStateMachine
         }
         if (combatStates == CombatStates.ActionStep)
         {
-            
+            DialogBox.Instance.KillText();
         }
 
 

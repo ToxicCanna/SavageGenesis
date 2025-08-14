@@ -26,9 +26,10 @@ public class Inventory_FossilRevivalUI : MonoBehaviour
 
             newItem.GetComponent<FossilItem>().infoText = infoText;
             newItem.GetComponent<FossilItem>().statObject = (FossilStat)itemSlot.Key;
+            newItem.GetComponent<FossilItem>().stat = (FossilStat)itemSlot.Key;
             newItem.name = itemSlot.Key.itemName;
             newItem.GetComponent<Image>().sprite = itemSlot.Key.itemImage;
-            newItem.GetComponentInChildren<TextMeshProUGUI>().text = itemSlot.Value.ToString();
+            newItem.GetComponentInChildren<SlotValue>().SetVal(itemSlot.Value);
         }
     }
 }
