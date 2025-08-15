@@ -14,7 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dexNumber: 202
   dinosaurName: Ankylosaurus
-  dinosaurDescription: 
+  dinosaurDescription: A tank of a Dinosaur, covered in hard spikes, with a clubbed
+    tail. A peaceful herbivore.
   dinosaurTypeOne: 2
   dinosaurTypeTwo: 0
   baseExp: 25

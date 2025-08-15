@@ -14,7 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dexNumber: 202
   dinosaurName: Ankylosaurus-C
-  dinosaurDescription: 
+  dinosaurDescription: An Ankylosaurus with Carnivore DNA, this beast is tanky and
+    has a insatiable bloodlust.
   dinosaurTypeOne: 2
   dinosaurTypeTwo: 1
   baseExp: 25

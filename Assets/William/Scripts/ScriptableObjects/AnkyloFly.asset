@@ -14,7 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dexNumber: 202
   dinosaurName: Ankylosaurus-A
-  dinosaurDescription: 
+  dinosaurDescription: An ankylosaurus with flying DNA. tanky but agile, this beast
+    prefers to fly away rather than fight.
   dinosaurTypeOne: 2
   dinosaurTypeTwo: 3
   baseExp: 25
