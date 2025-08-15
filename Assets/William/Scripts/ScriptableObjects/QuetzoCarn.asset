@@ -14,6 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dexNumber: 202
   dinosaurName: Quetzalcoatlus-C
+  dinosaurDescription: A quetzalcoatlus with carnivore DNA. This terrifying beast
+    has an increased bloodlust over its standard counterpart, and uses its new claws
+    to strip meat from bone.
   dinosaurTypeOne: 3
   dinosaurTypeTwo: 1
   baseExp: 25

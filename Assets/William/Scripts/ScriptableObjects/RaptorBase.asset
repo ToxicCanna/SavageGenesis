@@ -14,6 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dexNumber: 202
   dinosaurName: Velociraptor
+  dinosaurDescription: A compact pack hunter, this lean menace prefers to outnumber
+    its prey and share the spoils. Has above average dino intelligence and is rarely
+    found alone.
   dinosaurTypeOne: 1
   dinosaurTypeTwo: 0
   baseExp: 25

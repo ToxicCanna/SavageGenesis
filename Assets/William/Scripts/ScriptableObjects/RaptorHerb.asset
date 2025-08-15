@@ -14,6 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dexNumber: 201
   dinosaurName: Velociraptor-H
+  dinosaurDescription: Velociraptors with herbivore DNA. These little menaces have
+    evolved sharp spinal ridges to deter other predators, while keeping their lean
+    frame and pack tactics. They hunt unafraid of injury, and have learned to shred
+    meat with their defensive spikes.
   dinosaurTypeOne: 1
   dinosaurTypeTwo: 2
   baseExp: 20

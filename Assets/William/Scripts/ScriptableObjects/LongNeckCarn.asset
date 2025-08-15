@@ -14,6 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dexNumber: 202
   dinosaurName: LongNeck-C
+  dinosaurDescription: A longneck with Carnivore DNA. this once gentle giant returned
+    with a thirst for blood. It uses its claws, teese and whip-like tail to feed
+    its appetite.
   dinosaurTypeOne: 2
   dinosaurTypeTwo: 1
   baseExp: 25

@@ -14,6 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dexNumber: 202
   dinosaurName: Quetzalcoatlus
+  dinosaurDescription: A massive flying dinosaur, this majestic aerial threat uses
+    its sharp beak and flight to ambush and catch prey.
   dinosaurTypeOne: 3
   dinosaurTypeTwo: 0
   baseExp: 25

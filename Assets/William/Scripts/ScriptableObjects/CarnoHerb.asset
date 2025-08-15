@@ -14,6 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dexNumber: 201
   dinosaurName: Carnotaurus-H
+  dinosaurDescription: A carnotaurus with herbivore DNA. This beast has a layer of
+    hard spikes and massive teeth. Tanky and bloodthirsty.
   dinosaurTypeOne: 1
   dinosaurTypeTwo: 2
   baseExp: 20

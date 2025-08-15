@@ -14,7 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dexNumber: 201
   dinosaurName: Carnotaurus-A
-  dinosaurDescription: 
+  dinosaurDescription: A Carnotaurus with flying DNA. This terrifying beast uses
+    its massive jaws and wings to ambush prey from the sky.
   dinosaurTypeOne: 1
   dinosaurTypeTwo: 3
   baseExp: 20

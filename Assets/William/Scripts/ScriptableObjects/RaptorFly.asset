@@ -14,6 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dexNumber: 201
   dinosaurName: Velociraptor-A
+  dinosaurDescription: Velociraptors with flying DNA. These terrifying predators
+    have developed wings to ambush their prey and stabilize themselves while running,
+    leading to more angles of attack and faster top speed.
   dinosaurTypeOne: 1
   dinosaurTypeTwo: 3
   baseExp: 20
