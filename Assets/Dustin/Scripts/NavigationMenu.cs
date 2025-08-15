@@ -11,12 +11,19 @@ public class NavigationMenu : MonoBehaviour
     public string fightingPitSceneName = "FightingPitScene";
     // Feel free to set the scene name defaults either here, or set it via the inspector
 
+    [Header("Extra Scene Names")]
+    public string settingsSceneName = "OptionsMenu_Scene";
+    public string mainMenuSceneName = "MainMenu_Scene";
 
     [Header("Navigation Buttons")]
     public Button digButton;
     public Button reviveButton;
     public Button stadiumButton;
     public Button fightingPitButton;
+
+    [Header("Extra Buttons")]
+    public Button settingsButton;
+    public Button mainMenuButton;
 
     [Header("Pause")]
     public Button pauseButton;
@@ -46,6 +53,21 @@ public class NavigationMenu : MonoBehaviour
             fightingPitButton.onClick.AddListener(() => LoadScene(fightingPitSceneName));
         }
 
+        // New: Settings & Main Menu
+        if (settingsButton != null)
+        {
+            settingsButton.onClick.AddListener(() =>
+            {
+                NavigationContext.ReturnSceneName = SceneManager.GetActiveScene().name;
+                LoadScene(settingsSceneName);
+            });
+        }
+
+        if (mainMenuButton != null)
+        {
+            mainMenuButton.onClick.AddListener(() => LoadScene(mainMenuSceneName));
+        }
+
         // Pause button
         if (pauseButton != null)
         {
@@ -53,7 +75,7 @@ public class NavigationMenu : MonoBehaviour
         }
 
         // Ensure pause panel starts hidden
-        if (pauseButton != null)
+        if (pausePanel != null)
         {
             pausePanel.SetActive(false);
         }
@@ -74,7 +96,7 @@ public class NavigationMenu : MonoBehaviour
     public void TogglePause()
     {
         // NOTICE: To ensure the pause functionality actually works, do not attach the "TogglePause()" method to the "Pause Menu" button in the actul scene. Only the "Resume" button needs to call this method.
-        
+
         isPaused = !isPaused;
         Debug.Log("TogglePause called. Paused = " + isPaused);
 
