@@ -5,6 +5,7 @@ public class DinosaurInfo : ScriptableObject
 {
     public int dexNumber;
     public string dinosaurName;
+    public string dinosaurDescription;
 
     public DinosaurType dinosaurTypeOne;
     public DinosaurType dinosaurTypeTwo;
