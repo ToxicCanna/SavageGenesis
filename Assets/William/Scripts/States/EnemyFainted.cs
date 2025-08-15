@@ -1,5 +1,5 @@
 using UnityEngine;
-
+using UnityEngine.SceneManagement;
 public class EnemyFainted : BaseState
 {
     //this is meant to display text when combat finishes. 
@@ -38,6 +38,7 @@ public class EnemyFainted : BaseState
         {
             Debug.Log("YOU WON");
             //change scene
+            SceneManager.LoadScene(2);
         }
 
 
