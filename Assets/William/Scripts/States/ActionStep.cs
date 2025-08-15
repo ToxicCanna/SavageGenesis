@@ -114,6 +114,8 @@ public class ActionStep : BaseState
                 skipPlayerSlotOne = true;
             }
         }
+        _stateMachine.levelInfo.GetDialogText().SetActive(true);
+
         LoadCombatSlots();
 
 
@@ -122,6 +124,8 @@ public class ActionStep : BaseState
         PerformFastestAttack();
         PerformFastestAttack();
         PerformFastestAttack();
+
+        DialogBox.Instance.StartText();
 
         if (GameManager.Instance.goToEnemyFaintedState)
         {
@@ -302,6 +306,8 @@ public class ActionStep : BaseState
 
                     _stateMachine.textAnimationFinished = false;
                     //_stateMachine.levelInfo.GetDialogText().GetComponent<Text>().text = playerCombatSlotOne.nickName+ " used " + currentMove.moveName + "!";
+                    DialogBox.Instance.DOText(playerCombatSlotOne.nickName + " used " + GameManager.Instance.playerChoice_MoveInfo.moveName);
+
                     if (currentMove.moveIsCounter)
                     {
                         playerSlotOneCountering = true;
@@ -318,7 +324,7 @@ public class ActionStep : BaseState
                             GameManager.Instance.goToPlayerFaintedState = true;
                             
                             //put dialogue here. 
-
+                            
 
                         }
 
@@ -419,6 +425,8 @@ public class ActionStep : BaseState
                 {
                     playerCombatSlotOne.CalculateBuffDebuffs();
                     enemyCombatSlotOne.CalculateBuffDebuffs();
+
+                    DialogBox.Instance.DOText(enemyCombatSlotOne.nickName + " used " + GameManager.Instance.enemy_MoveInfoOne.moveName);
 
                     if (currentMove.moveIsCounter)
                     {

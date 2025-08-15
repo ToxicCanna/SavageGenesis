@@ -13,9 +13,11 @@ public class InventoryDinosaur : MonoBehaviour
     [SerializeField] private bool isEmpty;
     [SerializeField] private bool usedByEnemy;
 
-    [SerializeField] private int inhertedStrength;
-    [SerializeField] private int inhertedDefense;
-    [SerializeField] private int inhertedAgility;
+    [SerializeField] private bool isLoadingIntoCombat;
+
+    [field: SerializeField] public int inhertedStrength { get; private set; }
+    [field: SerializeField] public int inhertedDefense { get; private set; }
+    [field: SerializeField] public int inhertedAgility { get; private set; }
 
     private int origionalStrength;
     private int origionalDefense;
@@ -63,6 +65,42 @@ public class InventoryDinosaur : MonoBehaviour
 
     }
 
+    public void Initiate(int inhertedStr, int inhertedDef, int inhertedAgi, DinosaurInfo dInfo, MoveInfo[] mInfo, int lv, int cExp)
+    {
+        inhertedStrength = inhertedStr;
+        inhertedDefense = inhertedDef;
+        inhertedAgility = inhertedAgi;
+        dinoInfoRef = dInfo;
+        SetLevel(lv);
+        nameDino(dinoInfoRef.name);
+        isEmpty = false;
+        moveOne = mInfo[0];
+        moveTwo = mInfo[1];
+        moveThree = mInfo[2];
+        moveFour = mInfo[3];
+        moveFive = mInfo[4];
+        currentExp = cExp;
+        Reset();
+    }
+
+    public void Initiate(InventoryDinosaur from)
+    {
+        inhertedStrength = from.inhertedStrength;
+        inhertedDefense = from.inhertedDefense;
+        inhertedAgility = from.inhertedAgility;
+        dinoInfoRef = from.dinoInfoRef;
+        SetLevel(from.currentLevel);
+        nameDino(from.nickName);
+        isEmpty = from.isEmpty;
+        moveOne = from.moveOne;
+        moveTwo = from.moveTwo;
+        moveThree = from.moveThree;
+        moveFour = from.moveFour;
+        moveFive = from.moveFive;
+        currentExp = from.currentExp;
+        Reset();
+    }
+
     public void nameDino(string name)
     { 
         nickName = name;
@@ -74,8 +112,10 @@ public class InventoryDinosaur : MonoBehaviour
         {
             Reset();
         }
-
-        GameManager.Instance.loadingCount++;
+        if (isLoadingIntoCombat)
+        {
+            GameManager.Instance.loadingCount++;
+        }
 
     }
 

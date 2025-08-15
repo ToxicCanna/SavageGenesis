@@ -8,8 +8,29 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/RobinDiggingTestGym.unity
     guid: 155d580cf404a6946bacd2bb8d4fb016
-  - enabled: 1
+  - enabled: 0
     path: Assets/Robin/Scene/InventoryTest.unity
-    guid: 8341e1877cf6b7d408966e4a9333fc97
+    guid: 85a2f397529d87043b70951c55841a23
+  - enabled: 1
+    path: Assets/Scenes/MainMenu_Scene.unity
+    guid: d7b9073b1b5e9cd43839e3242408c3f2
+  - enabled: 1
+    path: Assets/Scenes/NavigationScene.unity
+    guid: ba4272cdc9763dc44bad87ab4c412007
+  - enabled: 1
+    path: Assets/Scenes/OptionsMenu_Scene.unity
+    guid: 7994d0fb2c79f1b44ad009cb83ea0bfd
+  - enabled: 1
+    path: Assets/Scenes/TempPrefabScene.unity
+    guid: 119e1bb8b6213fb44b28ada4378bd9c1
+  - enabled: 1
+    path: Assets/Scenes/DinoUGArena.unity
+    guid: 33a8ad7ea1c2c454f92c3152ebb065fc
+  - enabled: 1
+    path: Assets/Scenes/DinoRevival_Scene.unity
+    guid: 7def19081f6a36f4f8e9303a8d82883a
+  - enabled: 1
+    path: Assets/Scenes/DinoBattleScene.unity
+    guid: 6bf3f1d95c30590438d8c24d0c0c4c5e
   m_configObjects: {}
   m_UseUCBPForAssetBundles: 0

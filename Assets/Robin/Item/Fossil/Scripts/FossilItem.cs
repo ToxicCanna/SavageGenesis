@@ -1,6 +1,6 @@
 public class FossilItem : BaseItem
 {
-    public readonly FossilStat stat;
+    public FossilStat stat;
     
     public FossilItem(FossilStat fossilStat)
     {

@@ -39,6 +39,11 @@ public class GameManager : Code.Scripts.Managers.Singleton<GameManager>
         return currentGameMode;
     }
 
+    public LevelInfo GetLevelInfo()
+    {
+        return _stateMachine.levelInfo;
+    }
+
     public void PlayerFinishedSelection()
     {
         if (goToPlayerFaintedState)

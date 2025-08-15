@@ -14,13 +14,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   info:
   - {fileID: 11400000, guid: cecefb8d6f3629946b8e2e6172a11dee, type: 2}
-  - {fileID: 0}
+  - {fileID: 11400000, guid: cecefb8d6f3629946b8e2e6172a11dee, type: 2}
   - {fileID: 11400000, guid: bc2c3a5dbad1bee4ca713692da516297, type: 2}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 11400000, guid: bc2c3a5dbad1bee4ca713692da516297, type: 2}
+  - {fileID: 11400000, guid: bc2c3a5dbad1bee4ca713692da516297, type: 2}
   predatorMin: 0
   predatorMax: 1
   armoredMin: 2
   armoredMax: 3
   agileMin: 4
   agileMax: 4
+  predatorArmoredMin: 0
+  predatorArmoredMax: 0
+  predatorAgileMin: 0
+  predatorAgileMax: 0
+  armoredAgileMin: 0
+  armoredAgileMax: 0

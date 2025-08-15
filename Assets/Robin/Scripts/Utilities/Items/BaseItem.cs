@@ -1,11 +1,27 @@
 using System;
+using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
-public abstract class BaseItem : MonoBehaviour, IShop
+public abstract class BaseItem : MonoBehaviour, IShop, IPointerEnterHandler, IPointerExitHandler
 {
     public BaseItemStat statObject;
+    public TextMeshProUGUI infoText;
 
-    public void OnBuying()
+    public virtual void OnPointerEnter(PointerEventData eventData)
+    {
+        infoText.text = 
+            $"Name: {statObject.itemName}" +
+            $"\nRarity: {statObject.rarity}";
+    }
+
+    public virtual void OnPointerExit(PointerEventData eventData)
+    {
+        infoText.text = "";
+    }
+
+    public virtual void OnBuying()
     {
         if (statObject != null) 
         {
@@ -15,7 +31,7 @@ public abstract class BaseItem : MonoBehaviour, IShop
             Debug.Log("Stat object is null!");
     }
 
-    public void OnSelling(float sellRate)
+    public virtual void OnSelling(float sellRate)
     {
         if (statObject != null)
         {
