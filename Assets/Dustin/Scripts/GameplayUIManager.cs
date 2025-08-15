@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using UnityEngine.Events;
+using UnityEngine.EventSystems;
 
 public class GameplayUIManager : MonoBehaviour
 {
@@ -32,6 +33,9 @@ public class GameplayUIManager : MonoBehaviour
         // Assign button events
         pickaxeButton.onClick.AddListener(() => onPickaxeSelected.Invoke());
         brushButton.onClick.AddListener(() => onBrushSelected.Invoke());
+
+        // Set brush as the initially selected button so it uses the "Selected Sprite"
+        EventSystem.current.SetSelectedGameObject(brushButton.gameObject);
 
         // Initialize durability
         currentDurability = maxDurability;
