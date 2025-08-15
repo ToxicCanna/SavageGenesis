@@ -125,22 +125,46 @@ public class FossilToDino : Code.Scripts.Managers.Singleton<FossilToDino>
 
         if (predatorCount > 2)
         {
-            newDinoInfo = dinoDex.GetRandomPredator();
+            if (armoredCount > 1)
+            {
+                newDinoInfo = dinoDex.GetRandomPredatorArmored();
+            }
+            else if (agileCount > 1)
+            {
+                newDinoInfo = dinoDex.GetRandomPredatorAgile();
+            }
+            else
+            {
+                newDinoInfo = dinoDex.GetRandomPredator();
+            }
         } else if (armoredCount > 2)
         {
-            newDinoInfo = dinoDex.GetRandomArmored();
+            if (predatorCount > 1)
+            {
+                newDinoInfo = dinoDex.GetRandomArmoredPredator();
+            }
+            else if (agileCount > 1)
+            {
+                newDinoInfo = dinoDex.GetRandomArmoredAgile();
+            }
+            else
+            {
+                newDinoInfo = dinoDex.GetRandomArmored();
+            }
         } else if (agileCount > 2)
         {
-            newDinoInfo = dinoDex.GetRandomAgile();
-        } else if (predatorCount == armoredCount)
-        {
-            newDinoInfo = dinoDex.GetRandomPredatorArmored();
-        } else if (predatorCount == agileCount)
-        {
-            newDinoInfo = dinoDex.GetRandomPredatorAgile();
-        } else if (armoredCount == agileCount)
-        { 
-            newDinoInfo = dinoDex.GetRandomArmoredAgile();
+            if (predatorCount > 1)
+            {
+                newDinoInfo = dinoDex.GetRandomAgilePredator();
+            }
+            else if (armoredCount > 1)
+            {
+                newDinoInfo = dinoDex.GetRandomAgileArmored();
+            }
+            else
+            {
+                newDinoInfo = dinoDex.GetRandomAgile();
+            }
         }
 
         

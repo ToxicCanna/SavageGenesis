@@ -20,8 +20,17 @@ public class DinosaurDex : ScriptableObject
     public int predatorAgileMin;
     public int predatorAgileMax;
 
+    public int armoredPredatorMin;
+    public int armoredPredatorMax;
+
     public int armoredAgileMin;
     public int armoredAgileMax;
+
+    public int agilePredatorMin;
+    public int agilePredatorMax;
+
+    public int agileArmoredMin;
+    public int agileArmoredMax;
 
     public DinosaurInfo GetRandomPredator()
     {
@@ -53,9 +62,27 @@ public class DinosaurDex : ScriptableObject
         return info[temp];
     }
 
+    public DinosaurInfo GetRandomArmoredPredator()
+    {
+        int temp = Random.Range(armoredPredatorMin, armoredPredatorMax);
+        return info[temp];
+    }
     public DinosaurInfo GetRandomArmoredAgile()
     {
         int temp = Random.Range(armoredAgileMin, armoredAgileMax);
         return info[temp];
     }
+
+    public DinosaurInfo GetRandomAgilePredator()
+    {
+        int temp = Random.Range(agilePredatorMin, agilePredatorMax);
+        return info[temp];
+    }
+
+    public DinosaurInfo GetRandomAgileArmored()
+    {
+        int temp = Random.Range(agileArmoredMin, agileArmoredMax);
+        return info[temp];
+    }
+
 }
