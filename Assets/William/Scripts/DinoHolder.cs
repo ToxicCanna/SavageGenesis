@@ -22,6 +22,14 @@ public class DinoHolder : Code.Scripts.Managers.Singleton<DinoHolder>
 
     public InventoryDinosaur getDino(int index)
     {
+
         return DinoBag[index];
+    }
+
+    public int GetLength()
+    {
+        if (DinoBag == null)
+        { return 0; }
+        return DinoBag.Count;
     }
 }

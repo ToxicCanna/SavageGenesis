@@ -6,7 +6,10 @@ public class PlayerLoader : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Awake()
     {
-        slotThree.GetComponent<InventoryDinosaur>().Initiate(DinoHolder.Instance.getDino(0));
+        if (DinoHolder.Instance.GetLength() > 0)
+        {
+            slotThree.GetComponent<InventoryDinosaur>().Initiate(DinoHolder.Instance.getDino(0));
+        }
     }
 
 }

@@ -40,7 +40,7 @@ namespace Code.Scripts.Managers
                 GameObject gameObj = new GameObject();
                 gameObj.name = typeof(T).Name;
                 _instance = gameObj.AddComponent<T>();
-                DontDestroyOnLoad(gameObj);
+                //DontDestroyOnLoad(gameObj);
             }
         }
 
@@ -49,7 +49,7 @@ namespace Code.Scripts.Managers
             if (_instance == null)
             {
                 _instance = this as T;
-                DontDestroyOnLoad(gameObject);
+                //DontDestroyOnLoad(gameObject);
             }
             else
             {
