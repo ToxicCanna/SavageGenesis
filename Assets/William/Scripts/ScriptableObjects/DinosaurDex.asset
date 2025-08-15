@@ -14,19 +14,25 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   info:
   - {fileID: 11400000, guid: cecefb8d6f3629946b8e2e6172a11dee, type: 2}
-  - {fileID: 11400000, guid: cecefb8d6f3629946b8e2e6172a11dee, type: 2}
+  - {fileID: 11400000, guid: 926fcde37bd7f974497c8a153d1d3ac8, type: 2}
   - {fileID: 11400000, guid: bc2c3a5dbad1bee4ca713692da516297, type: 2}
-  - {fileID: 11400000, guid: bc2c3a5dbad1bee4ca713692da516297, type: 2}
-  - {fileID: 11400000, guid: bc2c3a5dbad1bee4ca713692da516297, type: 2}
+  - {fileID: 11400000, guid: 8c6852d285e2acb43a597d1c3ff71900, type: 2}
+  - {fileID: 11400000, guid: 8022b56b0cd398746aa0fe85828c5b82, type: 2}
+  - {fileID: 11400000, guid: e74da5315cb956348bd6af384953fa9b, type: 2}
+  - {fileID: 11400000, guid: 570de56d7ce524848ba8cbfddc2eed8e, type: 2}
+  - {fileID: 11400000, guid: b1d3100a913fd8d4e9021ea9d69baee8, type: 2}
+  - {fileID: 11400000, guid: 86b0a6e0b3d3db744ba1ce9545da7ca3, type: 2}
+  - {fileID: 11400000, guid: 804f6aea29a78c747adc4695af2e7939, type: 2}
+  - {fileID: 11400000, guid: d2c311e885631ea46b520cee5ecd1023, type: 2}
   predatorMin: 0
   predatorMax: 1
   armoredMin: 2
   armoredMax: 3
   agileMin: 4
   agileMax: 4
-  predatorArmoredMin: 0
-  predatorArmoredMax: 0
-  predatorAgileMin: 0
-  predatorAgileMax: 0
-  armoredAgileMin: 0
-  armoredAgileMax: 0
+  predatorArmoredMin: 5
+  predatorArmoredMax: 6
+  predatorAgileMin: 7
+  predatorAgileMax: 8
+  armoredAgileMin: 9
+  armoredAgileMax: 10

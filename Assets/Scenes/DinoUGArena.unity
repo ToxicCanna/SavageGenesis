@@ -616,6 +616,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e994080167fe75a43811b35a2ea03532, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  levelInfo: {fileID: 0}
+  textAnimationFinished: 0
 --- !u!4 &280089344
 Transform:
   m_ObjectHideFlags: 0
@@ -646,12 +648,30 @@ MonoBehaviour:
   backgroundImage: {fileID: 1292123360}
   playerSprite: {fileID: 1674477681}
   enemySprite: {fileID: 1768809988}
+  playerTwoSprite: {fileID: 0}
+  enemyTwoSprite: {fileID: 0}
+  actionSelector: {fileID: 0}
+  actionSelectorCursor: {fileID: 0}
+  skillSelector: {fileID: 0}
+  skillSelectorCursor: {fileID: 0}
   dialogText: {fileID: 1560513574}
   skillOne: {fileID: 363726008}
   skillTwo: {fileID: 1117969648}
   skillThree: {fileID: 1190502710}
   skillFour: {fileID: 382976259}
   skillFive: {fileID: 152887312}
+  switchOne: {fileID: 0}
+  switchTwo: {fileID: 0}
+  switchThree: {fileID: 0}
+  switchFour: {fileID: 0}
+  switchOneSprite: {fileID: 0}
+  switchTwoSprite: {fileID: 0}
+  switchThreeSprite: {fileID: 0}
+  switchFourSprite: {fileID: 0}
+  switchOneFaintSprite: {fileID: 0}
+  switchTwoFaintSprite: {fileID: 0}
+  switchThreeFaintSprite: {fileID: 0}
+  switchFourFaintSprite: {fileID: 0}
   moveTypeText: {fileID: 334090566}
   movePowerText: {fileID: 563238420}
   playerNameText: {fileID: 366060475194681275}
@@ -660,12 +680,29 @@ MonoBehaviour:
   playerHealthText: {fileID: 253259420}
   playerStatusBarBackground: {fileID: 7468008698846631040}
   playerStatusText: {fileID: 3119828758006661854}
+  playerExpBar: {fileID: 0}
+  playerTwoNameText: {fileID: 0}
+  playerTwoLevelText: {fileID: 0}
+  playerTwoHealthBar: {fileID: 0}
+  playerTwoHealthText: {fileID: 0}
+  playerTwoStatusBarBackground: {fileID: 0}
+  playerTwoStatusText: {fileID: 0}
   enemyNameText: {fileID: 8111997}
   enemyLevelText: {fileID: 8111996}
   enemyHealthBar: {fileID: 8111995}
   enemyHealthText: {fileID: 8111994}
   enemyStatusBarBackground: {fileID: 8111993}
   enemyStatusText: {fileID: 8111992}
+  enemyTwoNameText: {fileID: 0}
+  enemyTwoLevelText: {fileID: 0}
+  enemyTwoHealthBar: {fileID: 0}
+  enemyTwoHealthText: {fileID: 0}
+  enemyTwoStatusBarBackground: {fileID: 0}
+  enemyTwoStatusText: {fileID: 0}
+  playerDinoInventory: {fileID: 0}
+  enemyDinoInventory: {fileID: 0}
+  switchSelector: {fileID: 0}
+  switchSelectorCursor: {fileID: 0}
 --- !u!1 &295242598
 GameObject:
   m_ObjectHideFlags: 0
@@ -2485,8 +2522,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -387, y: -8}
-  m_SizeDelta: {x: 115, y: 46}
+  m_AnchoredPosition: {x: -408, y: 159}
+  m_SizeDelta: {x: 128, y: 128}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1674477683
 MonoBehaviour:
@@ -2508,7 +2545,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 6575581121138938176, guid: 527560a2c98fa4644af9a5e20ab7d65a, type: 3}
+  m_Sprite: {fileID: -7421134459543594880, guid: 02f8fcf74ad31af4ca643443b9bbb233, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -2642,8 +2679,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 469, y: 41}
-  m_SizeDelta: {x: 127, y: 64}
+  m_AnchoredPosition: {x: 469, y: 170}
+  m_SizeDelta: {x: 128, y: 128}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1768809990
 MonoBehaviour:
@@ -2665,7 +2702,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 3477136886898556629, guid: 449a797ded7510940a8cca0a373a65a2, type: 3}
+  m_Sprite: {fileID: 7362142416428377914, guid: e87b866d8c4db7749ade0fd15c0eed61, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1

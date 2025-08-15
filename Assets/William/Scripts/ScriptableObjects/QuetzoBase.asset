@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0f98a35a327854143a6375c115949b06, type: 3}
-  m_Name: DinosaurInfo_002
+  m_Name: QuetzoBase
   m_EditorClassIdentifier: 
   dexNumber: 202
-  dinosaurName: TempasaurousDwei
-  dinosaurTypeOne: 2
+  dinosaurName: Quetzalcoatlus
+  dinosaurTypeOne: 3
   dinosaurTypeTwo: 0
   baseExp: 25
   expNeededRate: 0.4
@@ -26,5 +26,5 @@ MonoBehaviour:
   agilityGrowthRate: 0.4
   baseMaxHP: 120
   maxHpGrowthRate: 0.4
-  dinosaurCombatSprite: {fileID: -9061617709322622122, guid: cb53904b3fc5b394398f870973d48b7b, type: 3}
-  dinosaurInventorySprite: {fileID: -3126205758566660998, guid: 0bfef763bb9e35244a962ad78cf7c7c0, type: 3}
+  dinosaurCombatSprite: {fileID: -4083202906963447721, guid: 0d62829f5553cd94e98389d5d5a3575e, type: 3}
+  dinosaurInventorySprite: {fileID: 8749334127905440268, guid: e77ec334fe7fe38408a296957e2aa99c, type: 3}
