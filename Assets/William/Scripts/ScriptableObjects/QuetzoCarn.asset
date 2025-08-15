@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0f98a35a327854143a6375c115949b06, type: 3}
+  m_Name: QuetzoCarn
+  m_EditorClassIdentifier: 
+  dexNumber: 202
+  dinosaurName: Quetzalcoatlus-C
+  dinosaurTypeOne: 3
+  dinosaurTypeTwo: 1
+  baseExp: 25
+  expNeededRate: 0.4
+  baseStrength: 70
+  strengthGrowthRate: 0.4
+  baseDefense: 120
+  defenseGrowthRate: 0.4
+  baseAgility: 85
+  agilityGrowthRate: 0.4
+  baseMaxHP: 120
+  maxHpGrowthRate: 0.4
+  dinosaurCombatSprite: {fileID: 7362142416428377914, guid: e87b866d8c4db7749ade0fd15c0eed61, type: 3}
+  dinosaurInventorySprite: {fileID: 8749334127905440268, guid: e77ec334fe7fe38408a296957e2aa99c, type: 3}

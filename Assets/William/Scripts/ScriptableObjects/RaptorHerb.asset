@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0f98a35a327854143a6375c115949b06, type: 3}
+  m_Name: RaptorHerb
+  m_EditorClassIdentifier: 
+  dexNumber: 201
+  dinosaurName: Velociraptor-H
+  dinosaurTypeOne: 1
+  dinosaurTypeTwo: 2
+  baseExp: 20
+  expNeededRate: 0.4
+  baseStrength: 85
+  strengthGrowthRate: 0.4
+  baseDefense: 85
+  defenseGrowthRate: 0.4
+  baseAgility: 50
+  agilityGrowthRate: 0.4
+  baseMaxHP: 50
+  maxHpGrowthRate: 0.4
+  dinosaurCombatSprite: {fileID: 7176507693100646284, guid: ddeb429eac348034298d1a2bf69001ba, type: 3}
+  dinosaurInventorySprite: {fileID: -7489083227854843768, guid: 1ceaf216979ecaa47923a534fe7e4111, type: 3}
