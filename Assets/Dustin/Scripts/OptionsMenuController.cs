@@ -22,10 +22,12 @@ public class OptionsMenuController : MonoBehaviour
     public TMP_Text musicValueText;
     public TMP_Text sfxValueText;
 
+    Resolution[] resolutions;
+
     private void Start()
     {
-        SetupResolutionDropdown();
-        SetupWindowModeDropdown();
+        if (resolutionDropdown != null) SetupResolutionDropdown();
+        if (windowModeDropdown != null) SetupWindowModeDropdown();
 
         float music = PlayerPrefs.GetFloat("MusicVolume", 0.75f);
         float sfx = PlayerPrefs.GetFloat("SFXVolume", 0.75f);
@@ -47,7 +49,6 @@ public class OptionsMenuController : MonoBehaviour
 
     public void BackToMain()
     {
-        // Go back to the scene that opened Options (or Main Menu as a fallback)
         var target = string.IsNullOrEmpty(NavigationContext.ReturnSceneName)
             ? "MainMenu_Scene"
             : NavigationContext.ReturnSceneName;
@@ -84,10 +85,8 @@ public class OptionsMenuController : MonoBehaviour
     private string FormatVolume(float val)
     {
         return val <= 0.0001f ? "0%" : Mathf.RoundToInt(val * 100f) + "%";
-
     }
 
-    Resolution[] resolutions;
     private void SetupResolutionDropdown()
     {
         resolutions = Screen.resolutions;
@@ -107,43 +106,37 @@ public class OptionsMenuController : MonoBehaviour
         }
 
         resolutionDropdown.AddOptions(options);
-        resolutionDropdown.value = currentResIndex;
+        resolutionDropdown.SetValueWithoutNotify(currentResIndex); // <- key change
         resolutionDropdown.RefreshShownValue();
-
         resolutionDropdown.onValueChanged.AddListener(SetResolution);
     }
+
     public void SetResolution(int index)
     {
         Resolution res = resolutions[index];
         Screen.SetResolution(res.width, res.height, Screen.fullScreenMode);
     }
+
     private void SetupWindowModeDropdown()
     {
         windowModeDropdown.ClearOptions();
         windowModeDropdown.AddOptions(new System.Collections.Generic.List<string> {
-        "Borderless", "Windowed", "Fullscreen"
-    });
+            "Borderless", "Windowed", "Fullscreen"
+        });
 
-        // Match current mode
+        // Match current mode without notifying
         switch (Screen.fullScreenMode)
         {
-            case FullScreenMode.FullScreenWindow:
-                windowModeDropdown.value = 0;
-                break;
-            case FullScreenMode.Windowed:
-                windowModeDropdown.value = 1;
-                break;
-            case FullScreenMode.ExclusiveFullScreen:
-                windowModeDropdown.value = 2;
-                break;
-            default:
-                windowModeDropdown.value = 0;
-                break;
+            case FullScreenMode.FullScreenWindow: windowModeDropdown.SetValueWithoutNotify(0); break;
+            case FullScreenMode.Windowed: windowModeDropdown.SetValueWithoutNotify(1); break;
+            case FullScreenMode.ExclusiveFullScreen: windowModeDropdown.SetValueWithoutNotify(2); break;
+            default: windowModeDropdown.SetValueWithoutNotify(0); break;
         }
 
         windowModeDropdown.RefreshShownValue();
         windowModeDropdown.onValueChanged.AddListener(SetWindowMode);
     }
+
     private void SetWindowMode(int index)
     {
         switch (index)
@@ -156,11 +149,9 @@ public class OptionsMenuController : MonoBehaviour
 
     public void ApplySettings()
     {
-        PlayerPrefs.SetFloat("MusicVolume", musicSlider.value);
-        PlayerPrefs.SetFloat("SFXVolume", sfxSlider.value);
+        if (musicSlider != null) PlayerPrefs.SetFloat("MusicVolume", musicSlider.value);
+        if (sfxSlider != null) PlayerPrefs.SetFloat("SFXVolume", sfxSlider.value);
         PlayerPrefs.Save();
-
         Debug.Log("[OptionsMenu_Controller] Settings applied.");
     }
-
 }

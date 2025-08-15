@@ -17,11 +17,8 @@ public class UI_AudioClick_Manager : MonoBehaviour
     [Header("Debug")]
     public bool debugLogs = false;
 
-    // Track to avoid double-binding if BindAll runs twice
-    private readonly HashSet<int> boundButtons = new HashSet<int>();
-    private readonly HashSet<int> boundToggles = new HashSet<int>();
-    private readonly HashSet<int> boundDropdowns = new HashSet<int>();
-    private readonly HashSet<int> boundSliders = new HashSet<int>();
+    // Debounce guard: prevents multiple plays in the same frame (e.g., stacked events)
+    private static int _lastPlayFrame = -1;
 
     void Start()
     {
@@ -47,12 +44,10 @@ public class UI_AudioClick_Manager : MonoBehaviour
                 canvas.gameObject.GetComponentsInChildren(true, list);
                 foreach (var b in list)
                 {
-                    int id = b.GetInstanceID();
-                    if (boundButtons.Add(id))
-                    {
-                        b.onClick.AddListener(Play);
-                        bCount++;
-                    }
+                    // Ensure exactly one Play listener
+                    b.onClick.RemoveListener(Play);
+                    b.onClick.AddListener(Play);
+                    bCount++;
                 }
             }
 
@@ -62,12 +57,11 @@ public class UI_AudioClick_Manager : MonoBehaviour
                 canvas.gameObject.GetComponentsInChildren(true, list);
                 foreach (var t in list)
                 {
-                    int id = t.GetInstanceID();
-                    if (boundToggles.Add(id))
-                    {
-                        t.onValueChanged.AddListener(_ => Play());
-                        tCount++;
-                    }
+                    // Wrap to match RemoveListener signature
+                    UnityEngine.Events.UnityAction<bool> cb = _ => Play();
+                    t.onValueChanged.RemoveListener(cb);
+                    t.onValueChanged.AddListener(cb);
+                    tCount++;
                 }
             }
 
@@ -77,12 +71,10 @@ public class UI_AudioClick_Manager : MonoBehaviour
                 canvas.gameObject.GetComponentsInChildren(true, list);
                 foreach (var d in list)
                 {
-                    int id = d.GetInstanceID();
-                    if (boundDropdowns.Add(id))
-                    {
-                        d.onValueChanged.AddListener(_ => Play());
-                        dCount++;
-                    }
+                    UnityEngine.Events.UnityAction<int> cb = _ => Play();
+                    d.onValueChanged.RemoveListener(cb);
+                    d.onValueChanged.AddListener(cb);
+                    dCount++;
                 }
             }
 
@@ -92,12 +84,10 @@ public class UI_AudioClick_Manager : MonoBehaviour
                 canvas.gameObject.GetComponentsInChildren(true, list);
                 foreach (var s in list)
                 {
-                    int id = s.GetInstanceID();
-                    if (boundSliders.Add(id))
-                    {
-                        s.onValueChanged.AddListener(_ => Play());
-                        sCount++;
-                    }
+                    UnityEngine.Events.UnityAction<float> cb = _ => Play();
+                    s.onValueChanged.RemoveListener(cb);
+                    s.onValueChanged.AddListener(cb);
+                    sCount++;
                 }
             }
         }
@@ -108,6 +98,10 @@ public class UI_AudioClick_Manager : MonoBehaviour
 
     void Play()
     {
+        // Debounce: if multiple listeners fire on the same frame, only play once
+        if (Time.frameCount == _lastPlayFrame) return;
+        _lastPlayFrame = Time.frameCount;
+
         // Pick clip: per-scene override > AudioManager default
         AudioClip clip = clickSoundOverride;
         var am = AudioManager.Instance;
