@@ -20,6 +20,10 @@ public class AudioManager : MonoBehaviour
     [Tooltip("Optional: drag in multiple tracks here.")]
     public AudioClip[] musicTracks;
 
+    [Header("UI SFX")]
+    [Tooltip("Sound played when any UI button is clicked.")]
+    public AudioClip uiClickClip;
+
     void Awake()
     {
         if (Instance != null && Instance != this)
@@ -117,6 +121,13 @@ public class AudioManager : MonoBehaviour
     {
         if (clip == null) return;
         sfxSource.PlayOneShot(clip);
+    }
+
+    // Helper: plays the UI click sound if assigned
+    public void PlayUIClick()
+    {
+        if (uiClickClip != null)
+            PlaySFX(uiClickClip); // goes through sfxSource so SFX slider affects it
     }
 
     // -------- Volumes (hooked to mixer) --------
