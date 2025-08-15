@@ -40,7 +40,8 @@ public class AudioManager : MonoBehaviour
         SetSFXVolume(sfxVol);
 
         // Optionally, this starts the default music
-        if (playDefaultOnStart && defaultMusic != null)
+        // (Only if nothing is already playing to avoid restarts between menu-like scenes)
+        if (playDefaultOnStart && defaultMusic != null && !musicSource.isPlaying)
         {
             PlayMusic(defaultMusic, true);
         }
@@ -53,6 +54,52 @@ public class AudioManager : MonoBehaviour
         musicSource.clip = clip;
         musicSource.loop = loop;
         musicSource.Play();
+    }
+
+    // Helper: play only if the clip is different (prevents audible restarts)
+    public void PlayMusicIfChanged(AudioClip clip, bool loop = true)
+    {
+        if (clip == null) return;
+        if (musicSource.isPlaying && musicSource.clip == clip) return; // same track -> keep seamless
+        PlayMusic(clip, loop);
+    }
+
+    // Helper: crossfade to a new clip (simple fade-out/in on the AudioSource volume)
+    public void CrossfadeTo(AudioClip clip, float fadeTime = 0.75f, bool loop = true)
+    {
+        if (clip == null) return;
+        if (musicSource.isPlaying && musicSource.clip == clip) return; // already on this track
+        StartCoroutine(CrossfadeRoutine(clip, fadeTime, loop));
+    }
+
+    private System.Collections.IEnumerator CrossfadeRoutine(AudioClip next, float t, bool loop)
+    {
+        float startVol = musicSource.volume;
+        float time = 0f;
+
+        // Fade out current
+        while (time < t)
+        {
+            time += Time.unscaledDeltaTime;
+            musicSource.volume = Mathf.Lerp(startVol, 0f, time / t);
+            yield return null;
+        }
+
+        musicSource.Stop();
+        musicSource.clip = next;
+        musicSource.loop = loop;
+        musicSource.Play();
+
+        // Fade in
+        time = 0f;
+        while (time < t)
+        {
+            time += Time.unscaledDeltaTime;
+            musicSource.volume = Mathf.Lerp(0f, startVol, time / t);
+            yield return null;
+        }
+
+        musicSource.volume = startVol;
     }
 
     public void PlayMusicByIndex(int index, bool loop = true)
@@ -76,12 +123,12 @@ public class AudioManager : MonoBehaviour
     public void SetMusicVolume(float volume01)
     {
         float v = Mathf.Clamp(volume01, 0.0001f, 1f);
-        audioMixer.SetFloat("MusicVol", Mathf.Log10(v) * 20f);
+        audioMixer.SetFloat("MusicVol1", Mathf.Log10(v) * 20f);
     }
 
     public void SetSFXVolume(float volume01)
     {
         float v = Mathf.Clamp(volume01, 0.0001f, 1f);
-        audioMixer.SetFloat("SFXVol", Mathf.Log10(v) * 20f);
+        audioMixer.SetFloat("SFXVol1", Mathf.Log10(v) * 20f);
     }
 }

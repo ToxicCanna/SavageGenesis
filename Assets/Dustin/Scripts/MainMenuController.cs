@@ -10,6 +10,7 @@ public class MainMenuController : MonoBehaviour
 
     public void OpenOptions()
     {
+        NavigationContext.ReturnSceneName = SceneManager.GetActiveScene().name;
         SceneManager.LoadScene("OptionsMenu_Scene");
     }
 

@@ -616,6 +616,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e994080167fe75a43811b35a2ea03532, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  levelInfo: {fileID: 0}
+  textAnimationFinished: 0
 --- !u!4 &280089344
 Transform:
   m_ObjectHideFlags: 0
@@ -646,12 +648,30 @@ MonoBehaviour:
   backgroundImage: {fileID: 1292123360}
   playerSprite: {fileID: 1674477681}
   enemySprite: {fileID: 1768809988}
+  playerTwoSprite: {fileID: 0}
+  enemyTwoSprite: {fileID: 0}
+  actionSelector: {fileID: 0}
+  actionSelectorCursor: {fileID: 0}
+  skillSelector: {fileID: 0}
+  skillSelectorCursor: {fileID: 0}
   dialogText: {fileID: 1560513574}
   skillOne: {fileID: 363726008}
   skillTwo: {fileID: 1117969648}
   skillThree: {fileID: 1190502710}
   skillFour: {fileID: 382976259}
   skillFive: {fileID: 152887312}
+  switchOne: {fileID: 0}
+  switchTwo: {fileID: 0}
+  switchThree: {fileID: 0}
+  switchFour: {fileID: 0}
+  switchOneSprite: {fileID: 0}
+  switchTwoSprite: {fileID: 0}
+  switchThreeSprite: {fileID: 0}
+  switchFourSprite: {fileID: 0}
+  switchOneFaintSprite: {fileID: 0}
+  switchTwoFaintSprite: {fileID: 0}
+  switchThreeFaintSprite: {fileID: 0}
+  switchFourFaintSprite: {fileID: 0}
   moveTypeText: {fileID: 334090566}
   movePowerText: {fileID: 563238420}
   playerNameText: {fileID: 366060475194681275}
@@ -660,12 +680,29 @@ MonoBehaviour:
   playerHealthText: {fileID: 253259420}
   playerStatusBarBackground: {fileID: 7468008698846631040}
   playerStatusText: {fileID: 3119828758006661854}
+  playerExpBar: {fileID: 0}
+  playerTwoNameText: {fileID: 0}
+  playerTwoLevelText: {fileID: 0}
+  playerTwoHealthBar: {fileID: 0}
+  playerTwoHealthText: {fileID: 0}
+  playerTwoStatusBarBackground: {fileID: 0}
+  playerTwoStatusText: {fileID: 0}
   enemyNameText: {fileID: 8111997}
   enemyLevelText: {fileID: 8111996}
   enemyHealthBar: {fileID: 8111995}
   enemyHealthText: {fileID: 8111994}
   enemyStatusBarBackground: {fileID: 8111993}
   enemyStatusText: {fileID: 8111992}
+  enemyTwoNameText: {fileID: 0}
+  enemyTwoLevelText: {fileID: 0}
+  enemyTwoHealthBar: {fileID: 0}
+  enemyTwoHealthText: {fileID: 0}
+  enemyTwoStatusBarBackground: {fileID: 0}
+  enemyTwoStatusText: {fileID: 0}
+  playerDinoInventory: {fileID: 0}
+  enemyDinoInventory: {fileID: 0}
+  switchSelector: {fileID: 0}
+  switchSelectorCursor: {fileID: 0}
 --- !u!1 &295242598
 GameObject:
   m_ObjectHideFlags: 0
@@ -2808,6 +2845,67 @@ Transform:
   - {fileID: 491971916}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &2134288529
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1696563356911911076, guid: f73f25444f0b0a5489475b06062c6e04, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 10.6467285
+      objectReference: {fileID: 0}
+    - target: {fileID: 1696563356911911076, guid: f73f25444f0b0a5489475b06062c6e04, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 193.88669
+      objectReference: {fileID: 0}
+    - target: {fileID: 1696563356911911076, guid: f73f25444f0b0a5489475b06062c6e04, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1696563356911911076, guid: f73f25444f0b0a5489475b06062c6e04, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1696563356911911076, guid: f73f25444f0b0a5489475b06062c6e04, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1696563356911911076, guid: f73f25444f0b0a5489475b06062c6e04, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1696563356911911076, guid: f73f25444f0b0a5489475b06062c6e04, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1696563356911911076, guid: f73f25444f0b0a5489475b06062c6e04, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1696563356911911076, guid: f73f25444f0b0a5489475b06062c6e04, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1696563356911911076, guid: f73f25444f0b0a5489475b06062c6e04, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3929105408311494597, guid: f73f25444f0b0a5489475b06062c6e04, type: 3}
+      propertyPath: m_Name
+      value: SceneMusic_Manager
+      objectReference: {fileID: 0}
+    - target: {fileID: 7119692694161612411, guid: f73f25444f0b0a5489475b06062c6e04, type: 3}
+      propertyPath: music
+      value: 
+      objectReference: {fileID: 8300000, guid: 85446adf3b12c254abaa03d96d716e45, type: 3}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: f73f25444f0b0a5489475b06062c6e04, type: 3}
 --- !u!222 &3846862609868450
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -3440,3 +3538,4 @@ SceneRoots:
   - {fileID: 2029949059}
   - {fileID: 280089344}
   - {fileID: 1313512230}
+  - {fileID: 2134288529}

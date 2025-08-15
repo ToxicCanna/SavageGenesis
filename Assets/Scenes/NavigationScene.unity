@@ -751,6 +751,71 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 4580531666041859753, guid: c433b881078a17d4b99cd9b300622835, type: 3}
   m_PrefabInstance: {fileID: 418469966}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &708615948
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1696563356911911076, guid: f73f25444f0b0a5489475b06062c6e04, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1696563356911911076, guid: f73f25444f0b0a5489475b06062c6e04, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1696563356911911076, guid: f73f25444f0b0a5489475b06062c6e04, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1696563356911911076, guid: f73f25444f0b0a5489475b06062c6e04, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1696563356911911076, guid: f73f25444f0b0a5489475b06062c6e04, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1696563356911911076, guid: f73f25444f0b0a5489475b06062c6e04, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1696563356911911076, guid: f73f25444f0b0a5489475b06062c6e04, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1696563356911911076, guid: f73f25444f0b0a5489475b06062c6e04, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1696563356911911076, guid: f73f25444f0b0a5489475b06062c6e04, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1696563356911911076, guid: f73f25444f0b0a5489475b06062c6e04, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3929105408311494597, guid: f73f25444f0b0a5489475b06062c6e04, type: 3}
+      propertyPath: m_Name
+      value: SceneMusic_Manager
+      objectReference: {fileID: 0}
+    - target: {fileID: 7119692694161612411, guid: f73f25444f0b0a5489475b06062c6e04, type: 3}
+      propertyPath: music
+      value: 
+      objectReference: {fileID: 8300000, guid: 0bfe951fff58552479ff3acc61017fdf, type: 3}
+    - target: {fileID: 7119692694161612411, guid: f73f25444f0b0a5489475b06062c6e04, type: 3}
+      propertyPath: crossfade
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: f73f25444f0b0a5489475b06062c6e04, type: 3}
 --- !u!1 &843820621
 GameObject:
   m_ObjectHideFlags: 0
@@ -1040,10 +1105,14 @@ MonoBehaviour:
   reviveSceneName: DinoRevival_Scene
   stadiumSceneName: DinoBattleScene
   fightingPitSceneName: DinoUGArena
+  settingsSceneName: OptionsMenu_Scene
+  mainMenuSceneName: MainMenu_Scene
   digButton: {fileID: 843820625}
   reviveButton: {fileID: 1205111316}
   stadiumButton: {fileID: 1195992876}
   fightingPitButton: {fileID: 302126931}
+  settingsButton: {fileID: 139275234}
+  mainMenuButton: {fileID: 1546300955}
   pauseButton: {fileID: 2090348937}
   pausePanel: {fileID: 1043434982}
 --- !u!4 &964036691
@@ -1073,7 +1142,7 @@ GameObject:
   - component: {fileID: 1043434984}
   - component: {fileID: 1043434983}
   m_Layer: 5
-  m_Name: PasuePanel
+  m_Name: PausePanel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1698,7 +1767,7 @@ GameObject:
   - component: {fileID: 1471813833}
   - component: {fileID: 1471813832}
   m_Layer: 5
-  m_Name: Resume button
+  m_Name: Resume Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2104,6 +2173,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca5b264140da7e74ab13a06b37260bd5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  DinoBag: []
 --- !u!4 &1624302401
 Transform:
   m_ObjectHideFlags: 0
@@ -2637,3 +2707,4 @@ SceneRoots:
   - {fileID: 1372050910}
   - {fileID: 964036691}
   - {fileID: 1624302401}
+  - {fileID: 708615948}

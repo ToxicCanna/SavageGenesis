@@ -3,6 +3,11 @@ using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using TMPro;
 
+public static class NavigationContext
+{
+    public static string ReturnSceneName = "MainMenu_Scene";
+}
+
 public class OptionsMenuController : MonoBehaviour
 {
     [Header("Display Settings")]
@@ -42,7 +47,12 @@ public class OptionsMenuController : MonoBehaviour
 
     public void BackToMain()
     {
-        SceneManager.LoadScene("MainMenu_Scene");
+        // Go back to the scene that opened Options (or Main Menu as a fallback)
+        var target = string.IsNullOrEmpty(NavigationContext.ReturnSceneName)
+            ? "MainMenu_Scene"
+            : NavigationContext.ReturnSceneName;
+
+        SceneManager.LoadScene(target);
     }
 
     private void SetMusicVolume(float value)
