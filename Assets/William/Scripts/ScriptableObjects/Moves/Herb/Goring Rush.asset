@@ -17,7 +17,7 @@ MonoBehaviour:
   moveStrength: 50
   moveCooldown: 5
   moveAccuracy: 75
-  moveSpeed: 0
+  moveSpeed: 1
   statusType: 1
   statusChance: 100
   statChangeChance: 0

@@ -34,7 +34,7 @@ MonoBehaviour:
   critDamageMultiplyer: 1.5
   multiHit: 1
   moveCanBeCountered: 0
-  moveIsCounter: 0
-  regenUser: 0
+  moveIsCounter: 1
+  regenUser: 1
   canHitBothEnemy: 0
   canHitEveryone: 0

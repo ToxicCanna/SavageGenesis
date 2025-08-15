@@ -22,8 +22,8 @@ MonoBehaviour:
   statusChance: 0
   statChangeChance: 100
   strengthBuffDebuff: 0
-  defenseBuffDebuff: 0
-  agilityBuffDebuff: 0
+  defenseBuffDebuff: -1
+  agilityBuffDebuff: -1
   strengthBuffDebuffUser: 1
   defenseBuffDebuffUser: 0
   agilityBuffDebuffUser: 0

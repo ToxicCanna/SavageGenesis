@@ -10,16 +10,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9ed16c14bdacaed47b5add9b9e083d2e, type: 3}
-  m_Name: MoveInfo_014
+  m_Name: Graze
   m_EditorClassIdentifier: 
-  moveName: Rest
+  moveName: Graze
   moveType: 2
-  moveStrength: 100
+  moveStrength: 25
   moveCooldown: 5
   moveAccuracy: 100
   moveSpeed: 0
-  statusType: 0
-  statusChance: 0
+  statusType: 2
+  statusChance: 100
   statChangeChance: 0
   strengthBuffDebuff: 0
   defenseBuffDebuff: 0
@@ -35,6 +35,6 @@ MonoBehaviour:
   multiHit: 1
   moveCanBeCountered: 1
   moveIsCounter: 0
-  regenUser: 0
+  regenUser: 1
   canHitBothEnemy: 0
   canHitEveryone: 0

@@ -10,20 +10,20 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9ed16c14bdacaed47b5add9b9e083d2e, type: 3}
-  m_Name: MoveInfo_015
+  m_Name: Stomp
   m_EditorClassIdentifier: 
-  moveName: MoonBlast_tempPlaceholder
+  moveName: Stomp
   moveType: 2
-  moveStrength: 100
+  moveStrength: 50
   moveCooldown: 5
   moveAccuracy: 100
   moveSpeed: 0
   statusType: 0
   statusChance: 0
-  statChangeChance: 0
-  strengthBuffDebuff: 0
-  defenseBuffDebuff: 0
-  agilityBuffDebuff: 0
+  statChangeChance: 100
+  strengthBuffDebuff: -1
+  defenseBuffDebuff: -1
+  agilityBuffDebuff: -1
   strengthBuffDebuffUser: 0
   defenseBuffDebuffUser: 0
   agilityBuffDebuffUser: 0

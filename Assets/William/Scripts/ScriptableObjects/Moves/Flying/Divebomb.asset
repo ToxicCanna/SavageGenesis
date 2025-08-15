@@ -20,10 +20,10 @@ MonoBehaviour:
   moveSpeed: 2
   statusType: 0
   statusChance: 0
-  statChangeChance: 0
-  strengthBuffDebuff: 0
-  defenseBuffDebuff: 0
-  agilityBuffDebuff: 0
+  statChangeChance: 100
+  strengthBuffDebuff: -1
+  defenseBuffDebuff: -1
+  agilityBuffDebuff: -1
   strengthBuffDebuffUser: 0
   defenseBuffDebuffUser: 0
   agilityBuffDebuffUser: 0
