@@ -4,5 +4,5 @@ using UnityEngine;
 
 public class EnemyWave : ScriptableObject
 {
-    public InventoryDinosaur[] moveType;
+    public DinosaurInfo[] waveContent;
 }
