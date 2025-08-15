@@ -22,8 +22,12 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 570de56d7ce524848ba8cbfddc2eed8e, type: 2}
   - {fileID: 11400000, guid: b1d3100a913fd8d4e9021ea9d69baee8, type: 2}
   - {fileID: 11400000, guid: 86b0a6e0b3d3db744ba1ce9545da7ca3, type: 2}
-  - {fileID: 11400000, guid: 804f6aea29a78c747adc4695af2e7939, type: 2}
+  - {fileID: 11400000, guid: c0c6b5624a80bff4587c96208ee84176, type: 2}
+  - {fileID: 11400000, guid: d637793c8c3716341881d715bff9bf2f, type: 2}
   - {fileID: 11400000, guid: d2c311e885631ea46b520cee5ecd1023, type: 2}
+  - {fileID: 11400000, guid: 804f6aea29a78c747adc4695af2e7939, type: 2}
+  - {fileID: 11400000, guid: 0625ff14538b1ee45a40741c43b51477, type: 2}
+  - {fileID: 11400000, guid: 31a806a9d221a474fbbff095c3c76f65, type: 2}
   predatorMin: 0
   predatorMax: 1
   armoredMin: 2
@@ -34,5 +38,11 @@ MonoBehaviour:
   predatorArmoredMax: 6
   predatorAgileMin: 7
   predatorAgileMax: 8
-  armoredAgileMin: 9
-  armoredAgileMax: 10
+  armoredPredatorMin: 9
+  armoredPredatorMax: 10
+  armoredAgileMin: 11
+  armoredAgileMax: 12
+  agilePredatorMin: 13
+  agilePredatorMax: 13
+  agileArmoredMin: 14
+  agileArmoredMax: 14
