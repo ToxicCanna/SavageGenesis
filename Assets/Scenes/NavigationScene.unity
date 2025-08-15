@@ -1104,7 +1104,7 @@ MonoBehaviour:
   digSceneName: RobinDiggingTestGym
   reviveSceneName: DinoRevival_Scene
   stadiumSceneName: DinoBattleScene
-  fightingPitSceneName: DinoUGArena
+  fightingPitSceneName: DinoBattleScene
   settingsSceneName: OptionsMenu_Scene
   mainMenuSceneName: MainMenu_Scene
   digButton: {fileID: 843820625}
