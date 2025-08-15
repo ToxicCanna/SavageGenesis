@@ -14,7 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dexNumber: 201
   dinosaurName: Carnotaurus
-  dinosaurDescription: 
+  dinosaurDescription: Carnotaurus, an apex predator. This terrifying beast uses
+    its giant jaws and massive muscle mass to rip dinos apart.
   dinosaurTypeOne: 1
   dinosaurTypeTwo: 0
   baseExp: 20
